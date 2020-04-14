@@ -1,0 +1,1 @@
+export type PromiseOf<P> = P extends Promise<infer R> ? R : never;
