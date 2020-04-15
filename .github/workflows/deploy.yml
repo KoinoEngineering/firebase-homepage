@@ -1,0 +1,43 @@
+name: deploy firebase
+
+on: 
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Read .nvmrc
+      run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+      id: nvm
+    - name: Use Node.js '${{ steps.nvm.outputs.NVMRC }}'
+      uses: actions/setup-node@v1
+      with:
+        node-version: '${{ steps.nvm.outputs.NVMRC }}'
+    - name: npm Build
+      run: npm ci && npm run build
+    - name: Deploy Firebase
+      run: npx firebase-tools deploy --token $FIREBASE_TOKEN
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+  release:
+    name: Create Release
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: GET Now
+      run: echo ::set-output name=NOW::$(date '+%Y%m%d%H%M%S')
+      id: now
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.now.outputs.NOW }}
+        release_name: Release ${{ steps.now.outputs.NOW }}
+        draft: false
+        prerelease: false
