@@ -6,10 +6,10 @@ import NestedList, { NestedListProps } from "../NestedList";
 const Profile: React.FC = () => {
 
     return <Grid id="Profile" container direction="row">
-        <Grid container item xs justify="center">
-            <img alt={"こいのエンジニアリング"} src={Logo} />
+        <Grid container item justify="center" xs={12} sm>
+            <img alt={"こいのエンジニアリング"} src={Logo} width="100%" />
         </Grid>
-        <Grid item container xs>
+        <Grid item container xs={12} sm>
             <NestedList {...profileInfo} />
         </Grid>
     </Grid>;
