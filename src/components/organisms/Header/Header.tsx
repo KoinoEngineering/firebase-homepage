@@ -1,6 +1,6 @@
-import { AppBar, Avatar, createStyles, Grid, IconButton, makeStyles, Typography } from "@material-ui/core";
+import { AppBar, createStyles, Grid, IconButton, makeStyles, Typography } from "@material-ui/core";
+import { GitHub } from "@material-ui/icons";
 import React from "react";
-import GitHubMark from "src/images/GitHub-Mark/PNG/GitHub-Mark-Light-64px.png";
 import packageJson from "../../../../package.json";
 
 export const HEADER_HEIGHT = 75;
@@ -30,7 +30,7 @@ const Header: React.FC = () => {
             </Grid>
             <Grid item>
                 <IconButton classes={iconClasses} href={packageJson.repository.url} target="_blank" rel="noopener noreferrer">
-                    <Avatar alt="GitHub repository" src={GitHubMark} />
+                    <GitHub fontSize="large" color="secondary" />
                 </IconButton>
             </Grid>
         </Grid>
