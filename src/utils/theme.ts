@@ -44,6 +44,11 @@ const defaultTheme = createMuiTheme({
                 letterSpacing: "inherit",
                 lineHeight: "inherit",
             }
+        },
+        MuiListSubheader: {
+            root: {
+                color: "inherit"
+            }
         }
     }
 });
