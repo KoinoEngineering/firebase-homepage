@@ -14,7 +14,7 @@ interface NestedListItemProps extends Omit<Propsof<typeof ListItem>, "button"> {
 const NestedList: React.FC<NestedListProps> = ({ items, ...props }) => {
     return <List {...props}>
         {
-            items?.map(({ content, ...props }) => <ListItem {...props} button={true}>
+            items?.map(({ content, ...props }) => <ListItem key={JSON.stringify(content)}{...props} button={true}>
                 {isString(content)
                     ? content
                     : <NestedList {...content} />
