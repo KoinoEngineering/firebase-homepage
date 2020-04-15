@@ -1,13 +1,13 @@
 import { Container, makeStyles, createStyles } from "@material-ui/core";
-import { Propsof } from "interfaces/Props";
+import { Propsof } from "src/interfaces/Props";
 import React from "react";
 
-const useStyes = makeStyles(createStyles({
+const useStyesWithId = (id: PageContainerProps["id"]) => makeStyles(createStyles({
     root: {
         height: "100%"
     }
 }), {
-    classNamePrefix: "PageContainer"
+    classNamePrefix: id + "PageContainer"
 });
 
 interface PageContainerProps extends Propsof<typeof Container> {
@@ -15,7 +15,7 @@ interface PageContainerProps extends Propsof<typeof Container> {
 }
 
 const PageContainer: React.FC<PageContainerProps> = (props) => {
-    const classes = useStyes();
+    const classes = useStyesWithId(props.id)();
     return <Container {...props} classes={classes} />;
 };
 

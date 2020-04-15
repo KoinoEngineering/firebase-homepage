@@ -1,68 +1,146 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders learn react link 1`] = `
+exports[`App expect to match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="App"
+        id="MainFrame"
       >
         <header
-          class="App-header"
+          class="MuiPaper-root MuiAppBar-root makeStyles-root-3 MuiAppBar-positionSticky MuiAppBar-colorPrimary MuiPaper-elevation4"
+          id="Header"
         >
-          <img
-            alt="logo"
-            class="App-logo"
-            src="logo.svg"
-          />
-          <p>
-            Edit 
-            <code>
-              src/App.tsx
-            </code>
-             and save to reload.
-          </p>
-          <a
-            class="App-link"
-            href="https://reactjs.org"
-            rel="noopener noreferrer"
-            target="_blank"
+          <div
+            class="MuiGrid-root MuiGrid-container"
           >
-            Learn React
-          </a>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+            >
+              <h1
+                class="MuiTypography-root MuiTypography-h1"
+              >
+                こいのエンジニアリングのホームページ
+              </h1>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiIconButton-root makeStyles-root-4"
+                href="https://github.com/KoinoEngineering/firebase-homepage"
+                rel="noopener noreferrer"
+                tabindex="0"
+                target="_blank"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <div
+                    class="MuiAvatar-root MuiAvatar-circle"
+                  >
+                    <img
+                      alt="GitHub repository"
+                      class="MuiAvatar-img"
+                      src="GitHub-Mark-Light-64px.png"
+                    />
+                  </div>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </div>
+          </div>
         </header>
+        <div
+          class="makeStyles-main-2"
+          id="main"
+        >
+          <div
+            class="makeStyles-root-1"
+            id="App"
+          >
+            <div
+              class="MuiContainer-root TopPageContainer-root-207 MuiContainer-maxWidthLg"
+              id="Top"
+            >
+              ホームページトップ
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="App"
+      id="MainFrame"
     >
       <header
-        class="App-header"
+        class="MuiPaper-root MuiAppBar-root makeStyles-root-3 MuiAppBar-positionSticky MuiAppBar-colorPrimary MuiPaper-elevation4"
+        id="Header"
       >
-        <img
-          alt="logo"
-          class="App-logo"
-          src="logo.svg"
-        />
-        <p>
-          Edit 
-          <code>
-            src/App.tsx
-          </code>
-           and save to reload.
-        </p>
-        <a
-          class="App-link"
-          href="https://reactjs.org"
-          rel="noopener noreferrer"
-          target="_blank"
+        <div
+          class="MuiGrid-root MuiGrid-container"
         >
-          Learn React
-        </a>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+          >
+            <h1
+              class="MuiTypography-root MuiTypography-h1"
+            >
+              こいのエンジニアリングのホームページ
+            </h1>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-root-4"
+              href="https://github.com/KoinoEngineering/firebase-homepage"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <div
+                  class="MuiAvatar-root MuiAvatar-circle"
+                >
+                  <img
+                    alt="GitHub repository"
+                    class="MuiAvatar-img"
+                    src="GitHub-Mark-Light-64px.png"
+                  />
+                </div>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
       </header>
+      <div
+        class="makeStyles-main-2"
+        id="main"
+      >
+        <div
+          class="makeStyles-root-1"
+          id="App"
+        >
+          <div
+            class="MuiContainer-root TopPageContainer-root-207 MuiContainer-maxWidthLg"
+            id="Top"
+          >
+            ホームページトップ
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],

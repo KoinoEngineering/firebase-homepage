@@ -1,10 +1,10 @@
-import { auth } from "firebase/firebase.config";
+import { auth } from "src/core/ConfigureFirebase";
 import React from "react";
-import { Route, RouteProps, Redirect } from "react-router";
-import ROUTES from "utils/routes";
+import { Redirect, Route, RouteProps } from "react-router";
+import ROUTES from "src/utils/routes";
 
 const PrivateRoute: React.FC<RouteProps> = (props) => auth.currentUser
     ? <Route {...props} />
-    : <Redirect to={ROUTES.LOGIN} />;
+    : <Redirect to={ROUTES.TOP} />;
 
 export default PrivateRoute;

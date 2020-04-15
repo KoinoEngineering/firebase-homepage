@@ -3,12 +3,14 @@ import App from "src/pages/App";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import "./index.css";
 import * as serviceWorker from "./serviceWorker";
+import { authStateChangedMonitor } from "./core/ConfigureFirebase";
 
+const store = configureStore();
+authStateChangedMonitor();
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={configureStore}>
+        <Provider store={store}>
             <App />
         </Provider>
     </React.StrictMode>,

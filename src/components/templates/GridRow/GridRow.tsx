@@ -1,6 +1,6 @@
 import { createStyles, Grid, makeStyles } from "@material-ui/core";
 import { CSSProperties } from "@material-ui/core/styles/withStyles";
-import { Propsof } from "interfaces/Props";
+import { Propsof } from "src/interfaces/Props";
 import React from "react";
 
 interface GridRowProps extends Omit<Propsof<typeof Grid>, "container"> {

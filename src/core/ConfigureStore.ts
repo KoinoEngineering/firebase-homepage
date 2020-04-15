@@ -10,10 +10,13 @@ export const history = createBrowserHistory();
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(createRootReducer(history), applyMiddleware(
-    routerMiddleware(history), // for dispatching history actions
-    sagaMiddleware,
-    logger));
+const configureStore = () => {
+    const store = createStore(createRootReducer(history), applyMiddleware(
+        routerMiddleware(history), // for dispatching history actions
+        sagaMiddleware,
+        logger));
+    sagaMiddleware.run(rootSaga);
+    return store;
+};
 
-sagaMiddleware.run(rootSaga);
-export default store;
+export default configureStore;

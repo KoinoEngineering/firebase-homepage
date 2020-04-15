@@ -1,8 +1,8 @@
 import { createStyles, CssBaseline, makeStyles, MuiThemeProvider } from "@material-ui/core";
-import Header, { HEADER_HEIGHT } from "components/organisms/Header/Header";
 import React from "react";
-import { px } from "utils/stringUtil";
-import defaultTheme from "utils/theme";
+import Header from "src/components/organisms/Header/Header";
+// import { px } from "src/utils/stringUtil";
+import defaultTheme from "src/utils/theme";
 
 interface MainFrameProps {
 }
@@ -10,7 +10,7 @@ interface MainFrameProps {
 const useStyles = makeStyles(createStyles({
     main: {
         height: 0,
-        minHeight: `calc(100vh - ${px(HEADER_HEIGHT)})`
+        // minHeight: `calc(100vh - ${px(HEADER_HEIGHT)})`
     }
 }));
 

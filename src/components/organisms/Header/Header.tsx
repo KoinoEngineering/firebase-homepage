@@ -1,25 +1,21 @@
-import { AppBar, createStyles, Grid, makeStyles } from "@material-ui/core";
-import Octicon, { MarkGithub } from "@primer/octicons-react";
+import { AppBar, Avatar, createStyles, Grid, IconButton, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import GitHubMark from "src/images/GitHub-Mark/PNG/GitHub-Mark-Light-64px.png";
 import packageJson from "../../../../package.json";
-import Logo from "images/logo/logo.svg";
 
 export const HEADER_HEIGHT = 75;
 const useStyles = makeStyles(
     createStyles({
         root: {
-            height: HEADER_HEIGHT
+            // height: HEADER_HEIGHT
         }
     }
     ));
 
 const useIconStyle = makeStyles(
     createStyles({
-        anchor: {
-            color: "inherit"
-        },
-        icon: {
-            padding: 10
+        root: {
+            height: "100%",
         }
     }
     ));
@@ -27,18 +23,15 @@ const useIconStyle = makeStyles(
 const Header: React.FC = () => {
     const classes = useStyles();
     const iconClasses = useIconStyle();
-    return <AppBar id="Header" classes={classes} position="static">
-        <Grid container>
-            <Grid item>
-                <h1>This is Header</h1>
+    return <AppBar id="Header" classes={classes} position="sticky">
+        <Grid container direction="row">
+            <Grid item xs>
+                <Typography variant="h1">こいのエンジニアリングのホームページ</Typography>
             </Grid>
-            <Grid item >
-                <a href={packageJson.repository.url} target="_blank" rel="noopener noreferrer" className={iconClasses.anchor} >
-                    <Octicon icon={MarkGithub} size={HEADER_HEIGHT} className={iconClasses.icon} />
-                </a>
-                <a href={packageJson.author.url} target="_blank" rel="noopener noreferrer" className={iconClasses.anchor} >
-                    <img src={Logo} alt={packageJson.author.name} height={HEADER_HEIGHT} className={iconClasses.icon} />
-                </a>
+            <Grid item>
+                <IconButton classes={iconClasses} href={packageJson.repository.url} target="_blank" rel="noopener noreferrer">
+                    <Avatar alt="GitHub repository" src={GitHubMark} />
+                </IconButton>
             </Grid>
         </Grid>
     </AppBar >;
