@@ -29,7 +29,7 @@ const getPeriods = (): string => {
 };
 
 const profileInfo: NestedListProps = {
-    subheader: <ListSubheader><Typography variant="h2">プロフィール</Typography></ListSubheader>,
+    subheader: <ListSubheader disableSticky><Typography variant="h2">プロフィール</Typography></ListSubheader>,
     items: [
         {
             disableRipple: true,
@@ -42,12 +42,12 @@ const profileInfo: NestedListProps = {
         {
             disableRipple: true,
             content: {
-                subheader: <ListSubheader><Typography variant="h3">できること</Typography></ListSubheader>,
+                subheader: <ListSubheader disableSticky><Typography variant="h3">できること</Typography></ListSubheader>,
                 items: [
                     {
                         disableRipple: true,
                         content: {
-                            subheader: <ListSubheader><Typography variant="h3">言語</Typography></ListSubheader>,
+                            subheader: <ListSubheader disableSticky><Typography variant="h3">言語</Typography></ListSubheader>,
                             items: [
                                 {
                                     disableRipple: true,
@@ -71,7 +71,7 @@ const profileInfo: NestedListProps = {
                     {
                         disableRipple: true,
                         content: {
-                            subheader: <ListSubheader><Typography variant="h3">環境</Typography></ListSubheader>,
+                            subheader: <ListSubheader disableSticky><Typography variant="h3">環境</Typography></ListSubheader>,
                             items: [
                                 {
                                     disableRipple: true,
