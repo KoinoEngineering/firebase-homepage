@@ -1,10 +1,11 @@
-import configureStore from "src/core/ConfigureStore";
-import App from "src/pages/App";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import * as serviceWorker from "./serviceWorker";
+import configureStore from "src/core/ConfigureStore";
+import App from "src/pages/App";
+import "typeface-roboto";
 import { authStateChangedMonitor } from "./core/ConfigureFirebase";
+import * as serviceWorker from "./serviceWorker";
 
 const store = configureStore();
 authStateChangedMonitor();

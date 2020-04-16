@@ -1,6 +1,6 @@
-import { AppBar, Avatar, createStyles, Grid, IconButton, makeStyles, Typography } from "@material-ui/core";
+import { AppBar, createStyles, Grid, IconButton, makeStyles, Typography } from "@material-ui/core";
+import { GitHub } from "@material-ui/icons";
 import React from "react";
-import GitHubMark from "src/images/GitHub-Mark/PNG/GitHub-Mark-Light-64px.png";
 import packageJson from "../../../../package.json";
 
 export const HEADER_HEIGHT = 75;
@@ -20,17 +20,30 @@ const useIconStyle = makeStyles(
     }
     ));
 
+const useHeaderTitleStyle = makeStyles(({ breakpoints }) =>
+    createStyles({
+        root: {
+            [breakpoints.up("sm")]: {
+                display: "none",
+            }
+        }
+    }
+    ));
+
 const Header: React.FC = () => {
     const classes = useStyles();
     const iconClasses = useIconStyle();
+    const headerTitileClasses = useHeaderTitleStyle();
     return <AppBar id="Header" classes={classes} position="sticky">
         <Grid container direction="row">
-            <Grid item xs>
-                <Typography variant="h1">こいのエンジニアリングのホームページ</Typography>
+            <Grid container item xs>
+                <Grid item>
+                    <Typography variant="h1">こいの<br className={headerTitileClasses.root} />エンジニアリング</Typography>
+                </Grid>
             </Grid>
             <Grid item>
                 <IconButton classes={iconClasses} href={packageJson.repository.url} target="_blank" rel="noopener noreferrer">
-                    <Avatar alt="GitHub repository" src={GitHubMark} />
+                    <GitHub fontSize="large" color="secondary" />
                 </IconButton>
             </Grid>
         </Grid>
