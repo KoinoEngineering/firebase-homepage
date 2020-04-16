@@ -15,6 +15,17 @@ const Top: React.FC = () => {
         {
             raised: true,
             cardActionAreaProps: {
+                href: EXT_ROUTE.HOMEPAGE,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                headerProps: {
+                    title: "旧ホームページ(廃止予定)",
+                }
+            }
+        },
+        {
+            raised: true,
+            cardActionAreaProps: {
                 onClick: () => dispatch(push(ROUTES.TOP)),
                 headerProps: {
                     title: "Webサイト(ここ)",
