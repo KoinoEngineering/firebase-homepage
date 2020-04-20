@@ -61,9 +61,6 @@ const BubbleSetting: React.FC = () => {
                 onChange={(e) => { actions.changeValue({ order: e.target.value as ORDER }); }}
                 margin="dense"
                 label="向き"
-                inputProps={{
-                    fullWidth: true
-                }}
             >
                 {Object.entries(ORDER).map(([k, v]) => {
                     return <MainSelect.Option key={k} value={v} dense>{ORDER_LABEL_MAP[v]}</MainSelect.Option>;
