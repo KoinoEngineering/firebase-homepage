@@ -26,7 +26,7 @@ const useSquareContainerStyle = makeStyles(createStyles({
 
 const Bubble: React.FC = () => {
     const dispatch = useDispatch();
-    const { array, running } = useSelector<State, BubbleState>(state => state.bubble);
+    const { array, running, cursor } = useSelector<State, BubbleState>(state => state.bubble);
     const actions = useMemo(() => bindActionCreators(BubbleActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Bubble">
@@ -78,7 +78,7 @@ const Bubble: React.FC = () => {
         </GridRow>
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
-                <BubbleContents contents={array} />
+                <BubbleContents contents={array} running={running} cursor={cursor} />
             </Grid>
         </GridRow>
     </PageContainer >;
