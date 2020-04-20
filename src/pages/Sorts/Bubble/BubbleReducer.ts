@@ -11,11 +11,11 @@ const initialState = (): BubbleState => ({
     running: false,
     order: ORDER.ASC,
     array: [
-        { id: uuidv4(), value: 5 },
-        { id: uuidv4(), value: 4 },
-        { id: uuidv4(), value: 3 },
-        { id: uuidv4(), value: 2 },
-        { id: uuidv4(), value: 1 },
+        { id: uuidv4(), value: 50 },
+        { id: uuidv4(), value: 40 },
+        { id: uuidv4(), value: 30 },
+        { id: uuidv4(), value: 20 },
+        { id: uuidv4(), value: 10 },
     ],
     cursor: 0,
     cursorEnd: 0
