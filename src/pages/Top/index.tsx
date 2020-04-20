@@ -39,7 +39,7 @@ const Top: React.FC = () => {
                 target: "_blank",
                 rel: "noopener noreferrer",
                 headerProps: {
-                    title: "リアクト勉強部屋",
+                    title: "リアクト勉強部屋(ここの配下に移設予定)",
                 }
             }
         },
@@ -50,7 +50,7 @@ const Top: React.FC = () => {
                 target: "_blank",
                 rel: "noopener noreferrer",
                 headerProps: {
-                    title: "迷路",
+                    title: "迷路(ここの配下に移設予定)",
                 }
             }
         },
