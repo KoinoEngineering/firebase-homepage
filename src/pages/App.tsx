@@ -1,11 +1,13 @@
 import { createStyles, makeStyles } from "@material-ui/core";
 import { ConnectedRouter } from "connected-react-router";
 import React from "react";
-import { Redirect, Switch, Route as PublicRoute } from "react-router-dom";
+import { Redirect, Route as PublicRoute, Switch } from "react-router-dom";
 import MainFrame from "src/components/templates/MainFrame/MainFrame";
 import { history } from "src/core/ConfigureStore";
 import ROUTES from "src/utils/routes";
+import Sorts from "./Sorts";
 import Top from "./Top";
+import Bubble from "./Sorts/Bubble/Bubble";
 
 const useStyles = makeStyles(
     createStyles({
@@ -22,6 +24,13 @@ const App: React.FC = () => {
                     <PublicRoute exact path={ROUTES.TOP}>
                         <Top />
                     </PublicRoute>
+                    <PublicRoute exact path={ROUTES.SORTS}>
+                        <Sorts />
+                    </PublicRoute>
+                    <PublicRoute exact path={ROUTES.SORTS_BUBBLE}>
+                        <Bubble />
+                    </PublicRoute>
+                    <Redirect exact from="*" to={ROUTES.TOP} />
                 </Switch>
             </ConnectedRouter>
         </div>

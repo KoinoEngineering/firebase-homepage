@@ -82,168 +82,8 @@ Object {
                 <div
                   class="MuiGrid-root MuiGrid-container"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-container"
-                    id="Profile"
-                  >
-                    <div
-                      class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-justify-xs-center MuiGrid-grid-xs-12 MuiGrid-grid-sm-true"
-                    >
-                      <img
-                        alt="こいのエンジニアリング"
-                        src="logo.svg"
-                        width="100%"
-                      />
-                    </div>
-                    <div
-                      class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-true"
-                    >
-                      <ul
-                        class="MuiList-root MuiList-padding MuiList-subheader"
-                      >
-                        <li
-                          class="MuiListSubheader-root MuiListSubheader-gutters"
-                        >
-                          <h2
-                            class="MuiTypography-root MuiTypography-h2"
-                          >
-                            プロフィール
-                          </h2>
-                        </li>
-                        <div
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          名前: こいのエンジニアリング
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          開発年数: 2014年8月～現在(5年7ヶ月15日)
-                        </div>
-                        <div
-                          aria-disabled="false"
-                          class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <ul
-                            class="MuiList-root MuiList-padding MuiList-subheader"
-                          >
-                            <li
-                              class="MuiListSubheader-root MuiListSubheader-gutters"
-                            >
-                              <h3
-                                class="MuiTypography-root MuiTypography-h3"
-                              >
-                                できること
-                              </h3>
-                            </li>
-                            <div
-                              aria-disabled="false"
-                              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                              role="button"
-                              tabindex="0"
-                            >
-                              <ul
-                                class="MuiList-root MuiList-padding MuiList-subheader"
-                              >
-                                <li
-                                  class="MuiListSubheader-root MuiListSubheader-gutters"
-                                >
-                                  <h3
-                                    class="MuiTypography-root MuiTypography-h3"
-                                  >
-                                    言語
-                                  </h3>
-                                </li>
-                                <div
-                                  aria-disabled="false"
-                                  class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                  role="button"
-                                  tabindex="0"
-                                >
-                                  typescript
-                                </div>
-                                <div
-                                  aria-disabled="false"
-                                  class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                  role="button"
-                                  tabindex="0"
-                                >
-                                  react/redux/redux-saga
-                                </div>
-                                <div
-                                  aria-disabled="false"
-                                  class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                  role="button"
-                                  tabindex="0"
-                                >
-                                  java
-                                </div>
-                                <div
-                                  aria-disabled="false"
-                                  class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                  role="button"
-                                  tabindex="0"
-                                >
-                                  C#
-                                </div>
-                              </ul>
-                            </div>
-                            <div
-                              aria-disabled="false"
-                              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                              role="button"
-                              tabindex="0"
-                            >
-                              <ul
-                                class="MuiList-root MuiList-padding MuiList-subheader"
-                              >
-                                <li
-                                  class="MuiListSubheader-root MuiListSubheader-gutters"
-                                >
-                                  <h3
-                                    class="MuiTypography-root MuiTypography-h3"
-                                  >
-                                    環境
-                                  </h3>
-                                </li>
-                                <div
-                                  aria-disabled="false"
-                                  class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                  role="button"
-                                  tabindex="0"
-                                >
-                                  firebase
-                                </div>
-                                <div
-                                  aria-disabled="false"
-                                  class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                  role="button"
-                                  tabindex="0"
-                                >
-                                  heroku
-                                </div>
-                                <div
-                                  aria-disabled="false"
-                                  class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                  role="button"
-                                  tabindex="0"
-                                >
-                                  aws(勉強中)
-                                </div>
-                              </ul>
-                            </div>
-                          </ul>
-                        </div>
-                      </ul>
-                    </div>
+                  <div>
+                    Profile
                   </div>
                 </div>
                 <div
@@ -336,6 +176,39 @@ Object {
                       <div
                         class="MuiPaper-root MuiCard-root MuiPaper-elevation8 MuiPaper-rounded"
                       >
+                        <button
+                          class="MuiButtonBase-root MuiCardActionArea-root"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <div
+                            class="MuiCardHeader-root"
+                          >
+                            <div
+                              class="MuiCardHeader-content"
+                            >
+                              <span
+                                class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                              >
+                                ソート
+                              </span>
+                            </div>
+                          </div>
+                          <span
+                            class="MuiCardActionArea-focusHighlight"
+                          />
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                    >
+                      <div
+                        class="MuiPaper-root MuiCard-root MuiPaper-elevation8 MuiPaper-rounded"
+                      >
                         <a
                           aria-disabled="false"
                           class="MuiButtonBase-root MuiCardActionArea-root"
@@ -353,7 +226,7 @@ Object {
                               <span
                                 class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
                               >
-                                リアクト勉強部屋
+                                リアクト勉強部屋(ここの配下に移設予定)
                               </span>
                             </div>
                           </div>
@@ -389,7 +262,7 @@ Object {
                               <span
                                 class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
                               >
-                                迷路
+                                迷路(ここの配下に移設予定)
                               </span>
                             </div>
                           </div>
@@ -489,168 +362,8 @@ Object {
               <div
                 class="MuiGrid-root MuiGrid-container"
               >
-                <div
-                  class="MuiGrid-root MuiGrid-container"
-                  id="Profile"
-                >
-                  <div
-                    class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-justify-xs-center MuiGrid-grid-xs-12 MuiGrid-grid-sm-true"
-                  >
-                    <img
-                      alt="こいのエンジニアリング"
-                      src="logo.svg"
-                      width="100%"
-                    />
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-true"
-                  >
-                    <ul
-                      class="MuiList-root MuiList-padding MuiList-subheader"
-                    >
-                      <li
-                        class="MuiListSubheader-root MuiListSubheader-gutters"
-                      >
-                        <h2
-                          class="MuiTypography-root MuiTypography-h2"
-                        >
-                          プロフィール
-                        </h2>
-                      </li>
-                      <div
-                        aria-disabled="false"
-                        class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                        role="button"
-                        tabindex="0"
-                      >
-                        名前: こいのエンジニアリング
-                      </div>
-                      <div
-                        aria-disabled="false"
-                        class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                        role="button"
-                        tabindex="0"
-                      >
-                        開発年数: 2014年8月～現在(5年7ヶ月15日)
-                      </div>
-                      <div
-                        aria-disabled="false"
-                        class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <ul
-                          class="MuiList-root MuiList-padding MuiList-subheader"
-                        >
-                          <li
-                            class="MuiListSubheader-root MuiListSubheader-gutters"
-                          >
-                            <h3
-                              class="MuiTypography-root MuiTypography-h3"
-                            >
-                              できること
-                            </h3>
-                          </li>
-                          <div
-                            aria-disabled="false"
-                            class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                            role="button"
-                            tabindex="0"
-                          >
-                            <ul
-                              class="MuiList-root MuiList-padding MuiList-subheader"
-                            >
-                              <li
-                                class="MuiListSubheader-root MuiListSubheader-gutters"
-                              >
-                                <h3
-                                  class="MuiTypography-root MuiTypography-h3"
-                                >
-                                  言語
-                                </h3>
-                              </li>
-                              <div
-                                aria-disabled="false"
-                                class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                role="button"
-                                tabindex="0"
-                              >
-                                typescript
-                              </div>
-                              <div
-                                aria-disabled="false"
-                                class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                role="button"
-                                tabindex="0"
-                              >
-                                react/redux/redux-saga
-                              </div>
-                              <div
-                                aria-disabled="false"
-                                class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                role="button"
-                                tabindex="0"
-                              >
-                                java
-                              </div>
-                              <div
-                                aria-disabled="false"
-                                class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                role="button"
-                                tabindex="0"
-                              >
-                                C#
-                              </div>
-                            </ul>
-                          </div>
-                          <div
-                            aria-disabled="false"
-                            class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                            role="button"
-                            tabindex="0"
-                          >
-                            <ul
-                              class="MuiList-root MuiList-padding MuiList-subheader"
-                            >
-                              <li
-                                class="MuiListSubheader-root MuiListSubheader-gutters"
-                              >
-                                <h3
-                                  class="MuiTypography-root MuiTypography-h3"
-                                >
-                                  環境
-                                </h3>
-                              </li>
-                              <div
-                                aria-disabled="false"
-                                class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                role="button"
-                                tabindex="0"
-                              >
-                                firebase
-                              </div>
-                              <div
-                                aria-disabled="false"
-                                class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                role="button"
-                                tabindex="0"
-                              >
-                                heroku
-                              </div>
-                              <div
-                                aria-disabled="false"
-                                class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-                                role="button"
-                                tabindex="0"
-                              >
-                                aws(勉強中)
-                              </div>
-                            </ul>
-                          </div>
-                        </ul>
-                      </div>
-                    </ul>
-                  </div>
+                <div>
+                  Profile
                 </div>
               </div>
               <div
@@ -743,6 +456,39 @@ Object {
                     <div
                       class="MuiPaper-root MuiCard-root MuiPaper-elevation8 MuiPaper-rounded"
                     >
+                      <button
+                        class="MuiButtonBase-root MuiCardActionArea-root"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <div
+                          class="MuiCardHeader-root"
+                        >
+                          <div
+                            class="MuiCardHeader-content"
+                          >
+                            <span
+                              class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                            >
+                              ソート
+                            </span>
+                          </div>
+                        </div>
+                        <span
+                          class="MuiCardActionArea-focusHighlight"
+                        />
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                  >
+                    <div
+                      class="MuiPaper-root MuiCard-root MuiPaper-elevation8 MuiPaper-rounded"
+                    >
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root MuiCardActionArea-root"
@@ -760,7 +506,7 @@ Object {
                             <span
                               class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
                             >
-                              リアクト勉強部屋
+                              リアクト勉強部屋(ここの配下に移設予定)
                             </span>
                           </div>
                         </div>
@@ -796,7 +542,7 @@ Object {
                             <span
                               class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
                             >
-                              迷路
+                              迷路(ここの配下に移設予定)
                             </span>
                           </div>
                         </div>
