@@ -1,8 +1,8 @@
-import { put, select, takeEvery, takeLeading, delay } from "redux-saga/effects";
+import { delay, put, select, takeEvery, takeLeading } from "redux-saga/effects";
 import { State } from "src/interfaces/State";
 import BubbleActionCreators from "./BubbleActionCreators";
 import { ActionType } from "./BubbleActions";
-import { ORDER, SWAP_DURATION } from "./BubbleConstants";
+import { ORDER } from "./BubbleConstants";
 import { BubbleState } from "./BubbleReducer";
 import { BubbleElement } from "./Parts/BubbleContents";
 
@@ -25,7 +25,7 @@ const initSaga = function* () {
 };
 // ループの視点カーソルをチェックして振り分けをする
 const stepSaga = function* () {
-    const { cursor: i, cursorEnd: e, array, order } = (yield select<(s: State) => BubbleState>(state => state.bubble)) as Readonly<BubbleState>;
+    const { cursor: i, cursorEnd: e, array, order, delay: d } = (yield select<(s: State) => BubbleState>(state => state.bubble)) as Readonly<BubbleState>;
     const orderFunc = (e1: BubbleElement, e2: BubbleElement) => order === ORDER.ASC ? e1.value > e2.value : e1.value < e2.value;
     if (e < 0) {
         // cursorEndが0になっていれば終わる
@@ -47,7 +47,7 @@ const stepSaga = function* () {
                 cursorEnd: e - 1
             })));
         }
-        yield delay(SWAP_DURATION);
+        yield delay(d);
         // 次のステップへ
         yield (put(BubbleActionCreators.step()));
     }

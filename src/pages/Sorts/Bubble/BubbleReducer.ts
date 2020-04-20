@@ -18,7 +18,8 @@ const initialState = (): BubbleState => ({
         { id: uuidv4(), value: 10 },
     ],
     cursor: 0,
-    cursorEnd: 0
+    cursorEnd: 0,
+    delay: 0
 });
 
 const bubble: Reducer<BubbleState, BubbleActions> = (state = initialState(), action) => {
@@ -51,6 +52,7 @@ export interface BubbleState {
     array: BubbleContents;
     cursor: number;
     cursorEnd: number;
+    delay: number;
 }
 
 const init = (state: BubbleState): BubbleState => {

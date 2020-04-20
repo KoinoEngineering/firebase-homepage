@@ -1,17 +1,17 @@
-import { v4 as uuidv4 } from "uuid";
-import { TextField, Typography, InputAdornment, IconButton, makeStyles, createStyles, Grid } from "@material-ui/core";
+import { createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
+import MainButton from "src/components/atoms/MainButton";
 import { GridItem } from "src/components/templates/GridItem";
 import { GridRow } from "src/components/templates/GridRow/GridRow";
 import PageContainer from "src/components/templates/Page/PageContainer";
 import { State } from "src/interfaces/State";
+import { v4 as uuidv4 } from "uuid";
 import BubbleActionCreators from "./BubbleActionCreators";
-import { BubbleState, MIN_ELEMENT_COUNT, MAX_ELEMENT_COUNT } from "./BubbleReducer";
-import MainButton from "src/components/atoms/MainButton";
+import { BubbleState } from "./BubbleReducer";
 import BubbleContents from "./Parts/BubbleContents";
-import { ExposureNeg1Rounded, ExposurePlus1Rounded } from "@material-ui/icons";
+import BubbleSetting from "./Parts/BubbleSetting";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
@@ -33,48 +33,46 @@ const Bubble: React.FC = () => {
         <GridRow id="ContentsArea">
             <Typography variant="h2">バブルソート</Typography>
         </GridRow>
-        <GridRow id="SettingArea" >
-            <GridItem>
-                <TextField
-                    value={array.length}
-                    disabled
-                    variant="outlined"
-                    label="要素数"
-                    size="small"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end" >
-                            <IconButton
-                                disabled={running || (array.length <= MIN_ELEMENT_COUNT)}
-                                onClick={() => actions.changeValue({
-                                    array: array.filter(item => item.id !== array[array.length - 1].id).map(item => ({ ...item, fixed: false }))
-                                })}>
-                                <ExposureNeg1Rounded />
-                            </IconButton>
-                            <IconButton
-                                disabled={running || Number(array.length) >= MAX_ELEMENT_COUNT}
-                                onClick={() => actions.changeValue({
-                                    array: [
-                                        ...array.map(item => ({ ...item, fixed: false })),
-                                        {
-                                            id: uuidv4(),
-                                            value: Math.round(Math.random() * 99) + 1
-                                        }
-                                    ]
-                                })}>
-                                <ExposurePlus1Rounded />
-                            </IconButton>
-                        </InputAdornment>
-                    }}
-                />
-            </GridItem>
+        <GridRow id="SettingArea" spacing={4}>
+            <BubbleSetting />
         </GridRow >
         <GridRow id="ControlArea">
-            <GridItem>
-                <MainButton
-                    disabled={running}
-                    onClick={() => actions.start()}
-                >開始</MainButton>
-            </GridItem>
+            <GridRow id="Reset">
+                <Typography variant="h3">リセット</Typography>
+            </GridRow>
+            <GridRow id="Reset" spacing={4}>
+                <GridItem xs={undefined} sm={undefined} md={undefined}>
+                    <MainButton
+                        disabled={running}
+                        onClick={() => actions.changeValue({ array: array.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
+                    >昇順</MainButton>
+                </GridItem>
+                <GridItem xs={undefined} sm={undefined} md={undefined}>
+                    <MainButton
+                        disabled={running}
+                        onClick={() => actions.changeValue({ array: array.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
+                    >降順</MainButton>
+                </GridItem>
+                <GridItem xs={undefined} sm={undefined} md={undefined}>
+                    <MainButton
+                        disabled={running}
+                        onClick={() => actions.changeValue({
+                            array: Array(array.length).fill(0).map(() => ({
+                                id: uuidv4(),
+                                value: Math.round(Math.random() * 99) + 1
+                            }))
+                        })}
+                    >ランダム</MainButton>
+                </GridItem>
+            </GridRow>
+            <GridRow id="ControlArea">
+                <GridItem>
+                    <MainButton
+                        disabled={running}
+                        onClick={() => actions.start()}
+                    >開始</MainButton>
+                </GridItem>
+            </GridRow>
         </GridRow>
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
