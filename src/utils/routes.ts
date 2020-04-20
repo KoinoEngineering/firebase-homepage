@@ -5,6 +5,8 @@ export enum EXT_ROUTE {
 }
 
 enum ROUTES {
-    TOP = "/top"
+    TOP = "/top",
+    SORTS = "/sorts",
+    SORTS_BUBBLE = "/sorts/bubble",
 }
 export default ROUTES;

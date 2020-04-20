@@ -35,6 +35,15 @@ const Top: React.FC = () => {
         {
             raised: true,
             cardActionAreaProps: {
+                onClick: () => dispatch(push(ROUTES.SORTS)),
+                headerProps: {
+                    title: "ソート",
+                }
+            }
+        },
+        {
+            raised: true,
+            cardActionAreaProps: {
                 href: EXT_ROUTE.REACT,
                 target: "_blank",
                 rel: "noopener noreferrer",
