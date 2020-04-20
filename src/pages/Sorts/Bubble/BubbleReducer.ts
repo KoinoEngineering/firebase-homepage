@@ -8,7 +8,6 @@ export const MIN_ELEMENT_COUNT = 5;
 export const MAX_ELEMENT_COUNT = 100;
 
 const initialState = (): BubbleState => ({
-    elementCount: "5",
     running: false,
     order: ORDER.ASC,
     array: [
@@ -47,7 +46,6 @@ const bubble: Reducer<BubbleState, BubbleActions> = (state = initialState(), act
 export default bubble;
 
 export interface BubbleState {
-    elementCount: string;
     running: boolean;
     order: ORDER;
     array: BubbleContents;

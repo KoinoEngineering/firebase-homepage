@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { TextField, Typography, InputAdornment, IconButton, makeStyles, createStyles, Grid } from "@material-ui/core";
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,7 +26,7 @@ const useSquareContainerStyle = makeStyles(createStyles({
 
 const Bubble: React.FC = () => {
     const dispatch = useDispatch();
-    const { elementCount, array, running } = useSelector<State, BubbleState>(state => state.bubble);
+    const { array, running } = useSelector<State, BubbleState>(state => state.bubble);
     const actions = useMemo(() => bindActionCreators(BubbleActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Bubble">
@@ -35,31 +36,38 @@ const Bubble: React.FC = () => {
         <GridRow id="SettingArea" >
             <GridItem>
                 <TextField
-                    value={elementCount}
-                    disabled={running}
+                    value={array.length}
+                    disabled
                     variant="outlined"
                     label="要素数"
                     size="small"
-                    error={isNaN(Number(elementCount))}
-                    helperText={isNaN(Number(elementCount)) ? "数値を入力してください" : undefined}
-                    onChange={(e) => { actions.changeValue({ elementCount: e.currentTarget.value }); }}
                     InputProps={{
                         endAdornment: <InputAdornment position="end" >
                             <IconButton
-                                disabled={running || Number(elementCount) <= MIN_ELEMENT_COUNT}
-                                onClick={() => actions.changeValue({ elementCount: (isNaN(Number(elementCount)) ? MIN_ELEMENT_COUNT : (Number(elementCount) - 1)).toString() })}>
+                                disabled={running || (array.length <= MIN_ELEMENT_COUNT)}
+                                onClick={() => actions.changeValue({
+                                    array: array.filter(item => item.id !== array[array.length - 1].id).map(item => ({ ...item, fixed: false }))
+                                })}>
                                 <ExposureNeg1Rounded />
                             </IconButton>
                             <IconButton
-                                disabled={running || Number(elementCount) >= MAX_ELEMENT_COUNT}
-                                onClick={() => actions.changeValue({ elementCount: (isNaN(Number(elementCount)) ? MAX_ELEMENT_COUNT : (Number(elementCount) + 1)).toString() })}>
+                                disabled={running || Number(array.length) >= MAX_ELEMENT_COUNT}
+                                onClick={() => actions.changeValue({
+                                    array: [
+                                        ...array.map(item => ({ ...item, fixed: false })),
+                                        {
+                                            id: uuidv4(),
+                                            value: Math.round(Math.random() * 99) + 1
+                                        }
+                                    ]
+                                })}>
                                 <ExposurePlus1Rounded />
                             </IconButton>
                         </InputAdornment>
                     }}
                 />
             </GridItem>
-        </GridRow>
+        </GridRow >
         <GridRow id="ControlArea">
             <GridItem>
                 <MainButton
