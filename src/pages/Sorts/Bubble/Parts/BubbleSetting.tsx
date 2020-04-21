@@ -58,6 +58,7 @@ const BubbleSetting: React.FC = () => {
             <MainSelect
                 fullWidth
                 value={order}
+                disabled={running}
                 onChange={(e) => { actions.changeValue({ order: e.target.value as ORDER }); }}
                 margin="dense"
                 label="向き"
