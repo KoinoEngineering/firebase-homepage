@@ -27,9 +27,16 @@ const Sorts: React.FC = () => {
 
     return <PageContainer id="Sorts">
         <Grid id="title" container>
-            <Typography variant="h2">
-                いろんなソートを可視化してみる
-            </Typography>
+            <Grid container>
+                <Typography variant="h2">
+                    いろんなソートを可視化してみる
+                </Typography>
+            </Grid>
+            <Grid container>
+                <Typography variant="h3">
+                    制約としてループを使用しない
+                </Typography>
+            </Grid>
         </Grid>
         <Grid id="main" container spacing={4}>
             {
@@ -40,7 +47,7 @@ const Sorts: React.FC = () => {
                 })
             }
         </Grid>
-    </PageContainer>;
+    </PageContainer >;
 };
 
 export default Sorts;
