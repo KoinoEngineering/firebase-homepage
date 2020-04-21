@@ -4,7 +4,7 @@ import React from "react";
 import { Propsof } from "src/interfaces/Props";
 import utils from "src/utils";
 import Theme from "src/utils/theme";
-import { BubbleState } from "../BubbleReducer";
+import { BubbleState } from "../Bubble/BubbleReducer";
 
 interface BubbleContentsProps extends Pick<BubbleState, "cursor" | "running"> {
     contents: BubbleContents;

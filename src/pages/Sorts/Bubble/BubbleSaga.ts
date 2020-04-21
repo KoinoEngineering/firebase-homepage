@@ -4,7 +4,7 @@ import BubbleActionCreators from "./BubbleActionCreators";
 import { ActionType } from "./BubbleActions";
 import { ORDER } from "./BubbleConstants";
 import { BubbleState } from "./BubbleReducer";
-import { BubbleElement } from "./Parts/BubbleContents";
+import { BubbleElement } from "../Parts/BubbleContents";
 
 const bubbleSaga = function* () {
     yield takeLeading(ActionType.START, startSaga);

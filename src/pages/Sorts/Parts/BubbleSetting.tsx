@@ -7,9 +7,9 @@ import MainSelect from "src/components/atoms/MainSelect";
 import { GridItem } from "src/components/templates/GridItem";
 import { State } from "src/interfaces/State";
 import { v4 as uuidv4 } from "uuid";
-import BubbleActionCreators from "../BubbleActionCreators";
-import { ORDER, ORDER_LABEL_MAP } from "../BubbleConstants";
-import { BubbleState, MAX_ELEMENT_COUNT, MIN_ELEMENT_COUNT } from "../BubbleReducer";
+import BubbleActionCreators from "../Bubble/BubbleActionCreators";
+import { ORDER, ORDER_LABEL_MAP } from "../Bubble/BubbleConstants";
+import { BubbleState, MAX_ELEMENT_COUNT, MIN_ELEMENT_COUNT } from "../Bubble/BubbleReducer";
 
 const BubbleSetting: React.FC = () => {
 

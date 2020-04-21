@@ -10,8 +10,8 @@ import { State } from "src/interfaces/State";
 import { v4 as uuidv4 } from "uuid";
 import BubbleActionCreators from "./BubbleActionCreators";
 import { BubbleState } from "./BubbleReducer";
-import BubbleContents from "./Parts/BubbleContents";
-import BubbleSetting from "./Parts/BubbleSetting";
+import BubbleContents from "../Parts/BubbleContents";
+import BubbleSetting from "../Parts/BubbleSetting";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {

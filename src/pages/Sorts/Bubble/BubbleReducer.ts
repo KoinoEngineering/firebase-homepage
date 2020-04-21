@@ -2,7 +2,7 @@ import { Reducer } from "redux";
 import { v4 as uuidv4 } from "uuid";
 import { ActionType, BubbleActions, SwapAction } from "./BubbleActions";
 import { ORDER } from "./BubbleConstants";
-import { BubbleContents } from "./Parts/BubbleContents";
+import { BubbleContents } from "../Parts/BubbleContents";
 
 export const MIN_ELEMENT_COUNT = 5;
 export const MAX_ELEMENT_COUNT = 100;
