@@ -13,66 +13,17 @@ const Sorts: React.FC = () => {
     const actions = useMemo(() => ({
         navigate: bindActionCreators(navigateActionsCreatetors, dispatch)
     }), [dispatch]);
-    const sorts: HeadlineCardProps[] = [
-        {
-            onClick: () => actions.navigate.push(ROUTES.SORTS_BUBBLE),
+    const sorts: HeadlineCardProps[] = Object.entries(SORTS_TITLE_MAP).map(([route, { title, exist }]) => {
+        return {
+            onClick: exist ? () => actions.navigate.push(route) : undefined,
             cardActionAreaProps: {
+                disableRipple: !exist,
                 headerProps: {
-                    title: "バブルソート"
+                    title: title + (exist ? "" : "(Comming Soon...)")
                 }
             }
-        },
-        {
-            onClick: () => actions.navigate.push(ROUTES.SORTS_SHAKER),
-            cardActionAreaProps: {
-                headerProps: {
-                    title: "シェーカーソート"
-                }
-            }
-        },
-        {
-            cardActionAreaProps: {
-                headerProps: {
-                    title: "ノームソート(Comming Soon...)"
-                }
-            }
-        },
-        {
-            cardActionAreaProps: {
-                headerProps: {
-                    title: "選択ソート(Comming Soon...)"
-                }
-            }
-        },
-        {
-            cardActionAreaProps: {
-                headerProps: {
-                    title: "挿入ソート(Comming Soon...)"
-                }
-            }
-        },
-        {
-            cardActionAreaProps: {
-                headerProps: {
-                    title: "マージソート(Comming Soon...)"
-                }
-            }
-        },
-        {
-            cardActionAreaProps: {
-                headerProps: {
-                    title: "ヒープソート(Comming Soon...)"
-                }
-            }
-        },
-        {
-            cardActionAreaProps: {
-                headerProps: {
-                    title: "クイックソート(Comming Soon...)"
-                }
-            }
-        },
-    ];
+        };
+    });
 
     return <PageContainer id="Sorts">
         <Grid id="title" container>
@@ -93,3 +44,22 @@ const Sorts: React.FC = () => {
 };
 
 export default Sorts;
+
+type SortTitleMap = {
+    [K: string]: {
+        title: string;
+        exist?: boolean;
+    };
+};
+
+export const SORTS_TITLE_MAP: SortTitleMap = {
+    [ROUTES.SORTS_BUBBLE]: { title: "バブルソート", exist: true },
+    [ROUTES.SORTS_SHAKER]: { title: "シェーカーソート", exist: true },
+    [ROUTES.SORTS_GNOME]: { title: "ノームソート" },
+    [ROUTES.SORTS_SELECT]: { title: "選択ソート" },
+    [ROUTES.SORTS_INSERT]: { title: "挿入ソート" },
+    [ROUTES.SORTS_BACKET]: { title: "バケットソート" },
+    [ROUTES.SORTS_MARGE]: { title: "マージソート" },
+    [ROUTES.SORTS_HEAP]: { title: "ヒープソート" },
+    [ROUTES.SORTS_QUICK]: { title: "クイックソート" },
+};
