@@ -27,10 +27,15 @@ const bubble: Reducer<BubbleState, BubbleActions> = (state = initialState(), act
         case ActionType.CHANGE_VALUE:
         case ActionType.SET_RUNNING:
         case ActionType.START:
-        case ActionType.END:
             return {
                 ...state,
                 ...action.payload
+            };
+        case ActionType.END:
+            return {
+                ...state,
+                ...action.payload,
+                array: state.array.map(i => ({ ...i, fixed: false }))
             };
         case ActionType.INIT:
             return init(state);
