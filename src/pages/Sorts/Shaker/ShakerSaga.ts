@@ -39,6 +39,7 @@ const stepSaga = function* () {
     };
     if (cs === ce) {
         // 終端が同じになったら終わる
+        yield delay(500);
         yield (put(ShakerActionCreators.end()));
     } else {
         // カーソルの判定

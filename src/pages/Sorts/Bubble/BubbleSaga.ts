@@ -29,6 +29,7 @@ const stepSaga = function* () {
     const orderFunc = (e1: ReplaceSortElement, e2: ReplaceSortElement) => order === ORDER.ASC ? e1.value > e2.value : e1.value < e2.value;
     if (e < 0) {
         // cursorEndが0になっていれば終わる
+        yield delay(500);
         yield (put(BubbleActionCreators.end()));
     } else {
         // カーソルの判定
