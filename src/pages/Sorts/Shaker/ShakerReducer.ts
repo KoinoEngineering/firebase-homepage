@@ -1,16 +1,21 @@
 import { Reducer } from "redux";
 import { v4 as uuidv4 } from "uuid";
-import { ActionType, BubbleActions, SwapAction } from "./BubbleActions";
-import { ORDER } from "./BubbleConstants";
-import { ReplaceSortContents, ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
+import { ActionType, ShakerActions, SwapAction } from "./ShakerActions";
+import { ORDER } from "./ShakerConstants";
+import { ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
 
 export const MIN_ELEMENT_COUNT = 5;
 export const MAX_ELEMENT_COUNT = 100;
 
-const initialState = (): BubbleState => ({
+const initialState = (): ShakerState => ({
     running: false,
     order: ORDER.ASC,
     contents: [
+        { id: uuidv4(), value: 100 },
+        { id: uuidv4(), value: 90 },
+        { id: uuidv4(), value: 80 },
+        { id: uuidv4(), value: 70 },
+        { id: uuidv4(), value: 60 },
         { id: uuidv4(), value: 50 },
         { id: uuidv4(), value: 40 },
         { id: uuidv4(), value: 30 },
@@ -18,11 +23,13 @@ const initialState = (): BubbleState => ({
         { id: uuidv4(), value: 10 },
     ],
     cursor: 0,
+    cursorStart: 0,
     cursorEnd: 0,
-    delay: 0
+    delay: 0,
+    direction: 1,
 });
 
-const bubble: Reducer<BubbleState, BubbleActions> = (state = initialState(), action) => {
+const shaker: Reducer<ShakerState, ShakerActions> = (state = initialState(), action): ShakerState => {
     switch (action.type) {
         case ActionType.CHANGE_VALUE:
         case ActionType.SET_RUNNING:
@@ -42,34 +49,38 @@ const bubble: Reducer<BubbleState, BubbleActions> = (state = initialState(), act
         case ActionType.SWAP:
             return {
                 ...state,
-                contents: swap(state.contents, action.payload.base)
+                contents: swap(state.contents, action.payload)
             };
         default:
             return state;
     }
 };
 
-export default bubble;
+export default shaker;
 
-export interface BubbleState extends ReplaceSortContentsState {
+export interface ShakerState extends ReplaceSortContentsState {
     order: ORDER;
+    cursorStart: number;
     cursorEnd: number;
     delay: number;
+    direction: -1 | 1;
 }
 
-const init = (state: BubbleState): BubbleState => {
+const init = (state: ShakerState): ShakerState => {
     return {
         ...state,
         contents: state.contents.map(item => ({ ...item, id: uuidv4(), fixed: false })),
         cursor: 0,
-        cursorEnd: state.contents.length - 1
+        cursorStart: 0,
+        cursorEnd: state.contents.length - 1,
+        direction: 1,
     };
 };
 
-const swap = (array: ReplaceSortContents, base: SwapAction["payload"]["base"]): ReplaceSortContents => array.map((item, idx, _this) => {
+const swap = (contents: ShakerState["contents"], { base, direction }: SwapAction["payload"]): ShakerState["contents"] => contents.map((item, idx, _this) => {
     if (idx === base) {
-        return _this[base + 1];
-    } else if (idx === base + 1) {
+        return _this[base + direction];
+    } else if (idx === base + direction) {
         return _this[base];
     } else {
         return item;

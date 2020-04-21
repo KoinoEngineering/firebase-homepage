@@ -8,5 +8,6 @@ enum ROUTES {
     TOP = "/top",
     SORTS = "/sorts",
     SORTS_BUBBLE = "/sorts/bubble",
+    SORTS_SHAKER = "/sorts/shaker",
 }
 export default ROUTES;

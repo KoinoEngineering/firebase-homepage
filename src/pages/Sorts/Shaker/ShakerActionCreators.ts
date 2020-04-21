@@ -1,4 +1,4 @@
-import { ActionType, ChangeValueAction, SetRunningAction, StartAction, InitAction, StepAction, EndAction, SwapAction } from "./BubbleActions";
+import { ActionType, ChangeValueAction, SetRunningAction, StartAction, InitAction, StepAction, EndAction, SwapAction } from "./ShakerActions";
 
 export default {
     changeValue: (payload: ChangeValueAction["payload"]): ChangeValueAction => ({ type: ActionType.CHANGE_VALUE, payload }),
@@ -6,6 +6,6 @@ export default {
     start: (): StartAction => ({ type: ActionType.START, payload: { running: true } }),
     init: (): InitAction => ({ type: ActionType.INIT }),
     step: (): StepAction => ({ type: ActionType.STEP }),
-    swap: (base: SwapAction["payload"]["base"]): SwapAction => ({ type: ActionType.SWAP, payload: { base } }),
+    swap: (payload: SwapAction["payload"]): SwapAction => ({ type: ActionType.SWAP, payload }),
     end: (): EndAction => ({ type: ActionType.END, payload: { running: false } }),
 };

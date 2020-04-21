@@ -23,9 +23,10 @@ const Sorts: React.FC = () => {
             }
         },
         {
+            onClick: () => actions.navigate.push(ROUTES.SORTS_SHAKER),
             cardActionAreaProps: {
                 headerProps: {
-                    title: "シェーカーソート(Comming Soon...)"
+                    title: "シェーカーソート"
                 }
             }
         },

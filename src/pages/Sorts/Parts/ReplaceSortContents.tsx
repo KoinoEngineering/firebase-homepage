@@ -4,13 +4,16 @@ import React from "react";
 import { Propsof } from "src/interfaces/Props";
 import utils from "src/utils";
 import Theme from "src/utils/theme";
-import { BubbleState } from "../BubbleReducer";
 
-interface BubbleContentsProps extends Pick<BubbleState, "cursor" | "running"> {
-    contents: BubbleContents;
+interface ReplaceSortContentsProps<E extends ReplaceSortElement = ReplaceSortElement> {
+    contents: ReplaceSortContents<E>;
+    running: boolean;
+    cursor: number;
 }
 
-interface ElementStyleProps extends CSSProperties, Pick<BubbleElementProps, "active"> {
+export type ReplaceSortContentsState = ReplaceSortContentsProps;
+
+interface ElementStyleProps extends CSSProperties, Pick<ReplaceSortElementProps, "active"> {
     widthRate: number;
     heightRate: number;
     fixed?: boolean;
@@ -42,14 +45,14 @@ const useElementStyle = makeStyles<typeof Theme, ElementStyleProps>({
     }
 });
 
-const BubbleContents: React.FC<BubbleContentsProps> = ({ contents, cursor, running }) => {
+const ReplaceSortContents: React.FC<ReplaceSortContentsProps> = ({ contents, cursor, running }) => {
 
     const classes = useStyles();
     const maxValue = utils.max(contents, element => element.value);
-    return <Grid id="BubbleContents" classes={classes} container alignItems="flex-end">
+    return <Grid id="ReplaceSortContents" classes={classes} container alignItems="flex-end">
         {
             contents.map((element, idx) => {
-                return <BubbleElement
+                return <ReplaceSortElement
                     key={element.id}
                     elementsCount={contents.length}
                     element={element}
@@ -62,14 +65,14 @@ const BubbleContents: React.FC<BubbleContentsProps> = ({ contents, cursor, runni
 };
 
 
-interface BubbleElementProps extends Exclude<Propsof<typeof Grid>, "classes"> {
-    elementsCount: BubbleState["array"]["length"];
-    element: BubbleElement;
-    maxValue: BubbleElement["value"];
+interface ReplaceSortElementProps extends Exclude<Propsof<typeof Grid>, "classes"> {
+    elementsCount: ReplaceSortContentsState["contents"]["length"];
+    element: ReplaceSortElement;
+    maxValue: ReplaceSortElement["value"];
     active: boolean;
 }
 
-const BubbleElement: React.FC<BubbleElementProps> = ({ elementsCount, element, maxValue, active, ...props }) => {
+const ReplaceSortElement: React.FC<ReplaceSortElementProps> = ({ elementsCount, element, maxValue, active, ...props }) => {
     const elementClasses = useElementStyle({
         widthRate: 1 / elementsCount,
         heightRate: element.value / maxValue,
@@ -81,13 +84,13 @@ const BubbleElement: React.FC<BubbleElementProps> = ({ elementsCount, element, m
     </Grid>;
 };
 
-export default BubbleContents;
+export default ReplaceSortContents;
 
-export interface BubbleElement {
+export interface ReplaceSortElement {
     id: string;
     value: number;
     fixed?: boolean;
 }
 
 
-export type BubbleContents = BubbleElement[];
+export type ReplaceSortContents<E extends ReplaceSortElement = ReplaceSortElement> = E[];

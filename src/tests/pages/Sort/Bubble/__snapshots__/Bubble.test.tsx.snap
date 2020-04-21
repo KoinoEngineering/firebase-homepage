@@ -353,7 +353,7 @@ Object {
           >
             <div
               class="MuiGrid-root makeStyles-root-294 MuiGrid-container MuiGrid-align-items-xs-flex-end"
-              id="BubbleContents"
+              id="ReplaceSortContents"
             >
               <div
                 class="MuiGrid-root makeStyles-root-295 makeStyles-root-297"
@@ -735,7 +735,7 @@ Object {
         >
           <div
             class="MuiGrid-root makeStyles-root-294 MuiGrid-container MuiGrid-align-items-xs-flex-end"
-            id="BubbleContents"
+            id="ReplaceSortContents"
           >
             <div
               class="MuiGrid-root makeStyles-root-295 makeStyles-root-297"

@@ -7,16 +7,16 @@ import MainSelect from "src/components/atoms/MainSelect";
 import { GridItem } from "src/components/templates/GridItem";
 import { State } from "src/interfaces/State";
 import { v4 as uuidv4 } from "uuid";
-import BubbleActionCreators from "../BubbleActionCreators";
-import { ORDER, ORDER_LABEL_MAP } from "../BubbleConstants";
-import { BubbleState, MAX_ELEMENT_COUNT, MIN_ELEMENT_COUNT } from "../BubbleReducer";
+import ShakerActionCreators from "../ShakerActionCreators";
+import { ORDER, ORDER_LABEL_MAP } from "../ShakerConstants";
+import { ShakerState, MAX_ELEMENT_COUNT, MIN_ELEMENT_COUNT } from "../ShakerReducer";
 
-const BubbleSetting: React.FC = () => {
+const ShakerSetting: React.FC = () => {
 
-    const { contents, running, order, delay } = useSelector<State, BubbleState>(state => state.bubble);
+    const { contents, running, order, delay } = useSelector<State, ShakerState>(state => state.shaker);
     const dispatch = useDispatch();
     const actions = useMemo(() => {
-        return bindActionCreators(BubbleActionCreators, dispatch);
+        return bindActionCreators(ShakerActionCreators, dispatch);
     }, [dispatch]);
 
     return <>
@@ -95,4 +95,4 @@ const BubbleSetting: React.FC = () => {
     </>;
 };
 
-export default BubbleSetting;
+export default ShakerSetting;

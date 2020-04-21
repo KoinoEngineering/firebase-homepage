@@ -8,10 +8,10 @@ import { GridRow } from "src/components/templates/GridRow/GridRow";
 import PageContainer from "src/components/templates/Page/PageContainer";
 import { State } from "src/interfaces/State";
 import { v4 as uuidv4 } from "uuid";
+import ShakerActionCreators from "./ShakerActionCreators";
+import { ShakerState } from "./ShakerReducer";
+import ShakerSetting from "./Parts/ShakerSetting";
 import ReplaceSortContents from "../Parts/ReplaceSortContents";
-import BubbleActionCreators from "./BubbleActionCreators";
-import { BubbleState } from "./BubbleReducer";
-import BubbleSetting from "./Parts/BubbleSetting";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
@@ -24,17 +24,17 @@ const useSquareContainerStyle = makeStyles(createStyles({
     }
 }));
 
-const Bubble: React.FC = () => {
+const Shaker: React.FC = () => {
     const dispatch = useDispatch();
-    const { contents: array, running, cursor } = useSelector<State, BubbleState>(state => state.bubble);
-    const actions = useMemo(() => bindActionCreators(BubbleActionCreators, dispatch), [dispatch]);
+    const { contents, running, cursor } = useSelector<State, ShakerState>(state => state.shaker);
+    const actions = useMemo(() => bindActionCreators(ShakerActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
-    return <PageContainer id="Bubble">
+    return <PageContainer id="Shaker">
         <GridRow id="ContentsArea">
-            <Typography variant="h2">バブルソート</Typography>
+            <Typography variant="h2">シェーカーソート</Typography>
         </GridRow>
         <GridRow id="SettingArea" spacing={4}>
-            <BubbleSetting />
+            <ShakerSetting />
         </GridRow >
         <GridRow id="ControlArea">
             <GridRow id="Reset">
@@ -44,20 +44,20 @@ const Bubble: React.FC = () => {
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: contents.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
                     >昇順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: contents.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
                     >降順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
                         onClick={() => actions.changeValue({
-                            contents: Array(array.length).fill(0).map(() => ({
+                            contents: Array(contents.length).fill(0).map(() => ({
                                 id: uuidv4(),
                                 value: Math.round(Math.random() * 99) + 1
                             }))
@@ -76,10 +76,10 @@ const Bubble: React.FC = () => {
         </GridRow>
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
-                <ReplaceSortContents contents={array} running={running} cursor={cursor} />
+                <ReplaceSortContents contents={contents} running={running} cursor={cursor} />
             </Grid>
         </GridRow>
     </PageContainer >;
 };
 
-export default Bubble;
+export default Shaker;
