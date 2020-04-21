@@ -1,20 +1,32 @@
 import { routerMiddleware } from "connected-react-router";
 import { createBrowserHistory } from "history";
-import createRootReducer from "src/reducers";
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, Middleware } from "redux";
 import { logger } from "redux-logger";
 import createSagaMiddleware from "redux-saga";
+import createRootReducer from "src/reducers";
 import rootSaga from "src/sagas";
 
 export const history = createBrowserHistory();
 
 const sagaMiddleware = createSagaMiddleware();
 
+interface Saga {
+    saga: Middleware,
+    env?: NodeJS.ProcessEnv["NODE_ENV"][] | "all"
+}
+
+const sagas: Saga[] = [
+    { saga: routerMiddleware(history) },
+    { saga: sagaMiddleware },
+    { saga: logger, env: ["development", "test"] },
+];
+
 const configureStore = () => {
     const store = createStore(createRootReducer(history), applyMiddleware(
-        routerMiddleware(history), // for dispatching history actions
-        sagaMiddleware,
-        logger));
+        ...sagas
+            .filter(({ env = "all" }) =>
+                env === "all" || env.some(e => e === process.env.NODE_ENV))
+            .map(({ saga }) => saga)));
     sagaMiddleware.run(rootSaga);
     return store;
 };
