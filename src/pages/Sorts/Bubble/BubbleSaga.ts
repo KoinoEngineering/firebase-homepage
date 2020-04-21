@@ -4,7 +4,7 @@ import BubbleActionCreators from "./BubbleActionCreators";
 import { ActionType } from "./BubbleActions";
 import { ORDER } from "./BubbleConstants";
 import { BubbleState } from "./BubbleReducer";
-import { BubbleElement } from "../Parts/BubbleContents";
+import { ReplaceSortElement } from "../Parts/ReplaceSortContents";
 
 const bubbleSaga = function* () {
     yield takeLeading(ActionType.START, startSaga);
@@ -25,8 +25,8 @@ const initSaga = function* () {
 };
 // ループの視点カーソルをチェックして振り分けをする
 const stepSaga = function* () {
-    const { cursor: i, cursorEnd: e, array, order, delay: d } = (yield select<(s: State) => BubbleState>(state => state.bubble)) as Readonly<BubbleState>;
-    const orderFunc = (e1: BubbleElement, e2: BubbleElement) => order === ORDER.ASC ? e1.value > e2.value : e1.value < e2.value;
+    const { cursor: i, cursorEnd: e, contents: array, order, delay: d } = (yield select<(s: State) => BubbleState>(state => state.bubble)) as Readonly<BubbleState>;
+    const orderFunc = (e1: ReplaceSortElement, e2: ReplaceSortElement) => order === ORDER.ASC ? e1.value > e2.value : e1.value < e2.value;
     if (e < 0) {
         // cursorEndが0になっていれば終わる
         yield (put(BubbleActionCreators.end()));
@@ -42,7 +42,7 @@ const stepSaga = function* () {
         } else {
             // カーソルがeまで進んでいる場合はeを左にずらしiは初期化一番後ろをfixed
             yield (put(BubbleActionCreators.changeValue({
-                array: array.map((item, idx) => idx === e ? { ...item, fixed: true } : item),
+                contents: array.map((item, idx) => idx === e ? { ...item, fixed: true } : item),
                 cursor: 0,
                 cursorEnd: e - 1
             })));

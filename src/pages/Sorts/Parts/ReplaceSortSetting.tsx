@@ -11,9 +11,10 @@ import BubbleActionCreators from "../Bubble/BubbleActionCreators";
 import { ORDER, ORDER_LABEL_MAP } from "../Bubble/BubbleConstants";
 import { BubbleState, MAX_ELEMENT_COUNT, MIN_ELEMENT_COUNT } from "../Bubble/BubbleReducer";
 
-const BubbleSetting: React.FC = () => {
 
-    const { array, running, order, delay } = useSelector<State, BubbleState>(state => state.bubble);
+const ReplaceSortSetting: React.FC = () => {
+
+    const { contents, running, order, delay } = useSelector<State, BubbleState>(state => state.bubble);
     const dispatch = useDispatch();
     const actions = useMemo(() => {
         return bindActionCreators(BubbleActionCreators, dispatch);
@@ -23,7 +24,7 @@ const BubbleSetting: React.FC = () => {
         <GridItem>
             <TextField
                 fullWidth
-                value={array.length}
+                value={contents.length}
                 disabled
                 variant="outlined"
                 label="要素数"
@@ -31,17 +32,17 @@ const BubbleSetting: React.FC = () => {
                 InputProps={{
                     endAdornment: <InputAdornment position="end" >
                         <IconButton
-                            disabled={running || array.length <= MIN_ELEMENT_COUNT}
+                            disabled={running || contents.length <= MIN_ELEMENT_COUNT}
                             onClick={() => actions.changeValue({
-                                array: array.filter(item => item.id !== array[array.length - 1].id).map(item => ({ ...item, fixed: false }))
+                                contents: contents.filter(item => item.id !== contents[contents.length - 1].id).map(item => ({ ...item, fixed: false }))
                             })}>
                             <ExposureNeg1Rounded />
                         </IconButton>
                         <IconButton
-                            disabled={running || array.length >= MAX_ELEMENT_COUNT}
+                            disabled={running || contents.length >= MAX_ELEMENT_COUNT}
                             onClick={() => actions.changeValue({
-                                array: [
-                                    ...array.map(item => ({ ...item, fixed: false })),
+                                contents: [
+                                    ...contents.map(item => ({ ...item, fixed: false })),
                                     {
                                         id: uuidv4(),
                                         value: Math.round(Math.random() * 99) + 1
@@ -95,4 +96,4 @@ const BubbleSetting: React.FC = () => {
     </>;
 };
 
-export default BubbleSetting;
+export default ReplaceSortSetting;

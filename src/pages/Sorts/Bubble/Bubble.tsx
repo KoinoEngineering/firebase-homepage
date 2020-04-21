@@ -10,8 +10,8 @@ import { State } from "src/interfaces/State";
 import { v4 as uuidv4 } from "uuid";
 import BubbleActionCreators from "./BubbleActionCreators";
 import { BubbleState } from "./BubbleReducer";
-import BubbleContents from "../Parts/BubbleContents";
-import BubbleSetting from "../Parts/BubbleSetting";
+import ReplaceSortContents from "../Parts/ReplaceSortContents";
+import ReplaceSortSetting from "../Parts/ReplaceSortSetting";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
@@ -26,7 +26,7 @@ const useSquareContainerStyle = makeStyles(createStyles({
 
 const Bubble: React.FC = () => {
     const dispatch = useDispatch();
-    const { array, running, cursor } = useSelector<State, BubbleState>(state => state.bubble);
+    const { contents: array, running, cursor } = useSelector<State, BubbleState>(state => state.bubble);
     const actions = useMemo(() => bindActionCreators(BubbleActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Bubble">
@@ -34,7 +34,7 @@ const Bubble: React.FC = () => {
             <Typography variant="h2">バブルソート</Typography>
         </GridRow>
         <GridRow id="SettingArea" spacing={4}>
-            <BubbleSetting />
+            <ReplaceSortSetting />
         </GridRow >
         <GridRow id="ControlArea">
             <GridRow id="Reset">
@@ -44,20 +44,20 @@ const Bubble: React.FC = () => {
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ array: array.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
                     >昇順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ array: array.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
                     >降順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
                         onClick={() => actions.changeValue({
-                            array: Array(array.length).fill(0).map(() => ({
+                            contents: Array(array.length).fill(0).map(() => ({
                                 id: uuidv4(),
                                 value: Math.round(Math.random() * 99) + 1
                             }))
@@ -76,7 +76,7 @@ const Bubble: React.FC = () => {
         </GridRow>
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
-                <BubbleContents contents={array} running={running} cursor={cursor} />
+                <ReplaceSortContents contents={array} running={running} cursor={cursor} />
             </Grid>
         </GridRow>
     </PageContainer >;
