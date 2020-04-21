@@ -8,10 +8,10 @@ import { GridRow } from "src/components/templates/GridRow/GridRow";
 import PageContainer from "src/components/templates/Page/PageContainer";
 import { State } from "src/interfaces/State";
 import { v4 as uuidv4 } from "uuid";
+import ReplaceSortContents from "../Parts/ReplaceSortContents";
 import BubbleActionCreators from "./BubbleActionCreators";
 import { BubbleState } from "./BubbleReducer";
-import ReplaceSortContents from "../Parts/ReplaceSortContents";
-import ReplaceSortSetting from "../Parts/ReplaceSortSetting";
+import BubbleSetting from "./Parts/BubbleSetting";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
@@ -34,7 +34,7 @@ const Bubble: React.FC = () => {
             <Typography variant="h2">バブルソート</Typography>
         </GridRow>
         <GridRow id="SettingArea" spacing={4}>
-            <ReplaceSortSetting />
+            <BubbleSetting />
         </GridRow >
         <GridRow id="ControlArea">
             <GridRow id="Reset">
