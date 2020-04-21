@@ -13,7 +13,7 @@ import { ShakerState, MAX_ELEMENT_COUNT, MIN_ELEMENT_COUNT } from "../ShakerRedu
 
 const ShakerSetting: React.FC = () => {
 
-    const { array, running, order, delay } = useSelector<State, ShakerState>(state => state.shaker);
+    const { contents, running, order, delay } = useSelector<State, ShakerState>(state => state.shaker);
     const dispatch = useDispatch();
     const actions = useMemo(() => {
         return bindActionCreators(ShakerActionCreators, dispatch);
@@ -23,7 +23,7 @@ const ShakerSetting: React.FC = () => {
         <GridItem>
             <TextField
                 fullWidth
-                value={array.length}
+                value={contents.length}
                 disabled
                 variant="outlined"
                 label="要素数"
@@ -31,17 +31,17 @@ const ShakerSetting: React.FC = () => {
                 InputProps={{
                     endAdornment: <InputAdornment position="end" >
                         <IconButton
-                            disabled={running || array.length <= MIN_ELEMENT_COUNT}
+                            disabled={running || contents.length <= MIN_ELEMENT_COUNT}
                             onClick={() => actions.changeValue({
-                                array: array.filter(item => item.id !== array[array.length - 1].id).map(item => ({ ...item, fixed: false }))
+                                contents: contents.filter(item => item.id !== contents[contents.length - 1].id).map(item => ({ ...item, fixed: false }))
                             })}>
                             <ExposureNeg1Rounded />
                         </IconButton>
                         <IconButton
-                            disabled={running || array.length >= MAX_ELEMENT_COUNT}
+                            disabled={running || contents.length >= MAX_ELEMENT_COUNT}
                             onClick={() => actions.changeValue({
-                                array: [
-                                    ...array.map(item => ({ ...item, fixed: false })),
+                                contents: [
+                                    ...contents.map(item => ({ ...item, fixed: false })),
                                     {
                                         id: uuidv4(),
                                         value: Math.round(Math.random() * 99) + 1

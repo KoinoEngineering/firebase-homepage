@@ -28,14 +28,14 @@ const stepSaga = function* () {
         cursor: i,
         cursorEnd: ce,
         cursorStart: cs,
-        array,
+        contents,
         order,
         delay: d,
         direction } = (yield select<(s: State) => ShakerState>(state => state.shaker)) as Readonly<ShakerState>;
     const isAsc = () => direction === 1;
     const orderFunc = () => {
         const target = isAsc() ? i : i - 1;
-        return order === ORDER.ASC ? array[target].value > array[target + 1].value : array[target].value < array[target + 1].value;
+        return order === ORDER.ASC ? contents[target].value > contents[target + 1].value : contents[target].value < contents[target + 1].value;
     };
     if (cs === ce) {
         // 終端が同じになったら終わる
@@ -52,7 +52,7 @@ const stepSaga = function* () {
         } else {
             // カーソルが終端まで進んでいる場合は終端を内側にずらしiは初期化 終端をfixed 向きを反転
             yield (put(ShakerActionCreators.changeValue({
-                array: array.map((item, idx) => idx === (isAsc() ? ce : cs) ? { ...item, fixed: true } : item),
+                contents: contents.map((item, idx) => idx === (isAsc() ? ce : cs) ? { ...item, fixed: true } : item),
                 cursor: i - direction,
                 cursorEnd: isAsc() ? ce - 1 : ce,
                 cursorStart: isAsc() ? cs : cs + 1,

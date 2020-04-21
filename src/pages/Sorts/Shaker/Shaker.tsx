@@ -10,8 +10,8 @@ import { State } from "src/interfaces/State";
 import { v4 as uuidv4 } from "uuid";
 import ShakerActionCreators from "./ShakerActionCreators";
 import { ShakerState } from "./ShakerReducer";
-import ShakerContents from "./Parts/ShakerContents";
 import ShakerSetting from "./Parts/ShakerSetting";
+import ReplaceSortContents from "../Parts/ReplaceSortContents";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
@@ -26,7 +26,7 @@ const useSquareContainerStyle = makeStyles(createStyles({
 
 const Shaker: React.FC = () => {
     const dispatch = useDispatch();
-    const { array, running, cursor } = useSelector<State, ShakerState>(state => state.shaker);
+    const { contents, running, cursor } = useSelector<State, ShakerState>(state => state.shaker);
     const actions = useMemo(() => bindActionCreators(ShakerActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Shaker">
@@ -44,20 +44,20 @@ const Shaker: React.FC = () => {
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ array: array.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: contents.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
                     >昇順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ array: array.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: contents.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
                     >降順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
                         onClick={() => actions.changeValue({
-                            array: Array(array.length).fill(0).map(() => ({
+                            contents: Array(contents.length).fill(0).map(() => ({
                                 id: uuidv4(),
                                 value: Math.round(Math.random() * 99) + 1
                             }))
@@ -76,7 +76,7 @@ const Shaker: React.FC = () => {
         </GridRow>
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
-                <ShakerContents contents={array} running={running} cursor={cursor} />
+                <ReplaceSortContents contents={contents} running={running} cursor={cursor} />
             </Grid>
         </GridRow>
     </PageContainer >;

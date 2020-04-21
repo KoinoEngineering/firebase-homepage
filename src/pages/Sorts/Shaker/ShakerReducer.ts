@@ -2,7 +2,7 @@ import { Reducer } from "redux";
 import { v4 as uuidv4 } from "uuid";
 import { ActionType, ShakerActions, SwapAction } from "./ShakerActions";
 import { ORDER } from "./ShakerConstants";
-import { ShakerContents } from "./Parts/ShakerContents";
+import { ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
 
 export const MIN_ELEMENT_COUNT = 5;
 export const MAX_ELEMENT_COUNT = 100;
@@ -10,7 +10,7 @@ export const MAX_ELEMENT_COUNT = 100;
 const initialState = (): ShakerState => ({
     running: false,
     order: ORDER.ASC,
-    array: [
+    contents: [
         { id: uuidv4(), value: 100 },
         { id: uuidv4(), value: 90 },
         { id: uuidv4(), value: 80 },
@@ -29,7 +29,7 @@ const initialState = (): ShakerState => ({
     direction: 1,
 });
 
-const shaker: Reducer<ShakerState, ShakerActions> = (state = initialState(), action) => {
+const shaker: Reducer<ShakerState, ShakerActions> = (state = initialState(), action): ShakerState => {
     switch (action.type) {
         case ActionType.CHANGE_VALUE:
         case ActionType.SET_RUNNING:
@@ -42,14 +42,14 @@ const shaker: Reducer<ShakerState, ShakerActions> = (state = initialState(), act
             return {
                 ...state,
                 ...action.payload,
-                array: state.array.map(i => ({ ...i, fixed: false }))
+                contents: state.contents.map(i => ({ ...i, fixed: false }))
             };
         case ActionType.INIT:
             return init(state);
         case ActionType.SWAP:
             return {
                 ...state,
-                array: swap(state.array, action.payload)
+                contents: swap(state.contents, action.payload)
             };
         default:
             return state;
@@ -58,11 +58,8 @@ const shaker: Reducer<ShakerState, ShakerActions> = (state = initialState(), act
 
 export default shaker;
 
-export interface ShakerState {
-    running: boolean;
+export interface ShakerState extends ReplaceSortContentsState {
     order: ORDER;
-    array: ShakerContents;
-    cursor: number;
     cursorStart: number;
     cursorEnd: number;
     delay: number;
@@ -72,15 +69,15 @@ export interface ShakerState {
 const init = (state: ShakerState): ShakerState => {
     return {
         ...state,
-        array: state.array.map(item => ({ ...item, id: uuidv4(), fixed: false })),
+        contents: state.contents.map(item => ({ ...item, id: uuidv4(), fixed: false })),
         cursor: 0,
         cursorStart: 0,
-        cursorEnd: state.array.length - 1,
+        cursorEnd: state.contents.length - 1,
         direction: 1,
     };
 };
 
-const swap = (array: ShakerContents, { base, direction }: SwapAction["payload"]): ShakerContents => array.map((item, idx, _this) => {
+const swap = (contents: ShakerState["contents"], { base, direction }: SwapAction["payload"]): ShakerState["contents"] => contents.map((item, idx, _this) => {
     if (idx === base) {
         return _this[base + direction];
     } else if (idx === base + direction) {
