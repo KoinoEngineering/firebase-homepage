@@ -1,11 +1,11 @@
-import { ActionType, ChangeValueAction, SetRunningAction, StartAction, InitAction, StepAction, EndAction, SwapAction } from "./GnomeActions";
+import { ActionType, ChangeValueAction, CursorNextAction, CursorPrevAction, EndAction, InitAction, StartAction, SwapAction } from "./GnomeActions";
 
 export default {
     changeValue: (payload: ChangeValueAction["payload"]): ChangeValueAction => ({ type: ActionType.CHANGE_VALUE, payload }),
-    setRunning: (running: SetRunningAction["payload"]["running"]): SetRunningAction => ({ type: ActionType.SET_RUNNING, payload: { running } }),
+    cursorPrev: (): CursorPrevAction => ({ type: ActionType.CURSOR_PREV }),
+    cursorNext: (): CursorNextAction => ({ type: ActionType.CURSOR_NEXT }),
     start: (): StartAction => ({ type: ActionType.START, payload: { running: true } }),
     init: (): InitAction => ({ type: ActionType.INIT }),
-    step: (): StepAction => ({ type: ActionType.STEP }),
-    swap: (base: SwapAction["payload"]["base"]): SwapAction => ({ type: ActionType.SWAP, payload: { base } }),
+    swap: (): SwapAction => ({ type: ActionType.SWAP }),
     end: (): EndAction => ({ type: ActionType.END, payload: { running: false } }),
 };

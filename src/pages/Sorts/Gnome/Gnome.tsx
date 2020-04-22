@@ -31,7 +31,7 @@ const Gnome: React.FC = () => {
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Gnome">
         <GridRow id="ContentsArea">
-            <Typography variant="h2">バブルソート</Typography>
+            <Typography variant="h2">ノームソート</Typography>
         </GridRow>
         <GridRow id="SettingArea" spacing={4}>
             <GnomeSetting />

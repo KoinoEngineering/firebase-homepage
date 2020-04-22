@@ -2,17 +2,27 @@ import { delay, put, select, takeEvery, takeLeading } from "redux-saga/effects";
 import { State } from "src/interfaces/State";
 import GnomeActionCreators from "./GnomeActionCreators";
 import { ActionType } from "./GnomeActions";
-import { ORDER } from "./GnomeConstants";
 import { GnomeState } from "./GnomeReducer";
-import { ReplaceSortElement } from "../Parts/ReplaceSortContents";
+import { ORDER } from "../SortConstants";
 
 const gnomeSaga = function* () {
     yield takeLeading(ActionType.START, startSaga);
     yield takeEvery(ActionType.INIT, initSaga);
-    yield takeEvery(ActionType.STEP, stepSaga);
+    yield takeEvery(ActionType.CURSOR_NEXT, cursorNextSaga);
+    yield takeEvery(ActionType.SWAP, swapSaga);
+    yield takeEvery(ActionType.CURSOR_PREV, cursorPrevSaga);
 };
 
 export default gnomeSaga;
+
+const swapCheck = function* () {
+    const { cursor: i, contents, order } = (yield select<(s: State) => GnomeState>(state => state.gnome)) as Readonly<GnomeState>;
+    return i === 0
+        ? false
+        : order === ORDER.ASC
+            ? contents[i - 1].value > contents[i].value
+            : contents[i - 1].value < contents[i].value;
+};
 
 // 開始のフラグを立てたので初期化する
 const startSaga = function* () {
@@ -21,35 +31,37 @@ const startSaga = function* () {
 
 // 初期化ができたので再帰処理に入る
 const initSaga = function* () {
-    yield put(GnomeActionCreators.step());
+    yield put(GnomeActionCreators.cursorNext());
 };
 // ループの視点カーソルをチェックして振り分けをする
-const stepSaga = function* () {
-    const { cursor: i, cursorEnd: e, contents: array, order, delay: d } = (yield select<(s: State) => GnomeState>(state => state.gnome)) as Readonly<GnomeState>;
-    const orderFunc = (e1: ReplaceSortElement, e2: ReplaceSortElement) => order === ORDER.ASC ? e1.value > e2.value : e1.value < e2.value;
-    if (e < 0) {
+const cursorNextSaga = function* () {
+    const { cursor: i, contents, delay: d } = (yield select<(s: State) => GnomeState>(state => state.gnome)) as Readonly<GnomeState>;
+    if (i === contents.length) {
         // cursorEndが0になっていれば終わる
         yield delay(500);
         yield (put(GnomeActionCreators.end()));
     } else {
-        // カーソルの判定
-        if (i < e) {
-            // 終わっていなければswap判定をする
-            if (orderFunc(array[i], array[i + 1])) {
-                yield (put(GnomeActionCreators.swap(i)));
-            }
-            // カーソルをずらす
-            yield (put(GnomeActionCreators.changeValue({ cursor: i + 1 })));
-        } else {
-            // カーソルがeまで進んでいる場合はeを左にずらしiは初期化一番後ろをfixed
-            yield (put(GnomeActionCreators.changeValue({
-                contents: array.map((item, idx) => idx === e ? { ...item, fixed: true } : item),
-                cursor: 0,
-                cursorEnd: e - 1
-            })));
-        }
         yield delay(d);
+        if (yield swapCheck()) {
+            yield (put(GnomeActionCreators.swap()));
+        } else {
+            // 次のステップへ
+            yield (put(GnomeActionCreators.cursorNext()));
+        }
+    }
+};
+
+const swapSaga = function* () {
+    yield (put(GnomeActionCreators.cursorPrev()));
+};
+
+const cursorPrevSaga = function* () {
+    const { delay: d } = (yield select<(s: State) => GnomeState>(state => state.gnome)) as Readonly<GnomeState>;
+    yield delay(d);
+    if (yield swapCheck()) {
+        yield (put(GnomeActionCreators.swap()));
+    } else {
         // 次のステップへ
-        yield (put(GnomeActionCreators.step()));
+        yield (put(GnomeActionCreators.cursorNext()));
     }
 };
