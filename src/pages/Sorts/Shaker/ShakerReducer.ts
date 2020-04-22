@@ -10,18 +10,12 @@ export const MAX_ELEMENT_COUNT = 100;
 const initialState = (): ShakerState => ({
     running: false,
     order: ORDER.ASC,
-    contents: [
-        { id: uuidv4(), value: 100 },
-        { id: uuidv4(), value: 90 },
-        { id: uuidv4(), value: 80 },
-        { id: uuidv4(), value: 70 },
-        { id: uuidv4(), value: 60 },
-        { id: uuidv4(), value: 50 },
-        { id: uuidv4(), value: 40 },
-        { id: uuidv4(), value: 30 },
-        { id: uuidv4(), value: 20 },
-        { id: uuidv4(), value: 10 },
-    ],
+    contents: Array(20).fill(0).map((_, idx) => {
+        return {
+            id: uuidv4(),
+            value: (20 - idx) * 5
+        };
+    }),
     cursor: 0,
     cursorStart: 0,
     cursorEnd: 0,
