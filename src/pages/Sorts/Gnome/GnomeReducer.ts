@@ -39,10 +39,15 @@ const gnome: Reducer<GnomeState, GnomeActions> = (state = initialState(), action
         case ActionType.CURSOR_NEXT:
             return {
                 ...state,
-                cursor: state.cursor + (action.type === ActionType.CURSOR_PREV ? -1 : 1)
+                cursor: state.contents.findIndex(i => !i.fixed)
             };
         case ActionType.INIT:
             return init(state);
+        case ActionType.FIX:
+            return {
+                ...state,
+                contents: state.contents.map((i, idx) => idx === state.cursor ? { ...i, fixed: true } : i)
+            };
         case ActionType.SWAP:
             return {
                 ...state,

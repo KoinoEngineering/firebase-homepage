@@ -11,6 +11,7 @@ const gnomeSaga = function* () {
     yield takeEvery(ActionType.CURSOR_NEXT, cursorNextSaga);
     yield takeEvery(ActionType.SWAP, swapSaga);
     yield takeEvery(ActionType.CURSOR_PREV, cursorPrevSaga);
+    yield takeEvery(ActionType.FIX, fixSaga);
 };
 
 export default gnomeSaga;
@@ -31,12 +32,13 @@ const startSaga = function* () {
 
 // 初期化ができたので再帰処理に入る
 const initSaga = function* () {
-    yield put(GnomeActionCreators.cursorNext());
+    // fix
+    yield (put(GnomeActionCreators.fix()));
 };
-// ループの視点カーソルをチェックして振り分けをする
+// カーソルをチェックして振り分けをする
 const cursorNextSaga = function* () {
-    const { cursor: i, contents, delay: d } = (yield select<(s: State) => GnomeState>(state => state.gnome)) as Readonly<GnomeState>;
-    if (i === contents.length) {
+    const { cursor: i, delay: d } = (yield select<(s: State) => GnomeState>(state => state.gnome)) as Readonly<GnomeState>;
+    if (i === -1) {
         // cursorEndが0になっていれば終わる
         yield delay(500);
         yield (put(GnomeActionCreators.end()));
@@ -45,8 +47,8 @@ const cursorNextSaga = function* () {
         if (yield swapCheck()) {
             yield (put(GnomeActionCreators.swap()));
         } else {
-            // 次のステップへ
-            yield (put(GnomeActionCreators.cursorNext()));
+            // fix
+            yield (put(GnomeActionCreators.fix()));
         }
     }
 };
@@ -61,7 +63,12 @@ const cursorPrevSaga = function* () {
     if (yield swapCheck()) {
         yield (put(GnomeActionCreators.swap()));
     } else {
-        // 次のステップへ
-        yield (put(GnomeActionCreators.cursorNext()));
+        // fix
+        yield (put(GnomeActionCreators.fix()));
     }
+};
+
+const fixSaga = function* () {
+    // 次のステップへ
+    yield (put(GnomeActionCreators.cursorNext()));
 };
