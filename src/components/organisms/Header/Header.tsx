@@ -66,13 +66,17 @@ const Header: React.FC = () => {
                 content: {
                     subheader: <ListSubheader disableSticky><Typography variant="h3">ソート</Typography></ListSubheader>,
                     onClick: (e) => {
-                        !e.isDefaultPrevented() && actions.navigate.push(ROUTES.SORTS);
+                        if (!e.isDefaultPrevented()) {
+                            actions.navigate.push(ROUTES.SORTS);
+                            actions.closeMenu();
+                        }
                     },
                     items: Object.entries(SORTS_TITLE_MAP).filter(([, { exist }]) => exist).map(([route, { title }]) => {
                         return {
                             onClick: (e) => {
                                 e.preventDefault();
                                 actions.navigate.push(route);
+                                actions.closeMenu();
                             },
                             content: title
                         };
@@ -90,8 +94,7 @@ const Header: React.FC = () => {
                 </IconButton>
                 <Drawer
                     open={sideNavOpen}
-                    onClick={(e) => { e.stopPropagation(); actions.closeMenu(); }}
-                    onBackdropClick={(e) => { e.stopPropagation(); actions.closeMenu(); }}
+                    onBackdropClick={() => actions.closeMenu()}
                 >
                     <NestedList {...itemList} />
                 </Drawer>

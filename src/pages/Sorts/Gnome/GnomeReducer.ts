@@ -1,13 +1,13 @@
 import { Reducer } from "redux";
 import { v4 as uuidv4 } from "uuid";
-import { ActionType, BubbleActions, SwapAction } from "./BubbleActions";
-import { ORDER } from "./BubbleConstants";
+import { ActionType, GnomeActions } from "./GnomeActions";
+import { ORDER } from "./GnomeConstants";
 import { ReplaceSortContents, ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
 
 export const MIN_ELEMENT_COUNT = 5;
 export const MAX_ELEMENT_COUNT = 100;
 
-const initialState = (): BubbleState => ({
+const initialState = (): GnomeState => ({
     running: false,
     order: ORDER.ASC,
     contents: Array(20).fill(0).map((_, idx) => {
@@ -17,14 +17,13 @@ const initialState = (): BubbleState => ({
         };
     }),
     cursor: 0,
-    cursorEnd: 0,
+    moving: 0,
     delay: 0
 });
 
-const bubble: Reducer<BubbleState, BubbleActions> = (state = initialState(), action) => {
+const gnome: Reducer<GnomeState, GnomeActions> = (state = initialState(), action) => {
     switch (action.type) {
         case ActionType.CHANGE_VALUE:
-        case ActionType.SET_RUNNING:
         case ActionType.START:
             return {
                 ...state,
@@ -36,40 +35,50 @@ const bubble: Reducer<BubbleState, BubbleActions> = (state = initialState(), act
                 ...action.payload,
                 contents: state.contents.map(i => ({ ...i, fixed: false }))
             };
+        case ActionType.CURSOR_PREV:
+        case ActionType.CURSOR_NEXT:
+            return {
+                ...state,
+                cursor: state.contents.findIndex(i => !i.fixed)
+            };
         case ActionType.INIT:
             return init(state);
+        case ActionType.FIX:
+            return {
+                ...state,
+                contents: state.contents.map((i, idx) => idx === state.cursor ? { ...i, fixed: true } : i)
+            };
         case ActionType.SWAP:
             return {
                 ...state,
-                contents: swap(state.contents, action.payload.base)
+                contents: swap(state.contents, state.cursor)
             };
         default:
             return state;
     }
 };
 
-export default bubble;
+export default gnome;
 
-export interface BubbleState extends ReplaceSortContentsState {
+export interface GnomeState extends ReplaceSortContentsState {
     order: ORDER;
-    cursorEnd: number;
+    moving: number;
     delay: number;
 }
 
-const init = (state: BubbleState): BubbleState => {
+const init = (state: GnomeState): GnomeState => {
     return {
         ...state,
         contents: state.contents.map(item => ({ ...item, id: uuidv4(), fixed: false })),
         cursor: 0,
-        cursorEnd: state.contents.length - 1
     };
 };
 
-const swap = (array: ReplaceSortContents, base: SwapAction["payload"]["base"]): ReplaceSortContents => array.map((item, idx, _this) => {
-    if (idx === base) {
-        return _this[base + 1];
-    } else if (idx === base + 1) {
-        return _this[base];
+const swap = (contents: ReplaceSortContents, cursor: GnomeState["cursor"]): ReplaceSortContents => contents.map((item, idx, _this) => {
+    if (idx === cursor) {
+        return _this[cursor - 1];
+    } else if (idx === cursor - 1) {
+        return _this[cursor];
     } else {
         return item;
     }

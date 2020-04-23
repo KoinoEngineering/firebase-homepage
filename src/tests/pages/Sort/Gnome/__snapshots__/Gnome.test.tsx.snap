@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Shaker expect to match snapshot 1`] = `
+exports[`Gnome expect to match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="MuiContainer-root ShakerPageContainer-root-3 MuiContainer-maxWidthLg"
-        id="Shaker"
+        class="MuiContainer-root GnomePageContainer-root-3 MuiContainer-maxWidthLg"
+        id="Gnome"
       >
         <div
           class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14"
@@ -16,7 +16,7 @@ Object {
           <h2
             class="MuiTypography-root MuiTypography-h2"
           >
-            シェーカーソート
+            ノームソート
           </h2>
         </div>
         <div
@@ -465,8 +465,8 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="MuiContainer-root ShakerPageContainer-root-3 MuiContainer-maxWidthLg"
-      id="Shaker"
+      class="MuiContainer-root GnomePageContainer-root-3 MuiContainer-maxWidthLg"
+      id="Gnome"
     >
       <div
         class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14"
@@ -475,7 +475,7 @@ Object {
         <h2
           class="MuiTypography-root MuiTypography-h2"
         >
-          シェーカーソート
+          ノームソート
         </h2>
       </div>
       <div
