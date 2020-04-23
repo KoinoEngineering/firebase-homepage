@@ -43,15 +43,14 @@ Object {
                   class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
                   disabled=""
                   type="text"
-                  value="5"
+                  value="20"
                 />
                 <div
                   class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-marginDense"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root Mui-disabled Mui-disabled"
-                    disabled=""
-                    tabindex="-1"
+                    class="MuiButtonBase-root MuiIconButton-root"
+                    tabindex="0"
                     type="button"
                   >
                     <span
@@ -68,6 +67,9 @@ Object {
                         />
                       </svg>
                     </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
                   </button>
                   <button
                     class="MuiButtonBase-root MuiIconButton-root"
@@ -358,27 +360,102 @@ Object {
               <div
                 class="MuiGrid-root makeStyles-root-295 makeStyles-root-297"
               >
-                50
+                100
               </div>
               <div
                 class="MuiGrid-root makeStyles-root-295 makeStyles-root-299"
               >
-                40
+                95
               </div>
               <div
                 class="MuiGrid-root makeStyles-root-295 makeStyles-root-301"
               >
-                30
+                90
               </div>
               <div
                 class="MuiGrid-root makeStyles-root-295 makeStyles-root-303"
               >
-                20
+                85
               </div>
               <div
                 class="MuiGrid-root makeStyles-root-295 makeStyles-root-305"
               >
+                80
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-307"
+              >
+                75
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-309"
+              >
+                70
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-311"
+              >
+                65
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-313"
+              >
+                60
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-315"
+              >
+                55
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-317"
+              >
+                50
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-319"
+              >
+                45
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-321"
+              >
+                40
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-323"
+              >
+                35
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-325"
+              >
+                30
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-327"
+              >
+                25
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-329"
+              >
+                20
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-331"
+              >
+                15
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-333"
+              >
                 10
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-295 makeStyles-root-335"
+              >
+                5
               </div>
             </div>
           </div>
@@ -425,15 +502,14 @@ Object {
                 class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
                 disabled=""
                 type="text"
-                value="5"
+                value="20"
               />
               <div
                 class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-marginDense"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root Mui-disabled Mui-disabled"
-                  disabled=""
-                  tabindex="-1"
+                  class="MuiButtonBase-root MuiIconButton-root"
+                  tabindex="0"
                   type="button"
                 >
                   <span
@@ -450,6 +526,9 @@ Object {
                       />
                     </svg>
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
                 <button
                   class="MuiButtonBase-root MuiIconButton-root"
@@ -740,27 +819,102 @@ Object {
             <div
               class="MuiGrid-root makeStyles-root-295 makeStyles-root-297"
             >
-              50
+              100
             </div>
             <div
               class="MuiGrid-root makeStyles-root-295 makeStyles-root-299"
             >
-              40
+              95
             </div>
             <div
               class="MuiGrid-root makeStyles-root-295 makeStyles-root-301"
             >
-              30
+              90
             </div>
             <div
               class="MuiGrid-root makeStyles-root-295 makeStyles-root-303"
             >
-              20
+              85
             </div>
             <div
               class="MuiGrid-root makeStyles-root-295 makeStyles-root-305"
             >
+              80
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-307"
+            >
+              75
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-309"
+            >
+              70
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-311"
+            >
+              65
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-313"
+            >
+              60
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-315"
+            >
+              55
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-317"
+            >
+              50
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-319"
+            >
+              45
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-321"
+            >
+              40
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-323"
+            >
+              35
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-325"
+            >
+              30
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-327"
+            >
+              25
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-329"
+            >
+              20
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-331"
+            >
+              15
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-333"
+            >
               10
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root-295 makeStyles-root-335"
+            >
+              5
             </div>
           </div>
         </div>
