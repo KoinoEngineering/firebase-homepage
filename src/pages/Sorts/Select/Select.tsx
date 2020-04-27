@@ -12,6 +12,8 @@ import ReplaceSortContents from "../Parts/ReplaceSortContents";
 import SelectActionCreators from "./SelectActionCreators";
 import { SelectState } from "./SelectReducer";
 import SelectSetting from "./Parts/SelectSetting";
+import ROUTES from "src/utils/routes";
+import { NavLink } from "react-router-dom";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
@@ -26,12 +28,13 @@ const useSquareContainerStyle = makeStyles(createStyles({
 
 const Select: React.FC = () => {
     const dispatch = useDispatch();
-    const { contents: array, running, cursor } = useSelector<State, SelectState>(state => state.select);
+    const { contents: array, running, cursor, optionCursor } = useSelector<State, SelectState>(state => state.select);
     const actions = useMemo(() => bindActionCreators(SelectActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Select">
-        <GridRow id="ContentsArea">
-            <Typography variant="h2">選択ソート</Typography>
+        <GridRow id="TitleArea" spacing={2}>
+            <GridItem reset><Typography variant="h2">選択ソート</Typography></GridItem>
+            <GridItem reset justify="center" container direction="column" xs><NavLink to={ROUTES.SORTS}>戻る</NavLink></GridItem>
         </GridRow>
         <GridRow id="SettingArea" spacing={4}>
             <SelectSetting />
@@ -41,19 +44,19 @@ const Select: React.FC = () => {
                 <Typography variant="h3">リセット</Typography>
             </GridRow>
             <GridRow id="Reset" spacing={4}>
-                <GridItem xs={undefined} sm={undefined} md={undefined}>
+                <GridItem reset>
                     <MainButton
                         disabled={running}
                         onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
                     >昇順</MainButton>
                 </GridItem>
-                <GridItem xs={undefined} sm={undefined} md={undefined}>
+                <GridItem reset>
                     <MainButton
                         disabled={running}
                         onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
                     >降順</MainButton>
                 </GridItem>
-                <GridItem xs={undefined} sm={undefined} md={undefined}>
+                <GridItem reset>
                     <MainButton
                         disabled={running}
                         onClick={() => actions.changeValue({
@@ -76,7 +79,7 @@ const Select: React.FC = () => {
         </GridRow>
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
-                <ReplaceSortContents contents={array} running={running} cursor={cursor} />
+                <ReplaceSortContents contents={array} running={running} cursor={cursor} optionCursor={optionCursor} />
             </Grid>
         </GridRow>
     </PageContainer >;

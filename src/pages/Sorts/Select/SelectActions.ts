@@ -1,36 +1,39 @@
 import { Action } from "redux";
-import { SelectState } from "./SelectReducer";
 import { Payload } from "src/interfaces/Action";
+import { SelectState } from "./SelectReducer";
 
 export enum ActionType {
     CHANGE_VALUE = "firebase-homepage/sort/select/CHANGE_VALUE",
-    SET_RUNNING = "firebase-homepage/sort/select/SET_RUNNING",
     START = "firebase-homepage/sort/select/START",
     INIT = "firebase-homepage/sort/select/INIT",
-    STEP = "firebase-homepage/sort/select/STEP",
+    CHECK_STATUS = "firebase-homepage/sort/select/CHECK_STATUS",
+    CURSOR_NEXT = "firebase-homepage/sort/select/CURSOR_NEXT",
+    SET_OPTION = "firebase-homepage/sort/select/SET_OPTION",
     SWAP = "firebase-homepage/sort/select/SWAP",
+    PREV_END = "firebase-homepage/sort/select/PREV_END",
+    RESET_CURSOR = "firebase-homepage/sort/select/RESET_CURSOR",
     END = "firebase-homepage/sort/select/END",
 }
 
-interface ChangeValuePayload extends Partial<SelectState> { }
-interface SetRunningPayload extends Pick<SelectState, "running"> { }
-interface StartPayload extends Pick<SelectState, "running"> { running: true }
-interface SwapPayload { base: number }
-interface EndPayload extends Pick<SelectState, "running"> { running: false }
-
-export interface ChangeValueAction extends Action<ActionType.CHANGE_VALUE>, Payload<ChangeValuePayload> { }
-export interface SetRunningAction extends Action<ActionType.SET_RUNNING>, Payload<SetRunningPayload> { }
-export interface StartAction extends Action<ActionType.START>, Payload<StartPayload> { }
+export interface ChangeValueAction extends Action<ActionType.CHANGE_VALUE>, Payload<Partial<SelectState>> { }
+export interface StartAction extends Action<ActionType.START> { }
 export interface InitAction extends Action<ActionType.INIT> { }
-export interface StepAction extends Action<ActionType.STEP> { }
-export interface SwapAction extends Action<ActionType.SWAP>, Payload<SwapPayload> { }
-export interface EndAction extends Action<ActionType.END>, Payload<EndPayload> { }
+export interface CheckStatusAction extends Action<ActionType.CHECK_STATUS> { }
+export interface CursorNextAction extends Action<ActionType.CURSOR_NEXT> { }
+export interface SetOptionAction extends Action<ActionType.SET_OPTION> { }
+export interface SwapAction extends Action<ActionType.SWAP> { }
+export interface PrevEndAction extends Action<ActionType.PREV_END> { }
+export interface ResetCursorAction extends Action<ActionType.RESET_CURSOR> { }
+export interface EndAction extends Action<ActionType.END> { }
 
 export type SelectActions =
     ChangeValueAction |
-    SetRunningAction |
     StartAction |
     InitAction |
-    StepAction |
+    CheckStatusAction |
+    CursorNextAction |
+    SetOptionAction |
     SwapAction |
+    PrevEndAction |
+    ResetCursorAction |
     EndAction;

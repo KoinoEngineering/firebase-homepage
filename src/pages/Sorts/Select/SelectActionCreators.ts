@@ -1,11 +1,14 @@
-import { ActionType, ChangeValueAction, SetRunningAction, StartAction, InitAction, StepAction, EndAction, SwapAction } from "./SelectActions";
+import { StartAction, ActionType, InitAction, CheckStatusAction, CursorNextAction, SetOptionAction, SwapAction, ChangeValueAction, EndAction, PrevEndAction, ResetCursorAction } from "./SelectActions";
 
 export default {
     changeValue: (payload: ChangeValueAction["payload"]): ChangeValueAction => ({ type: ActionType.CHANGE_VALUE, payload }),
-    setRunning: (running: SetRunningAction["payload"]["running"]): SetRunningAction => ({ type: ActionType.SET_RUNNING, payload: { running } }),
-    start: (): StartAction => ({ type: ActionType.START, payload: { running: true } }),
+    start: (): StartAction => ({ type: ActionType.START }),
     init: (): InitAction => ({ type: ActionType.INIT }),
-    step: (): StepAction => ({ type: ActionType.STEP }),
-    swap: (base: SwapAction["payload"]["base"]): SwapAction => ({ type: ActionType.SWAP, payload: { base } }),
-    end: (): EndAction => ({ type: ActionType.END, payload: { running: false } }),
+    checkStatus: (): CheckStatusAction => ({ type: ActionType.CHECK_STATUS }),
+    cursorNext: (): CursorNextAction => ({ type: ActionType.CURSOR_NEXT }),
+    setOption: (): SetOptionAction => ({ type: ActionType.SET_OPTION }),
+    swap: (): SwapAction => ({ type: ActionType.SWAP }),
+    prevEnd: (): PrevEndAction => ({ type: ActionType.PREV_END }),
+    resetCurosr: (): ResetCursorAction => ({ type: ActionType.RESET_CURSOR }),
+    end: (): EndAction => ({ type: ActionType.END }),
 };

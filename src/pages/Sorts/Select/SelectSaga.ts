@@ -1,55 +1,79 @@
-import { delay, put, select, takeEvery, takeLeading } from "redux-saga/effects";
-import { State } from "src/interfaces/State";
 import SelectActionCreators from "./SelectActionCreators";
 import { ActionType } from "./SelectActions";
-import { ORDER } from "./SelectConstants";
+import { takeEvery, put, select, delay } from "redux-saga/effects";
+import { State } from "src/interfaces/State";
 import { SelectState } from "./SelectReducer";
-import { ReplaceSortElement } from "../Parts/ReplaceSortContents";
+import { ORDER } from "../SortConstants";
 
 const selectSaga = function* () {
-    yield takeLeading(ActionType.START, startSaga);
+    yield takeEvery(ActionType.START, startSaga);
     yield takeEvery(ActionType.INIT, initSaga);
-    yield takeEvery(ActionType.STEP, stepSaga);
+    yield takeEvery(ActionType.CHECK_STATUS, checkStatusSaga);
+    yield takeEvery(ActionType.CURSOR_NEXT, cursorNextSaga);
+    yield takeEvery(ActionType.SET_OPTION, setOptionSaga);
+    yield takeEvery(ActionType.SWAP, swapSaga);
+    yield takeEvery(ActionType.PREV_END, prevEndSaga);
+    yield takeEvery(ActionType.RESET_CURSOR, resetCursorSaga);
 };
 
 export default selectSaga;
 
-// 開始のフラグを立てたので初期化する
 const startSaga = function* () {
     yield put(SelectActionCreators.init());
 };
 
-// 初期化ができたので再帰処理に入る
 const initSaga = function* () {
-    yield put(SelectActionCreators.step());
+    yield put(SelectActionCreators.checkStatus());
 };
-// ループの視点カーソルをチェックして振り分けをする
-const stepSaga = function* () {
-    const { cursor: i, cursorEnd: e, contents: array, order, delay: d } = (yield select<(s: State) => SelectState>(state => state.select)) as Readonly<SelectState>;
-    const orderFunc = (e1: ReplaceSortElement, e2: ReplaceSortElement) => order === ORDER.ASC ? e1.value > e2.value : e1.value < e2.value;
+
+// PREV_END = "firebase-homepage/sort/select/PREV_END",
+// END = "firebase-homepage/sort/select/END",
+
+const isOptionUpdate = function* () {
+    const { order, optionCursor = 0, cursor, contents } = (yield select<(state: State) => SelectState>(state => state.select)) as Readonly<SelectState>;
+    return order === ORDER.ASC
+        ? contents[optionCursor].value <= contents[cursor].value
+        : contents[optionCursor].value >= contents[cursor].value;
+};
+
+const checkStatusSaga = function* () {
+    const { cursor: i, cursorEnd: e, delay: d } = (yield select<(state: State) => SelectState>(state => state.select)) as Readonly<SelectState>;
+
     if (e < 0) {
-        // cursorEndが0になっていれば終わる
+        // 終わっている場合
         yield delay(500);
-        yield (put(SelectActionCreators.end()));
-    } else {
-        // カーソルの判定
-        if (i < e) {
-            // 終わっていなければswap判定をする
-            if (orderFunc(array[i], array[i + 1])) {
-                yield (put(SelectActionCreators.swap(i)));
-            }
-            // カーソルをずらす
-            yield (put(SelectActionCreators.changeValue({ cursor: i + 1 })));
-        } else {
-            // カーソルがeまで進んでいる場合はeを左にずらしiは初期化一番後ろをfixed
-            yield (put(SelectActionCreators.changeValue({
-                contents: array.map((item, idx) => idx === e ? { ...item, fixed: true } : item),
-                cursor: 0,
-                cursorEnd: e - 1
-            })));
-        }
+        yield put(SelectActionCreators.end());
+    } else if (i <= e) {
         yield delay(d);
-        // 次のステップへ
-        yield (put(SelectActionCreators.step()));
+        // 進行中
+        if (yield isOptionUpdate()) {
+            yield put(SelectActionCreators.setOption());
+        } else {
+            yield put(SelectActionCreators.cursorNext());
+        }
+    } else {
+        // 最後まで検索した
+        yield delay(d);
+        yield put(SelectActionCreators.swap());
     }
+};
+
+const cursorNextSaga = function* () {
+    yield put(SelectActionCreators.checkStatus());
+};
+
+const setOptionSaga = function* () {
+    yield put(SelectActionCreators.cursorNext());
+};
+
+const swapSaga = function* () {
+    yield put(SelectActionCreators.prevEnd());
+};
+
+const prevEndSaga = function* () {
+    yield put(SelectActionCreators.resetCurosr());
+};
+
+const resetCursorSaga = function* () {
+    yield put(SelectActionCreators.checkStatus());
 };

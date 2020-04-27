@@ -1,8 +1,8 @@
 import { Reducer } from "redux";
 import { v4 as uuidv4 } from "uuid";
-import { ActionType, SelectActions, SwapAction } from "./SelectActions";
+import { ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
+import { ActionType, SelectActions } from "./SelectActions";
 import { ORDER } from "./SelectConstants";
-import { ReplaceSortContents, ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
 
 export const MIN_ELEMENT_COUNT = 5;
 export const MAX_ELEMENT_COUNT = 100;
@@ -17,6 +17,7 @@ const initialState = (): SelectState => ({
         };
     }),
     cursor: 0,
+    optionCursor: 0,
     cursorEnd: 0,
     delay: 0
 });
@@ -24,24 +25,60 @@ const initialState = (): SelectState => ({
 const select: Reducer<SelectState, SelectActions> = (state = initialState(), action) => {
     switch (action.type) {
         case ActionType.CHANGE_VALUE:
-        case ActionType.SET_RUNNING:
-        case ActionType.START:
             return {
                 ...state,
                 ...action.payload
             };
-        case ActionType.END:
+        case ActionType.START:
             return {
                 ...state,
-                ...action.payload,
-                contents: state.contents.map(i => ({ ...i, fixed: false }))
+                running: true,
             };
         case ActionType.INIT:
             return init(state);
-        case ActionType.SWAP:
+        case ActionType.CURSOR_NEXT:
             return {
                 ...state,
-                contents: swap(state.contents, action.payload.base)
+                cursor: state.cursor + 1,
+            };
+        case ActionType.SET_OPTION:
+            return {
+                ...state,
+                optionCursor: state.cursor
+            };
+        case ActionType.SWAP:
+            if (state.optionCursor === undefined) {
+                throw Error("state.optionCursor is undefined");
+            }
+            return {
+                ...state,
+                contents: state.contents
+                    .map((item, i) => {
+                        if (i === state.cursorEnd) {
+                            return { ...state.contents[state.optionCursor], fixed: true };
+                        } else if (i === state.optionCursor) {
+                            return state.contents[state.cursorEnd];
+                        } else {
+                            return item;
+                        }
+                    })
+            };
+        case ActionType.PREV_END:
+            return {
+                ...state,
+                cursorEnd: state.cursorEnd - 1
+            };
+        case ActionType.RESET_CURSOR:
+            return {
+                ...state,
+                cursor: 0,
+                optionCursor: 0
+            };
+        case ActionType.END:
+            return {
+                ...state,
+                running: false,
+                contents: state.contents.map(i => ({ ...i, fixed: false }))
             };
         default:
             return state;
@@ -51,26 +88,16 @@ const select: Reducer<SelectState, SelectActions> = (state = initialState(), act
 export default select;
 
 export interface SelectState extends ReplaceSortContentsState {
+    optionCursor: number;
     order: ORDER;
     cursorEnd: number;
     delay: number;
 }
 
-const init = (state: SelectState): SelectState => {
-    return {
-        ...state,
-        contents: state.contents.map(item => ({ ...item, id: uuidv4(), fixed: false })),
-        cursor: 0,
-        cursorEnd: state.contents.length - 1
-    };
-};
-
-const swap = (array: ReplaceSortContents, base: SwapAction["payload"]["base"]): ReplaceSortContents => array.map((item, idx, _this) => {
-    if (idx === base) {
-        return _this[base + 1];
-    } else if (idx === base + 1) {
-        return _this[base];
-    } else {
-        return item;
-    }
+const init = (state: SelectState): SelectState => ({
+    ...state,
+    cursor: 0,
+    cursorEnd: state.contents.length - 1,
+    optionCursor: 0,
+    contents: state.contents.map(i => ({ ...i, fixed: false }))
 });

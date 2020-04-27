@@ -42,11 +42,13 @@ const useElementStyle = makeStyles<typeof Theme, ElementStyleProps>({
         justifyContent: "center",
         alignItems: "center",
         display: "flex",
-        backgroundColor: props => props.active
-            ? "#FF0000"
-            : props.option
-                ? "#0000FF"
-                : `hsl(${props.heightRate * 360}, ${props.fixed ? "40%" : "80%"}, ${props.fixed ? "40%" : "80%"})`
+        backgroundColor: props => props.fixed
+            ? `hsl(${props.heightRate * 360}, 40%, 40%)`
+            : props.active
+                ? "#FF0000"
+                : props.option
+                    ? "#0000FF"
+                    : `hsl(${props.heightRate * 360}, 80%, 80%)`
     }
 });
 
