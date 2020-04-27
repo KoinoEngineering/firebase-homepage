@@ -10,14 +10,27 @@ Object {
         id="Bubble"
       >
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14"
-          id="ContentsArea"
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14 MuiGrid-spacing-xs-2"
+          id="TitleArea"
         >
-          <h2
-            class="MuiTypography-root MuiTypography-h2"
+          <div
+            class="MuiGrid-root MuiGrid-item"
           >
-            バブルソート
-          </h2>
+            <h2
+              class="MuiTypography-root MuiTypography-h2"
+            >
+              バブルソート
+            </h2>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-justify-xs-center MuiGrid-grid-xs-true"
+          >
+            <a
+              href="/sorts"
+            >
+              戻る
+            </a>
+          </div>
         </div>
         <div
           class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-149 MuiGrid-spacing-xs-4"
@@ -469,14 +482,27 @@ Object {
       id="Bubble"
     >
       <div
-        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14"
-        id="ContentsArea"
+        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14 MuiGrid-spacing-xs-2"
+        id="TitleArea"
       >
-        <h2
-          class="MuiTypography-root MuiTypography-h2"
+        <div
+          class="MuiGrid-root MuiGrid-item"
         >
-          バブルソート
-        </h2>
+          <h2
+            class="MuiTypography-root MuiTypography-h2"
+          >
+            バブルソート
+          </h2>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-justify-xs-center MuiGrid-grid-xs-true"
+        >
+          <a
+            href="/sorts"
+          >
+            戻る
+          </a>
+        </div>
       </div>
       <div
         class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-149 MuiGrid-spacing-xs-4"
