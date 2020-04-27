@@ -1,17 +1,19 @@
 import { createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import MainButton from "src/components/atoms/MainButton";
 import { GridItem } from "src/components/templates/GridItem";
 import { GridRow } from "src/components/templates/GridRow/GridRow";
 import PageContainer from "src/components/templates/Page/PageContainer";
 import { State } from "src/interfaces/State";
+import ROUTES from "src/utils/routes";
 import { v4 as uuidv4 } from "uuid";
+import ReplaceSortContents from "../Parts/ReplaceSortContents";
+import ShakerSetting from "./Parts/ShakerSetting";
 import ShakerActionCreators from "./ShakerActionCreators";
 import { ShakerState } from "./ShakerReducer";
-import ShakerSetting from "./Parts/ShakerSetting";
-import ReplaceSortContents from "../Parts/ReplaceSortContents";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
@@ -30,8 +32,9 @@ const Shaker: React.FC = () => {
     const actions = useMemo(() => bindActionCreators(ShakerActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Shaker">
-        <GridRow id="ContentsArea">
-            <Typography variant="h2">シェーカーソート</Typography>
+        <GridRow id="TitleArea" spacing={2}>
+            <GridItem reset><Typography variant="h2">シェーカーソート</Typography></GridItem>
+            <GridItem reset justify="center" container direction="column" xs><NavLink to={ROUTES.SORTS}>戻る</NavLink></GridItem>
         </GridRow>
         <GridRow id="SettingArea" spacing={4}>
             <ShakerSetting />

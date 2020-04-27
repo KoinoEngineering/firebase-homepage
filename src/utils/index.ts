@@ -1,13 +1,13 @@
 const utils = {
-    max: <T, A = unknown>(array: T[], getter: (item: T) => A): A => {
+    max: <T, A = unknown>(array: T[], selector: (item: T) => A): A => {
         return array.reduce((ans, item) => {
             if (ans !== null) {
-                const current = getter(item);
+                const current = selector(item);
                 return current > ans ? current : ans;
             } else {
-                return getter(item);
+                return selector(item);
             }
-        }, getter(array[0]));
+        }, selector(array[0]));
     }
 };
 

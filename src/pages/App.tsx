@@ -10,6 +10,7 @@ import Top from "./Top";
 import Bubble from "./Sorts/Bubble/Bubble";
 import Shaker from "./Sorts/Shaker/Shaker";
 import Gnome from "./Sorts/Gnome/Gnome";
+import Select from "./Sorts/Select/Select";
 
 const useStyles = makeStyles(
     createStyles({
@@ -37,6 +38,9 @@ const App: React.FC = () => {
                     </PublicRoute>
                     <PublicRoute exact path={ROUTES.SORTS_GNOME}>
                         <Gnome />
+                    </PublicRoute>
+                    <PublicRoute exact path={ROUTES.SORTS_SELECT}>
+                        <Select />
                     </PublicRoute>
                     <Redirect exact from="*" to={ROUTES.TOP} />
                 </Switch>

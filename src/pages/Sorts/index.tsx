@@ -63,7 +63,7 @@ export const SORTS_TITLE_MAP: SortTitleMap = {
     [ROUTES.SORTS_BUBBLE]: { title: "バブルソート", exist: true },
     [ROUTES.SORTS_SHAKER]: { title: "シェーカーソート", exist: true },
     [ROUTES.SORTS_GNOME]: { title: "ノームソート", exist: true },
-    [ROUTES.SORTS_SELECT]: { title: "選択ソート" },
+    [ROUTES.SORTS_SELECT]: { title: "選択ソート", exist: true },
     [ROUTES.SORTS_INSERT]: { title: "挿入ソート" },
     [ROUTES.SORTS_BACKET]: { title: "バケットソート" },
     [ROUTES.SORTS_MARGE]: { title: "マージソート" },

@@ -1,7 +1,7 @@
 import { routerMiddleware } from "connected-react-router";
 import { createBrowserHistory } from "history";
 import { applyMiddleware, createStore, Middleware } from "redux";
-import { logger } from "redux-logger";
+import { createLogger } from "redux-logger";
 import createSagaMiddleware from "redux-saga";
 import createRootReducer from "src/reducers";
 import rootSaga from "src/sagas";
@@ -18,7 +18,11 @@ interface Saga {
 const sagas: Saga[] = [
     { saga: routerMiddleware(history) },
     { saga: sagaMiddleware },
-    { saga: logger, env: ["development", "test"] },
+    {
+        saga: createLogger({
+            collapsed: true
+        }), env: ["development", "test"]
+    },
 ];
 
 const configureStore = () => {

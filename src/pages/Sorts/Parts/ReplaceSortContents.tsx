@@ -9,6 +9,7 @@ interface ReplaceSortContentsProps<E extends ReplaceSortElement = ReplaceSortEle
     contents: ReplaceSortContents<E>;
     running: boolean;
     cursor: number;
+    optionCursor?: number;
 }
 
 export type ReplaceSortContentsState = ReplaceSortContentsProps;
@@ -41,11 +42,17 @@ const useElementStyle = makeStyles<typeof Theme, ElementStyleProps>({
         justifyContent: "center",
         alignItems: "center",
         display: "flex",
-        backgroundColor: props => props.active ? "#FF0000" : `hsl(${props.heightRate * 360}, ${props.fixed ? "40%" : "80%"}, ${props.fixed ? "40%" : "80%"})`
+        backgroundColor: props => props.fixed
+            ? `hsl(${props.heightRate * 360}, 40%, 40%)`
+            : props.active
+                ? "#FF0000"
+                : props.option
+                    ? "#0000FF"
+                    : `hsl(${props.heightRate * 360}, 80%, 80%)`
     }
 });
 
-const ReplaceSortContents: React.FC<ReplaceSortContentsProps> = ({ contents, cursor, running }) => {
+const ReplaceSortContents: React.FC<ReplaceSortContentsProps> = ({ contents, cursor, running, optionCursor }) => {
 
     const classes = useStyles();
     const maxValue = utils.max(contents, element => element.value);
@@ -58,6 +65,7 @@ const ReplaceSortContents: React.FC<ReplaceSortContentsProps> = ({ contents, cur
                     element={element}
                     maxValue={maxValue}
                     active={running && idx === cursor}
+                    option={running && idx === optionCursor}
                 />;
             })
         }
@@ -70,14 +78,16 @@ interface ReplaceSortElementProps extends Exclude<Propsof<typeof Grid>, "classes
     element: ReplaceSortElement;
     maxValue: ReplaceSortElement["value"];
     active: boolean;
+    option?: boolean;
 }
 
-const ReplaceSortElement: React.FC<ReplaceSortElementProps> = ({ elementsCount, element, maxValue, active, ...props }) => {
+const ReplaceSortElement: React.FC<ReplaceSortElementProps> = ({ elementsCount, element, maxValue, active, option, ...props }) => {
     const elementClasses = useElementStyle({
         widthRate: 1 / elementsCount,
         heightRate: element.value / maxValue,
         fixed: element.fixed,
         active,
+        option
     });
     return <Grid {...props} classes={elementClasses}>
         {element.value}

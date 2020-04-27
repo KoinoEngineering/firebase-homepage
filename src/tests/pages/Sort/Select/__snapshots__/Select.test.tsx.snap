@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Bubble expect to match snapshot 1`] = `
+exports[`undefined expect to match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="MuiContainer-root BubblePageContainer-root-3 MuiContainer-maxWidthLg"
-        id="Bubble"
+        class="MuiContainer-root SelectPageContainer-root-3 MuiContainer-maxWidthLg"
+        id="Select"
       >
         <div
           class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14 MuiGrid-spacing-xs-2"
@@ -19,7 +19,7 @@ Object {
             <h2
               class="MuiTypography-root MuiTypography-h2"
             >
-              バブルソート
+              選択ソート
             </h2>
           </div>
           <div
@@ -478,8 +478,8 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="MuiContainer-root BubblePageContainer-root-3 MuiContainer-maxWidthLg"
-      id="Bubble"
+      class="MuiContainer-root SelectPageContainer-root-3 MuiContainer-maxWidthLg"
+      id="Select"
     >
       <div
         class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14 MuiGrid-spacing-xs-2"
@@ -491,7 +491,7 @@ Object {
           <h2
             class="MuiTypography-root MuiTypography-h2"
           >
-            バブルソート
+            選択ソート
           </h2>
         </div>
         <div
