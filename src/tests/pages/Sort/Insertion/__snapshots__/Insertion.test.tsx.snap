@@ -1,0 +1,1210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Insertion expect to match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="MuiContainer-root InsertionPageContainer-root-3 MuiContainer-maxWidthLg"
+        id="Insertion"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14 MuiGrid-spacing-xs-2"
+          id="TitleArea"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h2"
+            >
+              挿入ソート
+            </h2>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-justify-xs-center MuiGrid-grid-xs-true"
+          >
+            <a
+              href="/sorts"
+            >
+              戻る
+            </a>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-149 MuiGrid-spacing-xs-4"
+          id="SettingArea"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled"
+                data-shrink="true"
+              >
+                要素数
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+                  disabled=""
+                  type="text"
+                  value="20"
+                />
+                <div
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-marginDense"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M4 12c0 .55.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1 .45-1 1zm15 6h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M9 7c-.55 0-1 .45-1 1v3H5c-.55 0-1 .45-1 1s.45 1 1 1h3v3c0 .55.45 1 1 1s1-.45 1-1v-3h3c.55 0 1-.45 1-1s-.45-1-1-1h-3V8c0-.55-.45-1-1-1zm11 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                  >
+                    <span>
+                      要素数
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+          >
+            <div
+              class="MuiFormControl-root MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root makeStyles-root-240 MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+                data-shrink="true"
+              >
+                向き
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+              >
+                <div
+                  aria-haspopup="listbox"
+                  class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+                  role="button"
+                  tabindex="0"
+                >
+                  昇順
+                </div>
+                <input
+                  type="hidden"
+                  value="asc"
+                />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                  >
+                    <span>
+                      向き
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled"
+                data-shrink="true"
+              >
+                処理間隔
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+                  disabled=""
+                  type="text"
+                  value="0"
+                />
+                <div
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-marginDense"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root Mui-disabled Mui-disabled"
+                    disabled=""
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M4 12c0 .55.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1 .45-1 1zm15 6h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M9 7c-.55 0-1 .45-1 1v3H5c-.55 0-1 .45-1 1s.45 1 1 1h3v3c0 .55.45 1 1 1s1-.45 1-1v-3h3c.55 0 1-.45 1-1s-.45-1-1-1h-3V8c0-.55-.45-1-1-1zm11 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                  >
+                    <span>
+                      処理間隔
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+          >
+            <label
+              class="MuiFormControlLabel-root"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-267 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-268 Mui-checked MuiIconButton-colorPrimary"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <input
+                    checked=""
+                    class="PrivateSwitchBase-input-270"
+                    data-indeterminate="false"
+                    type="checkbox"
+                    value=""
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </span>
+              <span
+                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+              >
+                アニメーション(試験導入)
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-272"
+          id="ControlArea"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-274"
+            id="Reset"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-h3"
+            >
+              リセット
+            </h3>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-276 MuiGrid-spacing-xs-4"
+            id="Reset"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  昇順
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  降順
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  ランダム
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-307"
+            id="ControlArea"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  開始
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-309"
+          id="ContentsArea"
+        >
+          <div
+            class="MuiGrid-root makeStyles-root-1 MuiGrid-container"
+            id="SquareContainer"
+          >
+            <div>
+              <div
+                class="MuiGrid-root makeStyles-root-310 MuiGrid-container MuiGrid-direction-xs-row-reverse MuiGrid-align-items-xs-flex-end"
+                id="ReplaceSortContentsFlipper"
+              >
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-313"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="d1277bdb-b806-40e1-9b2e-b2127e3ddc1e"
+                  data-portal-key="portal"
+                >
+                  5
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-315"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="c62af0b1-1193-4fac-a68a-22f7c4b787f2"
+                  data-portal-key="portal"
+                >
+                  10
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-317"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="c56ce2a1-b4a3-4d1e-b728-d4e0d17a4b5b"
+                  data-portal-key="portal"
+                >
+                  15
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-319"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="5bb8b068-1498-49b0-8db4-95a33fbaf278"
+                  data-portal-key="portal"
+                >
+                  20
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-321"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="1c23d175-ebea-4ad6-bafe-82e8d00b211e"
+                  data-portal-key="portal"
+                >
+                  25
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-323"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="d202ec69-0aeb-4124-a7ec-7981873d7423"
+                  data-portal-key="portal"
+                >
+                  30
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-325"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="6192c18c-aac3-42ac-a51b-a297a344c7e5"
+                  data-portal-key="portal"
+                >
+                  35
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-327"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="1016fef2-c798-45fd-9698-c132fef9f160"
+                  data-portal-key="portal"
+                >
+                  40
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-329"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="379d899d-8ca9-4433-90c8-60b2286c9c35"
+                  data-portal-key="portal"
+                >
+                  45
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-331"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="437c1465-ba0e-48ca-8c7b-7336aa3ad8ab"
+                  data-portal-key="portal"
+                >
+                  50
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-333"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="ec5ef9b9-ba43-46ea-9051-bab671f59bb2"
+                  data-portal-key="portal"
+                >
+                  55
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-335"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="45a068fb-6e46-4fbb-97c5-f8c3e39a2f9e"
+                  data-portal-key="portal"
+                >
+                  60
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-337"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="ce57e30e-cbe1-45c1-a1cd-aa00cdf4ab5b"
+                  data-portal-key="portal"
+                >
+                  65
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-339"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="408396b8-54ff-499a-adda-e9dd66945402"
+                  data-portal-key="portal"
+                >
+                  70
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-341"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="f9e88792-fac3-470b-9dfb-c77cf9de63f9"
+                  data-portal-key="portal"
+                >
+                  75
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-343"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="e7191720-2bc4-4d23-9433-55541c787760"
+                  data-portal-key="portal"
+                >
+                  80
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-345"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="fde637f3-b4a7-427d-8e0f-06de49363692"
+                  data-portal-key="portal"
+                >
+                  85
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-347"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="949d4fab-031b-4b98-9873-1dff43b74dd1"
+                  data-portal-key="portal"
+                >
+                  90
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-349"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="110bd171-ad77-43c6-acf8-e3078b675199"
+                  data-portal-key="portal"
+                >
+                  95
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-351"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="281e4125-16ed-4306-816d-c7e6d375482a"
+                  data-portal-key="portal"
+                >
+                  100
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="MuiContainer-root InsertionPageContainer-root-3 MuiContainer-maxWidthLg"
+      id="Insertion"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14 MuiGrid-spacing-xs-2"
+        id="TitleArea"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h2"
+          >
+            挿入ソート
+          </h2>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-justify-xs-center MuiGrid-grid-xs-true"
+        >
+          <a
+            href="/sorts"
+          >
+            戻る
+          </a>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-149 MuiGrid-spacing-xs-4"
+        id="SettingArea"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled"
+              data-shrink="true"
+            >
+              要素数
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+                disabled=""
+                type="text"
+                value="20"
+              />
+              <div
+                class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-marginDense"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M4 12c0 .55.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1 .45-1 1zm15 6h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9 7c-.55 0-1 .45-1 1v3H5c-.55 0-1 .45-1 1s.45 1 1 1h3v3c0 .55.45 1 1 1s1-.45 1-1v-3h3c.55 0 1-.45 1-1s-.45-1-1-1h-3V8c0-.55-.45-1-1-1zm11 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                >
+                  <span>
+                    要素数
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+        >
+          <div
+            class="MuiFormControl-root MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root makeStyles-root-240 MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+              data-shrink="true"
+            >
+              向き
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+            >
+              <div
+                aria-haspopup="listbox"
+                class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+                role="button"
+                tabindex="0"
+              >
+                昇順
+              </div>
+              <input
+                type="hidden"
+                value="asc"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                >
+                  <span>
+                    向き
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled"
+              data-shrink="true"
+            >
+              処理間隔
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+                disabled=""
+                type="text"
+                value="0"
+              />
+              <div
+                class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-marginDense"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root Mui-disabled Mui-disabled"
+                  disabled=""
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M4 12c0 .55.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1 .45-1 1zm15 6h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9 7c-.55 0-1 .45-1 1v3H5c-.55 0-1 .45-1 1s.45 1 1 1h3v3c0 .55.45 1 1 1s1-.45 1-1v-3h3c.55 0 1-.45 1-1s-.45-1-1-1h-3V8c0-.55-.45-1-1-1zm11 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                >
+                  <span>
+                    処理間隔
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+        >
+          <label
+            class="MuiFormControlLabel-root"
+          >
+            <span
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-267 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-268 Mui-checked MuiIconButton-colorPrimary"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <input
+                  checked=""
+                  class="PrivateSwitchBase-input-270"
+                  data-indeterminate="false"
+                  type="checkbox"
+                  value=""
+                />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </span>
+            <span
+              class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+            >
+              アニメーション(試験導入)
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-272"
+        id="ControlArea"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-274"
+          id="Reset"
+        >
+          <h3
+            class="MuiTypography-root MuiTypography-h3"
+          >
+            リセット
+          </h3>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-276 MuiGrid-spacing-xs-4"
+          id="Reset"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                昇順
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                降順
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                ランダム
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-307"
+          id="ControlArea"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                開始
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-309"
+        id="ContentsArea"
+      >
+        <div
+          class="MuiGrid-root makeStyles-root-1 MuiGrid-container"
+          id="SquareContainer"
+        >
+          <div>
+            <div
+              class="MuiGrid-root makeStyles-root-310 MuiGrid-container MuiGrid-direction-xs-row-reverse MuiGrid-align-items-xs-flex-end"
+              id="ReplaceSortContentsFlipper"
+            >
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-313"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="d1277bdb-b806-40e1-9b2e-b2127e3ddc1e"
+                data-portal-key="portal"
+              >
+                5
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-315"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="c62af0b1-1193-4fac-a68a-22f7c4b787f2"
+                data-portal-key="portal"
+              >
+                10
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-317"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="c56ce2a1-b4a3-4d1e-b728-d4e0d17a4b5b"
+                data-portal-key="portal"
+              >
+                15
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-319"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="5bb8b068-1498-49b0-8db4-95a33fbaf278"
+                data-portal-key="portal"
+              >
+                20
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-321"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="1c23d175-ebea-4ad6-bafe-82e8d00b211e"
+                data-portal-key="portal"
+              >
+                25
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-323"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="d202ec69-0aeb-4124-a7ec-7981873d7423"
+                data-portal-key="portal"
+              >
+                30
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-325"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="6192c18c-aac3-42ac-a51b-a297a344c7e5"
+                data-portal-key="portal"
+              >
+                35
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-327"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="1016fef2-c798-45fd-9698-c132fef9f160"
+                data-portal-key="portal"
+              >
+                40
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-329"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="379d899d-8ca9-4433-90c8-60b2286c9c35"
+                data-portal-key="portal"
+              >
+                45
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-331"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="437c1465-ba0e-48ca-8c7b-7336aa3ad8ab"
+                data-portal-key="portal"
+              >
+                50
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-333"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="ec5ef9b9-ba43-46ea-9051-bab671f59bb2"
+                data-portal-key="portal"
+              >
+                55
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-335"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="45a068fb-6e46-4fbb-97c5-f8c3e39a2f9e"
+                data-portal-key="portal"
+              >
+                60
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-337"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="ce57e30e-cbe1-45c1-a1cd-aa00cdf4ab5b"
+                data-portal-key="portal"
+              >
+                65
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-339"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="408396b8-54ff-499a-adda-e9dd66945402"
+                data-portal-key="portal"
+              >
+                70
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-341"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="f9e88792-fac3-470b-9dfb-c77cf9de63f9"
+                data-portal-key="portal"
+              >
+                75
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-343"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="e7191720-2bc4-4d23-9433-55541c787760"
+                data-portal-key="portal"
+              >
+                80
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-345"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="fde637f3-b4a7-427d-8e0f-06de49363692"
+                data-portal-key="portal"
+              >
+                85
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-347"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="949d4fab-031b-4b98-9873-1dff43b74dd1"
+                data-portal-key="portal"
+              >
+                90
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-349"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="110bd171-ad77-43c6-acf8-e3078b675199"
+                data-portal-key="portal"
+              >
+                95
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-351"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="281e4125-16ed-4306-816d-c7e6d375482a"
+                data-portal-key="portal"
+              >
+                100
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
