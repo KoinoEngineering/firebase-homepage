@@ -13,7 +13,7 @@ import { InsertionState, MAX_ELEMENT_COUNT, MIN_ELEMENT_COUNT } from "../Inserti
 
 const InsertionSetting: React.FC = () => {
 
-    const { contents, running, order, delay, animated } = useSelector<State, InsertionState>(state => state.insertion);
+    const { contents, running, order, delay, animated, sorted } = useSelector<State, InsertionState>(state => state.insertion);
     const dispatch = useDispatch();
     const actions = useMemo(() => {
         return bindActionCreators(InsertionActionCreators, dispatch);
@@ -23,7 +23,7 @@ const InsertionSetting: React.FC = () => {
         <GridItem>
             <TextField
                 fullWidth
-                value={contents.length}
+                value={contents.length + sorted.length}
                 disabled
                 variant="outlined"
                 label="要素数"
