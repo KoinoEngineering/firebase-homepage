@@ -1,6 +1,6 @@
 import { Reducer } from "redux";
 import { v4 as uuidv4 } from "uuid";
-import { ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
+import { ReplaceSortContentsState, ReplaceSortElement } from "../Parts/ReplaceSortContents";
 import { ActionType, InsertionActions } from "./InsertionActions";
 import { ORDER } from "./InsertionConstants";
 
@@ -19,7 +19,8 @@ const initialState = (): InsertionState => ({
     cursor: 0,
     optionCursor: 0,
     sorted: [],
-    delay: 0
+    delay: 0,
+    animated: false,
 });
 
 const insertion: Reducer<InsertionState, InsertionActions> = (state = initialState(), action) => {
@@ -36,35 +37,14 @@ const insertion: Reducer<InsertionState, InsertionActions> = (state = initialSta
             };
         case ActionType.INIT:
             return init(state);
-        case ActionType.CURSOR_NEXT:
-            return {
-                ...state,
-                cursor: state.cursor + 1,
-            };
-        case ActionType.SET_OPTION:
-            return {
-                ...state,
-                optionCursor: state.cursor
-            };
-        case ActionType.SWAP:
-            return {
-                ...state,
-            };
-        case ActionType.PREV_END:
-            return {
-                ...state,
-            };
-        case ActionType.RESET_CURSOR:
-            return {
-                ...state,
-                cursor: 0,
-                optionCursor: 0
-            };
+        case ActionType.INSERTION:
+            return insertionAction(state);
         case ActionType.END:
             return {
                 ...state,
                 running: false,
-                contents: state.contents.map(i => ({ ...i, fixed: false }))
+                sorted: [],
+                contents: state.sorted.map(i => ({ ...i, fixed: false }))
             };
         default:
             return state;
@@ -77,6 +57,7 @@ export interface InsertionState extends ReplaceSortContentsState {
     sorted: ReplaceSortContentsState["contents"];
     order: ORDER;
     delay: number;
+    animated: boolean;
 }
 
 const init = (state: InsertionState): InsertionState => ({
@@ -86,3 +67,16 @@ const init = (state: InsertionState): InsertionState => ({
     optionCursor: 0,
     contents: state.contents.map(i => ({ ...i, fixed: false }))
 });
+
+const insertionAction = (state: InsertionState): InsertionState => {
+    const { contents, order, sorted } = state;
+    const filterFunc = (i: ReplaceSortElement): boolean =>
+        order === ORDER.ASC
+            ? i.value <= contents[0].value
+            : i.value >= contents[0].value;
+    return {
+        ...state,
+        contents: contents.filter((_, i) => i !== 0),
+        sorted: sorted.filter(filterFunc).concat({ ...contents[0], fixed: true }, sorted.filter(i => !filterFunc(i))),
+    };
+};

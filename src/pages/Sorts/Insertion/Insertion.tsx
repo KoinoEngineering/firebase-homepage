@@ -1,19 +1,20 @@
 import { createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import MainButton from "src/components/atoms/MainButton";
 import { GridItem } from "src/components/templates/GridItem";
 import { GridRow } from "src/components/templates/GridRow/GridRow";
 import PageContainer from "src/components/templates/Page/PageContainer";
 import { State } from "src/interfaces/State";
+import ROUTES from "src/utils/routes";
 import { v4 as uuidv4 } from "uuid";
-import ReplaceSortContents from "../Parts/ReplaceSortContents";
+import ReplaceSortContentsFlipper from "../Parts/ReplaceSortContentsFlipper";
 import InsertionActionCreators from "./InsertionActionCreators";
 import { InsertionState } from "./InsertionReducer";
 import InsertionSetting from "./Parts/InsertionSetting";
-import ROUTES from "src/utils/routes";
-import { NavLink } from "react-router-dom";
+import ReplaceSortContents from "../Parts/ReplaceSortContents";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
@@ -28,12 +29,13 @@ const useSquareContainerStyle = makeStyles(createStyles({
 
 const Insertion: React.FC = () => {
     const dispatch = useDispatch();
-    const { contents, running, sorted } = useSelector<State, InsertionState>(state => state.insertion);
+    const { contents, running, sorted, animated } = useSelector<State, InsertionState>(state => state.insertion);
     const actions = useMemo(() => bindActionCreators(InsertionActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
+    const MainContents = animated ? ReplaceSortContentsFlipper : ReplaceSortContents;
     return <PageContainer id="Insertion">
         <GridRow id="TitleArea" spacing={2}>
-            <GridItem reset><Typography variant="h2">選択ソート</Typography></GridItem>
+            <GridItem reset><Typography variant="h2">挿入ソート</Typography></GridItem>
             <GridItem reset justify="center" container direction="column" xs><NavLink to={ROUTES.SORTS}>戻る</NavLink></GridItem>
         </GridRow>
         <GridRow id="SettingArea" spacing={4}>
@@ -79,7 +81,7 @@ const Insertion: React.FC = () => {
         </GridRow>
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
-                <ReplaceSortContents contents={sorted.concat(contents)} running={running} cursor={sorted.length} />
+                <MainContents contents={sorted.concat(contents)} running={running} cursor={sorted.length} />
             </Grid>
         </GridRow>
     </PageContainer >;

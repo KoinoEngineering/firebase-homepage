@@ -1,4 +1,4 @@
-import { IconButton, InputAdornment, TextField } from "@material-ui/core";
+import { IconButton, InputAdornment, TextField, Checkbox, FormControlLabel } from "@material-ui/core";
 import { ExposureNeg1Rounded, ExposurePlus1Rounded } from "@material-ui/icons";
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +13,7 @@ import { InsertionState, MAX_ELEMENT_COUNT, MIN_ELEMENT_COUNT } from "../Inserti
 
 const InsertionSetting: React.FC = () => {
 
-    const { contents, running, order, delay } = useSelector<State, InsertionState>(state => state.insertion);
+    const { contents, running, order, delay, animated } = useSelector<State, InsertionState>(state => state.insertion);
     const dispatch = useDispatch();
     const actions = useMemo(() => {
         return bindActionCreators(InsertionActionCreators, dispatch);
@@ -90,6 +90,18 @@ const InsertionSetting: React.FC = () => {
                         </IconButton>
                     </InputAdornment>
                 }}
+            />
+        </GridItem>
+        <GridItem>
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        checked={animated}
+                        onClick={() => actions.changeValue({ animated: !animated })}
+                        color="primary"
+                    />
+                }
+                label="アニメーション(試験導入)"
             />
         </GridItem>
     </>;
