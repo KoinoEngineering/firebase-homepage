@@ -188,12 +188,15 @@ Object {
                     <span
                       class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
                     >
-                      挿入ソート(Comming Soon...)
+                      挿入ソート
                     </span>
                   </div>
                 </div>
                 <span
                   class="MuiCardActionArea-focusHighlight"
+                />
+                <span
+                  class="MuiTouchRipple-root"
                 />
               </button>
             </div>
@@ -506,12 +509,15 @@ Object {
                   <span
                     class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
                   >
-                    挿入ソート(Comming Soon...)
+                    挿入ソート
                   </span>
                 </div>
               </div>
               <span
                 class="MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root"
               />
             </button>
           </div>
