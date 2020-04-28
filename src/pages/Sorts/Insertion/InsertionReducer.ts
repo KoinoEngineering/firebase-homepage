@@ -20,7 +20,7 @@ const initialState = (): InsertionState => ({
     optionCursor: 0,
     sorted: [],
     delay: 0,
-    animated: false,
+    animated: true,
 });
 
 const insertion: Reducer<InsertionState, InsertionActions> = (state = initialState(), action) => {

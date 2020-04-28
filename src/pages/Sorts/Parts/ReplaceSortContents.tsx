@@ -20,7 +20,7 @@ interface ElementStyleProps extends CSSProperties, Pick<ReplaceSortElementProps,
     fixed?: boolean;
 }
 
-const useStyles = makeStyles(createStyles({
+export const useReplaceSortContentsStyles = makeStyles(createStyles({
     root: {
         position: "absolute",
         top: 0,
@@ -54,7 +54,7 @@ const useElementStyle = makeStyles<typeof Theme, ElementStyleProps>({
 
 const ReplaceSortContents: React.FC<ReplaceSortContentsProps> = ({ contents, cursor, running, optionCursor }) => {
 
-    const classes = useStyles();
+    const classes = useReplaceSortContentsStyles();
     const maxValue = utils.max(contents, element => element.value);
     return <Grid id="ReplaceSortContents" classes={classes} container alignItems="flex-end">
         {
@@ -81,7 +81,7 @@ interface ReplaceSortElementProps extends Exclude<Propsof<typeof Grid>, "classes
     option?: boolean;
 }
 
-const ReplaceSortElement: React.FC<ReplaceSortElementProps> = ({ elementsCount, element, maxValue, active, option, ...props }) => {
+export const ReplaceSortElement: React.FC<ReplaceSortElementProps> = ({ elementsCount, element, maxValue, active, option, ...props }) => {
     const elementClasses = useElementStyle({
         widthRate: 1 / elementsCount,
         heightRate: element.value / maxValue,
