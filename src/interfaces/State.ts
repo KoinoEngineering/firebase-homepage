@@ -4,6 +4,7 @@ import { ShakerState } from "src/pages/Sorts/Shaker/ShakerReducer";
 import { HeaderState } from "src/components/organisms/Header/Header";
 import { GnomeState } from "src/pages/Sorts/Gnome/GnomeReducer";
 import { SelectState } from "src/pages/Sorts/Select/SelectReducer";
+import { InsertionState } from "src/pages/Sorts/Insertion/InsertionReducer";
 
 export interface State {
     header: HeaderState;
@@ -12,4 +13,5 @@ export interface State {
     shaker: ShakerState;
     gnome: GnomeState;
     select: SelectState;
+    insertion: InsertionState;
 }
