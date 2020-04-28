@@ -15,6 +15,7 @@
         "restart": "npm ci && npm start",
         "build": "react-scripts build",
         "test": "react-scripts test",
+        "test:ci": "CI=true react-scripts test --watchAll=false --coverage -i",
         "eject": "react-scripts eject",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
         "lint:fixall": "eslint --fix --ext .js,.jsx,.ts,.tsx src/",
