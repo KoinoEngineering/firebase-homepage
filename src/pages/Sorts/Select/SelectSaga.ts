@@ -26,9 +26,6 @@ const initSaga = function* () {
     yield put(SelectActionCreators.checkStatus());
 };
 
-// PREV_END = "firebase-homepage/sort/select/PREV_END",
-// END = "firebase-homepage/sort/select/END",
-
 const isOptionUpdate = function* () {
     const { order, optionCursor = 0, cursor, contents } = (yield select<(state: State) => SelectState>(state => state.select)) as Readonly<SelectState>;
     return order === ORDER.ASC
