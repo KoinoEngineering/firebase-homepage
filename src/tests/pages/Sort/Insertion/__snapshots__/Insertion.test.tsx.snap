@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select expect to match snapshot 1`] = `
+exports[`Insertion expect to match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="MuiContainer-root SelectPageContainer-root-3 MuiContainer-maxWidthLg"
-        id="Select"
+        class="MuiContainer-root InsertionPageContainer-root-3 MuiContainer-maxWidthLg"
+        id="Insertion"
       >
         <div
           class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14 MuiGrid-spacing-xs-2"
@@ -19,7 +19,7 @@ Object {
             <h2
               class="MuiTypography-root MuiTypography-h2"
             >
-              選択ソート
+              挿入ソート
             </h2>
           </div>
           <div
@@ -260,13 +260,55 @@ Object {
               </div>
             </div>
           </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+          >
+            <label
+              class="MuiFormControlLabel-root"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-267 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-268 Mui-checked MuiIconButton-colorPrimary"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <input
+                    checked=""
+                    class="PrivateSwitchBase-input-270"
+                    data-indeterminate="false"
+                    type="checkbox"
+                    value=""
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </span>
+              <span
+                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+              >
+                アニメーション(試験導入)
+              </span>
+            </label>
+          </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-256"
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-272"
           id="ControlArea"
         >
           <div
-            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-258"
+            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-274"
             id="Reset"
           >
             <h3
@@ -276,7 +318,7 @@ Object {
             </h3>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-260 MuiGrid-spacing-xs-4"
+            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-276 MuiGrid-spacing-xs-4"
             id="Reset"
           >
             <div
@@ -335,7 +377,7 @@ Object {
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-291"
+            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-307"
             id="ControlArea"
           >
             <div
@@ -359,116 +401,178 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-293"
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-309"
           id="ContentsArea"
         >
           <div
             class="MuiGrid-root makeStyles-root-1 MuiGrid-container"
             id="SquareContainer"
           >
-            <div
-              class="MuiGrid-root makeStyles-root-294 MuiGrid-container MuiGrid-align-items-xs-flex-end"
-              id="ReplaceSortContents"
-            >
+            <div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-297"
+                class="MuiGrid-root makeStyles-root-310 MuiGrid-container MuiGrid-direction-xs-row-reverse MuiGrid-align-items-xs-flex-end"
+                id="ReplaceSortContentsFlipper"
               >
-                100
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-299"
-              >
-                95
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-301"
-              >
-                90
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-303"
-              >
-                85
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-305"
-              >
-                80
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-307"
-              >
-                75
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-309"
-              >
-                70
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-311"
-              >
-                65
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-313"
-              >
-                60
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-315"
-              >
-                55
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-317"
-              >
-                50
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-319"
-              >
-                45
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-321"
-              >
-                40
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-323"
-              >
-                35
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-325"
-              >
-                30
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-327"
-              >
-                25
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-329"
-              >
-                20
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-331"
-              >
-                15
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-333"
-              >
-                10
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-335"
-              >
-                5
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-313"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="299"
+                  data-portal-key="portal"
+                >
+                  5
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-315"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="298"
+                  data-portal-key="portal"
+                >
+                  10
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-317"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="297"
+                  data-portal-key="portal"
+                >
+                  15
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-319"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="296"
+                  data-portal-key="portal"
+                >
+                  20
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-321"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="295"
+                  data-portal-key="portal"
+                >
+                  25
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-323"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="294"
+                  data-portal-key="portal"
+                >
+                  30
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-325"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="293"
+                  data-portal-key="portal"
+                >
+                  35
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-327"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="292"
+                  data-portal-key="portal"
+                >
+                  40
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-329"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="291"
+                  data-portal-key="portal"
+                >
+                  45
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-331"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="290"
+                  data-portal-key="portal"
+                >
+                  50
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-333"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="289"
+                  data-portal-key="portal"
+                >
+                  55
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-335"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="288"
+                  data-portal-key="portal"
+                >
+                  60
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-337"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="287"
+                  data-portal-key="portal"
+                >
+                  65
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-339"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="286"
+                  data-portal-key="portal"
+                >
+                  70
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-341"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="285"
+                  data-portal-key="portal"
+                >
+                  75
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-343"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="284"
+                  data-portal-key="portal"
+                >
+                  80
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-345"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="283"
+                  data-portal-key="portal"
+                >
+                  85
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-347"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="282"
+                  data-portal-key="portal"
+                >
+                  90
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-349"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="281"
+                  data-portal-key="portal"
+                >
+                  95
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-root-311 makeStyles-root-351"
+                  data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                  data-flip-id="280"
+                  data-portal-key="portal"
+                >
+                  100
+                </div>
               </div>
             </div>
           </div>
@@ -478,8 +582,8 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="MuiContainer-root SelectPageContainer-root-3 MuiContainer-maxWidthLg"
-      id="Select"
+      class="MuiContainer-root InsertionPageContainer-root-3 MuiContainer-maxWidthLg"
+      id="Insertion"
     >
       <div
         class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14 MuiGrid-spacing-xs-2"
@@ -491,7 +595,7 @@ Object {
           <h2
             class="MuiTypography-root MuiTypography-h2"
           >
-            選択ソート
+            挿入ソート
           </h2>
         </div>
         <div
@@ -732,13 +836,55 @@ Object {
             </div>
           </div>
         </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-true"
+        >
+          <label
+            class="MuiFormControlLabel-root"
+          >
+            <span
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-267 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-268 Mui-checked MuiIconButton-colorPrimary"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <input
+                  checked=""
+                  class="PrivateSwitchBase-input-270"
+                  data-indeterminate="false"
+                  type="checkbox"
+                  value=""
+                />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </span>
+            <span
+              class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+            >
+              アニメーション(試験導入)
+            </span>
+          </label>
+        </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-256"
+        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-272"
         id="ControlArea"
       >
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-258"
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-274"
           id="Reset"
         >
           <h3
@@ -748,7 +894,7 @@ Object {
           </h3>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-260 MuiGrid-spacing-xs-4"
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-276 MuiGrid-spacing-xs-4"
           id="Reset"
         >
           <div
@@ -807,7 +953,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-291"
+          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-307"
           id="ControlArea"
         >
           <div
@@ -831,116 +977,178 @@ Object {
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-293"
+        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-309"
         id="ContentsArea"
       >
         <div
           class="MuiGrid-root makeStyles-root-1 MuiGrid-container"
           id="SquareContainer"
         >
-          <div
-            class="MuiGrid-root makeStyles-root-294 MuiGrid-container MuiGrid-align-items-xs-flex-end"
-            id="ReplaceSortContents"
-          >
+          <div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-297"
+              class="MuiGrid-root makeStyles-root-310 MuiGrid-container MuiGrid-direction-xs-row-reverse MuiGrid-align-items-xs-flex-end"
+              id="ReplaceSortContentsFlipper"
             >
-              100
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-299"
-            >
-              95
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-301"
-            >
-              90
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-303"
-            >
-              85
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-305"
-            >
-              80
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-307"
-            >
-              75
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-309"
-            >
-              70
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-311"
-            >
-              65
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-313"
-            >
-              60
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-315"
-            >
-              55
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-317"
-            >
-              50
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-319"
-            >
-              45
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-321"
-            >
-              40
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-323"
-            >
-              35
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-325"
-            >
-              30
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-327"
-            >
-              25
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-329"
-            >
-              20
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-331"
-            >
-              15
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-333"
-            >
-              10
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-335"
-            >
-              5
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-313"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="299"
+                data-portal-key="portal"
+              >
+                5
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-315"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="298"
+                data-portal-key="portal"
+              >
+                10
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-317"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="297"
+                data-portal-key="portal"
+              >
+                15
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-319"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="296"
+                data-portal-key="portal"
+              >
+                20
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-321"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="295"
+                data-portal-key="portal"
+              >
+                25
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-323"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="294"
+                data-portal-key="portal"
+              >
+                30
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-325"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="293"
+                data-portal-key="portal"
+              >
+                35
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-327"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="292"
+                data-portal-key="portal"
+              >
+                40
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-329"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="291"
+                data-portal-key="portal"
+              >
+                45
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-331"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="290"
+                data-portal-key="portal"
+              >
+                50
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-333"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="289"
+                data-portal-key="portal"
+              >
+                55
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-335"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="288"
+                data-portal-key="portal"
+              >
+                60
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-337"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="287"
+                data-portal-key="portal"
+              >
+                65
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-339"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="286"
+                data-portal-key="portal"
+              >
+                70
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-341"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="285"
+                data-portal-key="portal"
+              >
+                75
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-343"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="284"
+                data-portal-key="portal"
+              >
+                80
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-345"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="283"
+                data-portal-key="portal"
+              >
+                85
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-347"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="282"
+                data-portal-key="portal"
+              >
+                90
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-349"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="281"
+                data-portal-key="portal"
+              >
+                95
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-root-311 makeStyles-root-351"
+                data-flip-config="{\\"translate\\":true,\\"scale\\":true,\\"opacity\\":true}"
+                data-flip-id="280"
+                data-portal-key="portal"
+              >
+                100
+              </div>
             </div>
           </div>
         </div>

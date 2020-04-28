@@ -11,7 +11,7 @@ enum ROUTES {
     SORTS_SHAKER = "/sorts/shaker",
     SORTS_GNOME = "/sorts/gnome",
     SORTS_SELECT = "/sorts/select",
-    SORTS_INSERT = "/sorts/insert",
+    SORTS_INSERTITON = "/sorts/insertion",
     SORTS_BACKET = "/sorts/backet",
     SORTS_MARGE = "/sorts/marge",
     SORTS_HEAP = "/sorts/heap",

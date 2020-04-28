@@ -1,5 +1,5 @@
 import React from "react";
-import Target from "src/pages/Sorts/Select/Select";
+import Target from "src/pages/Sorts/Insertion/Insertion";
 import { renderWithProvider } from "src/tests/tetutils";
 import { getDisplayName } from "src/utils/ComponentUtils";
 
