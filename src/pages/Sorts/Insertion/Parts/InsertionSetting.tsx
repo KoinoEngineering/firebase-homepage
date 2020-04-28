@@ -1,4 +1,4 @@
-import { IconButton, InputAdornment, TextField, Checkbox, FormControlLabel } from "@material-ui/core";
+import { Checkbox, FormControlLabel, IconButton, InputAdornment, TextField } from "@material-ui/core";
 import { ExposureNeg1Rounded, ExposurePlus1Rounded } from "@material-ui/icons";
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +13,7 @@ import { InsertionState, MAX_ELEMENT_COUNT, MIN_ELEMENT_COUNT } from "../Inserti
 
 const InsertionSetting: React.FC = () => {
 
-    const { contents, running, order, delay, animated } = useSelector<State, InsertionState>(state => state.insertion);
+    const { contents, running, order, delay, animated, sorted } = useSelector<State, InsertionState>(state => state.insertion);
     const dispatch = useDispatch();
     const actions = useMemo(() => {
         return bindActionCreators(InsertionActionCreators, dispatch);
@@ -23,7 +23,7 @@ const InsertionSetting: React.FC = () => {
         <GridItem>
             <TextField
                 fullWidth
-                value={contents.length}
+                value={contents.length + sorted.length}
                 disabled
                 variant="outlined"
                 label="要素数"
@@ -33,7 +33,7 @@ const InsertionSetting: React.FC = () => {
                         <IconButton
                             disabled={running || contents.length <= MIN_ELEMENT_COUNT}
                             onClick={() => actions.changeValue({
-                                contents: contents.filter(item => item.id !== contents[contents.length - 1].id).map(item => ({ ...item, fixed: false }))
+                                contents: contents.filter((_, i) => i < contents.length - 10).map(item => ({ ...item, fixed: false }))
                             })}>
                             <ExposureNeg1Rounded />
                         </IconButton>
@@ -42,10 +42,10 @@ const InsertionSetting: React.FC = () => {
                             onClick={() => actions.changeValue({
                                 contents: [
                                     ...contents.map(item => ({ ...item, fixed: false })),
-                                    {
+                                    ...Array(10).fill(0).map(() => ({
                                         id: uuidv4(),
-                                        value: Math.round(Math.random() * 99) + 1
-                                    }
+                                        value: Math.round(Math.random() * (MAX_ELEMENT_COUNT - 1)) + 1
+                                    }))
                                 ]
                             })}>
                             <ExposurePlus1Rounded />

@@ -33,9 +33,7 @@ const useElementStyle = makeStyles<typeof Theme, ElementStyleProps>({
     root: {
         width: props => props.widthRate * 100 + "%",
         height: props => props.heightRate * 100 + "%",
-        borderWidth: 1,
-        borderColor: "black",
-        borderStyle: "solid",
+        border: "solid black 1px",
         borderCollapse: "collapse",
         boxSizing: "border-box",
         textAlign: "center",
