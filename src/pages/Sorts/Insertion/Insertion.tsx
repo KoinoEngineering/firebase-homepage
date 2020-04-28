@@ -28,7 +28,7 @@ const useSquareContainerStyle = makeStyles(createStyles({
 
 const Insertion: React.FC = () => {
     const dispatch = useDispatch();
-    const { contents: array, running, cursor, optionCursor } = useSelector<State, InsertionState>(state => state.insertion);
+    const { contents, running, sorted } = useSelector<State, InsertionState>(state => state.insertion);
     const actions = useMemo(() => bindActionCreators(InsertionActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Insertion">
@@ -79,7 +79,7 @@ const Insertion: React.FC = () => {
         </GridRow>
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
-                <ReplaceSortContents contents={array} running={running} cursor={cursor} optionCursor={optionCursor} />
+                <ReplaceSortContents contents={sorted.concat(contents)} running={running} cursor={sorted.length} />
             </Grid>
         </GridRow>
     </PageContainer >;
