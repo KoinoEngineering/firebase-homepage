@@ -1,8 +1,9 @@
 import React from "react";
-import { renderWithProvider } from "src/tests/tetutils";
 import Target from "src/pages/Sorts/Select/Select";
+import { renderWithProvider } from "src/tests/tetutils";
+import { getDisplayName } from "src/utils/ComponentUtils";
 
-test(`${Target.displayName} expect to match snapshot`, () => {
+test(`${getDisplayName(Target)} expect to match snapshot`, () => {
     const target = renderWithProvider(<Target />);
     expect(target).toMatchSnapshot();
 });
