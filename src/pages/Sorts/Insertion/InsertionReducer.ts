@@ -18,7 +18,7 @@ const initialState = (): InsertionState => ({
     }),
     cursor: 0,
     optionCursor: 0,
-    cursorEnd: 0,
+    sorted: [],
     delay: 0
 });
 
@@ -47,26 +47,12 @@ const insertion: Reducer<InsertionState, InsertionActions> = (state = initialSta
                 optionCursor: state.cursor
             };
         case ActionType.SWAP:
-            if (state.optionCursor === undefined) {
-                throw Error("state.optionCursor is undefined");
-            }
             return {
                 ...state,
-                contents: state.contents
-                    .map((item, i) => {
-                        if (i === state.cursorEnd) {
-                            return { ...state.contents[state.optionCursor], fixed: true };
-                        } else if (i === state.optionCursor) {
-                            return state.contents[state.cursorEnd];
-                        } else {
-                            return item;
-                        }
-                    })
             };
         case ActionType.PREV_END:
             return {
                 ...state,
-                cursorEnd: state.cursorEnd - 1
             };
         case ActionType.RESET_CURSOR:
             return {
@@ -88,16 +74,15 @@ const insertion: Reducer<InsertionState, InsertionActions> = (state = initialSta
 export default insertion;
 
 export interface InsertionState extends ReplaceSortContentsState {
-    optionCursor: number;
+    sorted: ReplaceSortContentsState["contents"];
     order: ORDER;
-    cursorEnd: number;
     delay: number;
 }
 
 const init = (state: InsertionState): InsertionState => ({
     ...state,
     cursor: 0,
-    cursorEnd: state.contents.length - 1,
+    sorted: [],
     optionCursor: 0,
     contents: state.contents.map(i => ({ ...i, fixed: false }))
 });
