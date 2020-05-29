@@ -7,6 +7,7 @@ import { Propsof } from "src/interfaces/Props";
 import ROUTES, { EXT_ROUTE } from "src/utils/routes";
 import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";
+import { auth, Github } from "src/core/ConfigureFirebase";
 
 const Top: React.FC = () => {
 
@@ -60,6 +61,38 @@ const Top: React.FC = () => {
                 rel: "noopener noreferrer",
                 headerProps: {
                     title: "迷路(ここの配下に移設予定)",
+                }
+            }
+        },
+        {
+            raised: true,
+            cardActionAreaProps: {
+                onClick: () => {
+                    auth.signInWithPopup(Github).then(result => {
+                        // eslint-disable-next-line no-console
+                        console.log(result);
+                    });
+                },
+                headerProps: {
+                    title: "Github ログイン",
+                }
+            }
+        },
+        {
+            raised: true,
+            cardActionAreaProps: {
+                onClick: () => {
+                    auth
+                        .signOut()
+                        .then(() => {
+                            window.alert("ログアウトしました");
+                        })
+                        .catch(reason => {
+                            window.alert(reason);
+                        });
+                },
+                headerProps: {
+                    title: "ログアウト",
                 }
             }
         },

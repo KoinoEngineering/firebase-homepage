@@ -17,6 +17,7 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 export const firestore = firebaseApp.firestore();
 export const auth = firebaseApp.auth();
+export const Github = new firebase.auth.GithubAuthProvider();
 export const analytics = firebaseApp.analytics();
 export const authStateChangedMonitor = () => auth.onAuthStateChanged((user) => {
     if (user) {

@@ -16,5 +16,7 @@ enum ROUTES {
     SORTS_MARGE = "/sorts/marge",
     SORTS_HEAP = "/sorts/heap",
     SORTS_QUICK = "/sorts/quick",
+    KANBAN = "/kanban",
+    KANBAN_LOGIN = "/kanban/login",
 }
 export default ROUTES;

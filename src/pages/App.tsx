@@ -12,6 +12,7 @@ import Shaker from "./Sorts/Shaker/Shaker";
 import Gnome from "./Sorts/Gnome/Gnome";
 import Select from "./Sorts/Select/Select";
 import Insertion from "./Sorts/Insertion/Insertion";
+import Kanban from "./Kanban";
 
 const useStyles = makeStyles(
     createStyles({
@@ -46,6 +47,7 @@ const App: React.FC = () => {
                     <PublicRoute exact path={ROUTES.SORTS_INSERTITON}>
                         <Insertion />
                     </PublicRoute>
+                    <Kanban />
                     <Redirect exact from="*" to={ROUTES.TOP} />
                 </Switch>
             </ConnectedRouter>
