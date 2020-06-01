@@ -9,6 +9,11 @@ import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";
 import { auth, Github } from "src/core/ConfigureFirebase";
 
+interface GithubCredential extends firebase.auth.UserCredential {
+    credential: firebase.auth.AuthCredential & { accessToken: string } | null;
+}
+Github.addScope("repo");
+const githubSignInWithPopup = async () => (auth.signInWithPopup(Github) as unknown as Promise<GithubCredential>);
 const Top: React.FC = () => {
 
     const dispatch = useDispatch();
@@ -68,9 +73,24 @@ const Top: React.FC = () => {
             raised: true,
             cardActionAreaProps: {
                 onClick: () => {
-                    auth.signInWithPopup(Github).then(result => {
+                    githubSignInWithPopup().then((result) => {
                         // eslint-disable-next-line no-console
                         console.log(result);
+                        fetch("https://api.github.com/user/repos", {
+                            headers: [
+                                ["Authorization", "Basic " + Buffer.from("KoinoEngineering:" + result.credential!.accessToken).toString("base64")],
+                                ["Accept", "application/vnd.github.v3+json"]
+                            ]
+                        })
+                            .then(res => res.json().then(json => ({
+                                headers: Array.from(res.headers.entries())
+                                    .reduce((h: { [k: string]: string }, [key, value]: [string, string]) => {
+                                        h[key] = value;
+                                        return h;
+                                    }, {} as { [k: string]: string }),
+                                body: json
+                            })))
+                            .then(json => console.log(json));
                     });
                 },
                 headerProps: {
