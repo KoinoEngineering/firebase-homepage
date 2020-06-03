@@ -10,7 +10,7 @@ Object {
         id="Select"
       >
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14 MuiGrid-spacing-xs-2"
+          class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-6 MuiGrid-spacing-xs-2"
           id="TitleArea"
         >
           <div
@@ -33,7 +33,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-149 MuiGrid-spacing-xs-4"
+          class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-8 MuiGrid-spacing-xs-4"
           id="SettingArea"
         >
           <div
@@ -110,10 +110,10 @@ Object {
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                    class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
                   >
                     <span>
                       要素数
@@ -130,7 +130,7 @@ Object {
               class="MuiFormControl-root MuiFormControl-fullWidth"
             >
               <label
-                class="MuiFormLabel-root MuiInputLabel-root makeStyles-root-240 MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+                class="MuiFormLabel-root MuiInputLabel-root makeStyles-root-13 MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
                 data-shrink="true"
               >
                 向き
@@ -162,10 +162,10 @@ Object {
                 </svg>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                    class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
                   >
                     <span>
                       向き
@@ -247,10 +247,10 @@ Object {
                 </div>
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                    class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
                   >
                     <span>
                       処理間隔
@@ -262,11 +262,11 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-256"
+          class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-15"
           id="ControlArea"
         >
           <div
-            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-258"
+            class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-17"
             id="Reset"
           >
             <h3
@@ -276,7 +276,7 @@ Object {
             </h3>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-260 MuiGrid-spacing-xs-4"
+            class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-19 MuiGrid-spacing-xs-4"
             id="Reset"
           >
             <div
@@ -335,7 +335,7 @@ Object {
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-291"
+            class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-21"
             id="ControlArea"
           >
             <div
@@ -359,7 +359,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-293"
+          class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-23"
           id="ContentsArea"
         >
           <div
@@ -367,106 +367,106 @@ Object {
             id="SquareContainer"
           >
             <div
-              class="MuiGrid-root makeStyles-root-294 MuiGrid-container MuiGrid-align-items-xs-flex-end"
+              class="MuiGrid-root makeStyles-root-24 MuiGrid-container MuiGrid-align-items-xs-flex-end"
               id="ReplaceSortContents"
             >
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-297"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-27"
               >
                 100
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-299"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-29"
               >
                 95
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-301"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-31"
               >
                 90
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-303"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-33"
               >
                 85
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-305"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-35"
               >
                 80
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-307"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-37"
               >
                 75
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-309"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-39"
               >
                 70
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-311"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-41"
               >
                 65
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-313"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-43"
               >
                 60
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-315"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-45"
               >
                 55
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-317"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-47"
               >
                 50
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-319"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-49"
               >
                 45
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-321"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-51"
               >
                 40
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-323"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-53"
               >
                 35
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-325"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-55"
               >
                 30
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-327"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-57"
               >
                 25
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-329"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-59"
               >
                 20
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-331"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-61"
               >
                 15
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-333"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-63"
               >
                 10
               </div>
               <div
-                class="MuiGrid-root makeStyles-root-295 makeStyles-root-335"
+                class="MuiGrid-root makeStyles-root-25 makeStyles-root-65"
               >
                 5
               </div>
@@ -482,7 +482,7 @@ Object {
       id="Select"
     >
       <div
-        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-14 MuiGrid-spacing-xs-2"
+        class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-6 MuiGrid-spacing-xs-2"
         id="TitleArea"
       >
         <div
@@ -505,7 +505,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-149 MuiGrid-spacing-xs-4"
+        class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-8 MuiGrid-spacing-xs-4"
         id="SettingArea"
       >
         <div
@@ -582,10 +582,10 @@ Object {
               </div>
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                  class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
                 >
                   <span>
                     要素数
@@ -602,7 +602,7 @@ Object {
             class="MuiFormControl-root MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root makeStyles-root-240 MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+              class="MuiFormLabel-root MuiInputLabel-root makeStyles-root-13 MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
               data-shrink="true"
             >
               向き
@@ -634,10 +634,10 @@ Object {
               </svg>
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                  class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
                 >
                   <span>
                     向き
@@ -719,10 +719,10 @@ Object {
               </div>
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-236 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-238 PrivateNotchedOutline-legendNotched-239"
+                  class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
                 >
                   <span>
                     処理間隔
@@ -734,11 +734,11 @@ Object {
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-256"
+        class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-15"
         id="ControlArea"
       >
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-258"
+          class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-17"
           id="Reset"
         >
           <h3
@@ -748,7 +748,7 @@ Object {
           </h3>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-260 MuiGrid-spacing-xs-4"
+          class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-19 MuiGrid-spacing-xs-4"
           id="Reset"
         >
           <div
@@ -807,7 +807,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-291"
+          class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-21"
           id="ControlArea"
         >
           <div
@@ -831,7 +831,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container GridRow-container-12 GridRow-container-293"
+        class="MuiGrid-root MuiGrid-container GridRow-container-4 GridRow-container-23"
         id="ContentsArea"
       >
         <div
@@ -839,106 +839,106 @@ Object {
           id="SquareContainer"
         >
           <div
-            class="MuiGrid-root makeStyles-root-294 MuiGrid-container MuiGrid-align-items-xs-flex-end"
+            class="MuiGrid-root makeStyles-root-24 MuiGrid-container MuiGrid-align-items-xs-flex-end"
             id="ReplaceSortContents"
           >
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-297"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-27"
             >
               100
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-299"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-29"
             >
               95
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-301"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-31"
             >
               90
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-303"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-33"
             >
               85
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-305"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-35"
             >
               80
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-307"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-37"
             >
               75
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-309"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-39"
             >
               70
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-311"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-41"
             >
               65
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-313"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-43"
             >
               60
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-315"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-45"
             >
               55
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-317"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-47"
             >
               50
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-319"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-49"
             >
               45
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-321"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-51"
             >
               40
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-323"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-53"
             >
               35
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-325"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-55"
             >
               30
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-327"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-57"
             >
               25
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-329"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-59"
             >
               20
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-331"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-61"
             >
               15
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-333"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-63"
             >
               10
             </div>
             <div
-              class="MuiGrid-root makeStyles-root-295 makeStyles-root-335"
+              class="MuiGrid-root makeStyles-root-25 makeStyles-root-65"
             >
               5
             </div>
