@@ -10,6 +10,7 @@ import PageContainer from "src/components/templates/Page/PageContainer";
 import { State } from "src/interfaces/State";
 import ROUTES from "src/utils/routes";
 import { v4 as uuidv4 } from "uuid";
+import ReplaceSortChart from "../Parts/ReplaceSortChart";
 import ReplaceSortContents from "../Parts/ReplaceSortContents";
 import BubbleActionCreators from "./BubbleActionCreators";
 import { BubbleState } from "./BubbleReducer";
@@ -18,17 +19,14 @@ import BubbleSetting from "./Parts/BubbleSetting";
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
         position: "relative",
-        widthRate: "100%",
-        "&::before": {
-            content: "''",
-            paddingTop: "100%",
-        }
+        width: "100%",
+        height: "50vh",
     }
 }));
 
 const Bubble: React.FC = () => {
     const dispatch = useDispatch();
-    const { contents: array, running, cursor } = useSelector<State, BubbleState>(state => state.bubble);
+    const { contents: array, running, cursor, chartObject } = useSelector<State, BubbleState>(state => state.bubble);
     const actions = useMemo(() => bindActionCreators(BubbleActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Bubble">
@@ -47,24 +45,33 @@ const Bubble: React.FC = () => {
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => {
+                            const contents = [...array].sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false }));
+                            actions.changeValue({ contents });
+                        }}
                     >昇順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => {
+                            const contents = [...array].sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false }));
+                            actions.changeValue({ contents });
+                        }}
                     >降順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({
-                            contents: Array(array.length).fill(0).map(() => ({
+                        onClick={() => {
+                            const contents = Array(array.length).fill(0).map(() => ({
                                 id: uuidv4(),
                                 value: Math.round(Math.random() * 99) + 1
-                            }))
-                        })}
+                            }));
+                            actions.changeValue({
+                                contents,
+                            });
+                        }}
                     >ランダム</MainButton>
                 </GridItem>
             </GridRow>
@@ -80,6 +87,9 @@ const Bubble: React.FC = () => {
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
                 <ReplaceSortContents contents={array} running={running} cursor={cursor} />
+            </Grid>
+            <Grid id="SquareContainer" container>
+                <ReplaceSortChart chartObject={chartObject} />
             </Grid>
         </GridRow>
     </PageContainer >;
