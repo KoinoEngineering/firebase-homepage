@@ -1,5 +1,6 @@
 import { delay, put, select, takeEvery, takeLeading } from "redux-saga/effects";
 import { State } from "src/interfaces/State";
+import { contents2ChartData } from "../Parts/ReplaceSortChart";
 import ShakerActionCreators from "./ShakerActionCreators";
 import { ActionType } from "./ShakerActions";
 import { ORDER } from "./ShakerConstants";
@@ -31,7 +32,9 @@ const stepSaga = function* () {
         contents,
         order,
         delay: d,
-        direction } = (yield select<(s: State) => ShakerState>(state => state.shaker)) as Readonly<ShakerState>;
+        direction,
+        chartObject
+    } = (yield select<(s: State) => ShakerState>(state => state.shaker)) as Readonly<ShakerState>;
     const isAsc = () => direction === 1;
     const orderFunc = () => {
         const target = isAsc() ? i : i - 1;
@@ -49,7 +52,13 @@ const stepSaga = function* () {
                 yield (put(ShakerActionCreators.swap({ base: i, direction })));
             }
             // カーソルをずらす
-            yield (put(ShakerActionCreators.changeValue({ cursor: i + direction })));
+            yield (put(ShakerActionCreators.changeValue({
+                cursor: i + direction,
+                chartObject: {
+                    ...chartObject,
+                    data: chartObject.data.concat([contents2ChartData(contents, chartObject.data.length)])
+                }
+            })));
         } else {
             // カーソルが終端まで進んでいる場合は終端を内側にずらしiは初期化 終端をfixed 向きを反転
             yield (put(ShakerActionCreators.changeValue({

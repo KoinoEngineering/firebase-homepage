@@ -88,7 +88,7 @@ const Bubble: React.FC = () => {
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
                 <ReplaceSortContents contents={array} running={running} cursor={cursor} />
             </Grid>
-            <Grid id="SquareContainer" container>
+            <Grid id="ChartContainer" container>
                 <ReplaceSortChart chartObject={chartObject} />
             </Grid>
         </GridRow>

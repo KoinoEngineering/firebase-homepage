@@ -3,25 +3,30 @@ import { v4 as uuidv4 } from "uuid";
 import { ActionType, ShakerActions, SwapAction } from "./ShakerActions";
 import { ORDER } from "./ShakerConstants";
 import { ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
+import { ReplaceSortChartState, initialReplaceSortChartState } from "../Parts/ReplaceSortChart";
 
 export const MIN_ELEMENT_COUNT = 5;
 export const MAX_ELEMENT_COUNT = 100;
 
-const initialState = (): ShakerState => ({
-    running: false,
-    order: ORDER.ASC,
-    contents: Array(20).fill(0).map((_, idx) => {
+const initialState = (): ShakerState => {
+    const contents = Array(20).fill(0).map((_, idx) => {
         return {
             id: uuidv4(),
             value: (20 - idx) * 5
         };
-    }),
-    cursor: 0,
-    cursorStart: 0,
-    cursorEnd: 0,
-    delay: 0,
-    direction: 1,
-});
+    });
+    return {
+        running: false,
+        order: ORDER.ASC,
+        contents,
+        cursor: 0,
+        cursorStart: 0,
+        cursorEnd: 0,
+        delay: 0,
+        direction: 1,
+        ...initialReplaceSortChartState(contents),
+    };
+};
 
 const shaker: Reducer<ShakerState, ShakerActions> = (state = initialState(), action): ShakerState => {
     switch (action.type) {
@@ -52,7 +57,7 @@ const shaker: Reducer<ShakerState, ShakerActions> = (state = initialState(), act
 
 export default shaker;
 
-export interface ShakerState extends ReplaceSortContentsState {
+export interface ShakerState extends ReplaceSortContentsState, ReplaceSortChartState {
     order: ORDER;
     cursorStart: number;
     cursorEnd: number;
@@ -61,9 +66,11 @@ export interface ShakerState extends ReplaceSortContentsState {
 }
 
 const init = (state: ShakerState): ShakerState => {
+    const contents = state.contents.map(item => ({ ...item, id: uuidv4(), fixed: false }));
     return {
         ...state,
-        contents: state.contents.map(item => ({ ...item, id: uuidv4(), fixed: false })),
+        ...initialReplaceSortChartState(contents),
+        contents,
         cursor: 0,
         cursorStart: 0,
         cursorEnd: state.contents.length - 1,

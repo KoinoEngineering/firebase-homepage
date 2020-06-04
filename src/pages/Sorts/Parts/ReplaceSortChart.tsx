@@ -37,10 +37,10 @@ const ReplaceSortChart: React.FC<ReplaceSortChartProps> = ({ chartObject: { data
 
 export default ReplaceSortChart;
 
-export const initialReplaceSortChartState = (): ReplaceSortChartState => ({
+export const initialReplaceSortChartState = (contents: ReplaceSortElement[] = []): ReplaceSortChartState => ({
     chartObject: {
-        data: [],
-        lines: [],
+        data: [contents2ChartData(contents, 0)],
+        lines: contents2Lines(contents),
     }
 });
 
