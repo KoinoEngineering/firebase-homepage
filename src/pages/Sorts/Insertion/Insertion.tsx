@@ -15,21 +15,19 @@ import InsertionActionCreators from "./InsertionActionCreators";
 import { InsertionState } from "./InsertionReducer";
 import InsertionSetting from "./Parts/InsertionSetting";
 import ReplaceSortContents from "../Parts/ReplaceSortContents";
+import ReplaceSortChart from "../Parts/ReplaceSortChart";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
         position: "relative",
-        widthRate: "100%",
-        "&::before": {
-            content: "''",
-            paddingTop: "100%",
-        }
+        width: "100%",
+        height: "50vh",
     }
 }));
 
 const Insertion: React.FC = () => {
     const dispatch = useDispatch();
-    const { contents, running, sorted, animated } = useSelector<State, InsertionState>(state => state.insertion);
+    const { contents, running, sorted, animated, chartObject } = useSelector<State, InsertionState>(state => state.insertion);
     const actions = useMemo(() => bindActionCreators(InsertionActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     const MainContents = animated ? ReplaceSortContentsFlipper : ReplaceSortContents;
@@ -82,6 +80,11 @@ const Insertion: React.FC = () => {
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
                 <MainContents contents={sorted.concat(contents)} running={running} cursor={sorted.length} />
+            </Grid>
+            <Grid id="ChartContainer" container>
+                <ReplaceSortChart chartObject={running
+                    ? { ...chartObject, data: chartObject.data.slice(-100) }
+                    : chartObject} />
             </Grid>
         </GridRow>
     </PageContainer >;
