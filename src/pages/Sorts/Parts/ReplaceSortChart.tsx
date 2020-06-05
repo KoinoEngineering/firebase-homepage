@@ -1,5 +1,6 @@
 import React from "react";
 import { Line, LineChart, LineProps, ResponsiveContainer, XAxis, YAxis } from "recharts";
+import utils from "src/utils";
 import { ReplaceSortElement } from "./ReplaceSortContents";
 
 interface ReplaceSortChartProps {
@@ -52,16 +53,5 @@ export const contents2ChartData = function <T extends ReplaceSortElement>(conten
 };
 export const contents2Lines = function <T extends ReplaceSortElement>(contents: T[]): ChartObject["lines"] {
 
-    const getMax = (contents: T[], callback: (i: T) => number): T =>
-        contents.reduce((maxItem, item) => {
-            if (callback(maxItem) < callback(item)) {
-                return item;
-            } else {
-                return maxItem;
-            }
-        }, contents[0]);
-
-    const max = getMax(contents, (c) => c.value).value;
-
-    return contents.map(item => ({ dataKey: item.id, stroke: `hsl(${item.value / max * 360}, 50%, 50%)`, type: "monotone", dot: false }));
+    return contents.map(item => ({ dataKey: item.id, stroke: `hsl(${item.value / utils.max(contents, (c) => c.value) * 360}, 50%, 50%)`, type: "monotone", dot: false }));
 };
