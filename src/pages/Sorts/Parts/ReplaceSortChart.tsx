@@ -53,5 +53,5 @@ export const contents2ChartData = function <T extends ReplaceSortElement>(conten
 };
 export const contents2Lines = function <T extends ReplaceSortElement>(contents: T[]): ChartObject["lines"] {
 
-    return contents.map(item => ({ dataKey: item.id, stroke: `hsl(${item.value / utils.max(contents, (c) => c.value) * 360}, 50%, 50%)`, type: "monotone", dot: false }));
+    return contents.map(item => ({ dataKey: item.id, stroke: `hsl(${item.value / utils.max(contents, (c) => c.value) * 360}, 50%, 50%)`, type: "linear", dot: false }));
 };
