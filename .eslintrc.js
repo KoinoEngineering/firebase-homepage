@@ -1,4 +1,6 @@
-{
+const warn = process.env.NODE_ENV === "development" ? "warn" : "error";
+
+module.exports = {
     "env": {
         "browser": true,
         "es6": true
@@ -27,13 +29,16 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "react-hooks"
     ],
     "rules": {
         "react/prop-types": "off",
         "no-unused-vars": "off",
-        "no-console": "error",
+        "no-console": warn,
         "@typescript-eslint/no-unused-vars": "error",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": warn,
         "indent": [
             "error",
             4,
