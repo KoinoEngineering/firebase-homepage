@@ -1,30 +1,25 @@
 import { Reducer } from "redux";
 import { v4 as uuidv4 } from "uuid";
-import { ReplaceSortChartState, initialReplaceSortChartState, contents2ChartData } from "../Parts/ReplaceSortChart";
-import { ReplaceSortContents, ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
 import { ActionType, GnomeActions } from "./GnomeActions";
 import { ORDER } from "./GnomeConstants";
+import { ReplaceSortContents, ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
 
 export const MIN_ELEMENT_COUNT = 5;
 export const MAX_ELEMENT_COUNT = 100;
 
-const initialState = (): GnomeState => {
-    const contents = Array(20).fill(0).map((_, idx) => {
+const initialState = (): GnomeState => ({
+    running: false,
+    order: ORDER.ASC,
+    contents: Array(20).fill(0).map((_, idx) => {
         return {
             id: uuidv4(),
             value: (20 - idx) * 5
         };
-    });
-    return {
-        running: false,
-        order: ORDER.ASC,
-        contents,
-        cursor: 0,
-        moving: 0,
-        delay: 0,
-        ...initialReplaceSortChartState(contents),
-    };
-};
+    }),
+    cursor: 0,
+    moving: 0,
+    delay: 0
+});
 
 const gnome: Reducer<GnomeState, GnomeActions> = (state = initialState(), action) => {
     switch (action.type) {
@@ -44,11 +39,7 @@ const gnome: Reducer<GnomeState, GnomeActions> = (state = initialState(), action
         case ActionType.CURSOR_NEXT:
             return {
                 ...state,
-                cursor: state.contents.findIndex(i => !i.fixed),
-                chartObject: {
-                    ...state.chartObject,
-                    data: state.chartObject.data.concat([contents2ChartData(state.contents, state.chartObject.data.length)])
-                }
+                cursor: state.contents.findIndex(i => !i.fixed)
             };
         case ActionType.INIT:
             return init(state);
@@ -69,19 +60,17 @@ const gnome: Reducer<GnomeState, GnomeActions> = (state = initialState(), action
 
 export default gnome;
 
-export interface GnomeState extends ReplaceSortContentsState, ReplaceSortChartState {
+export interface GnomeState extends ReplaceSortContentsState {
     order: ORDER;
     moving: number;
     delay: number;
 }
 
 const init = (state: GnomeState): GnomeState => {
-    const contents = state.contents.map(item => ({ ...item, id: uuidv4(), fixed: false }));
     return {
         ...state,
-        contents,
+        contents: state.contents.map(item => ({ ...item, id: uuidv4(), fixed: false })),
         cursor: 0,
-        ...initialReplaceSortChartState(contents)
     };
 };
 

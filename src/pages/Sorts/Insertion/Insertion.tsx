@@ -15,19 +15,21 @@ import InsertionActionCreators from "./InsertionActionCreators";
 import { InsertionState } from "./InsertionReducer";
 import InsertionSetting from "./Parts/InsertionSetting";
 import ReplaceSortContents from "../Parts/ReplaceSortContents";
-import ReplaceSortChart from "../Parts/ReplaceSortChart";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
         position: "relative",
-        width: "100%",
-        height: "50vh",
+        widthRate: "100%",
+        "&::before": {
+            content: "''",
+            paddingTop: "100%",
+        }
     }
 }));
 
 const Insertion: React.FC = () => {
     const dispatch = useDispatch();
-    const { contents, running, sorted, animated, chartObject } = useSelector<State, InsertionState>(state => state.insertion);
+    const { contents, running, sorted, animated } = useSelector<State, InsertionState>(state => state.insertion);
     const actions = useMemo(() => bindActionCreators(InsertionActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     const MainContents = animated ? ReplaceSortContentsFlipper : ReplaceSortContents;
@@ -47,13 +49,13 @@ const Insertion: React.FC = () => {
                 <GridItem reset>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: [...contents].sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: contents.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
                     >昇順</MainButton>
                 </GridItem>
                 <GridItem reset>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: [...contents].sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: contents.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
                     >降順</MainButton>
                 </GridItem>
                 <GridItem reset>
@@ -80,11 +82,6 @@ const Insertion: React.FC = () => {
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
                 <MainContents contents={sorted.concat(contents)} running={running} cursor={sorted.length} />
-            </Grid>
-            <Grid id="ChartContainer" container>
-                <ReplaceSortChart chartObject={running
-                    ? { ...chartObject, data: chartObject.data.slice(-100) }
-                    : chartObject} />
             </Grid>
         </GridRow>
     </PageContainer >;

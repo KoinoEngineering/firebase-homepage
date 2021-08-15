@@ -1,46 +1,34 @@
 import { Reducer } from "redux";
 import { v4 as uuidv4 } from "uuid";
-import { contents2ChartData, contents2Lines, ReplaceSortChartState } from "../Parts/ReplaceSortChart";
-import { ReplaceSortContents, ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
 import { ActionType, BubbleActions, SwapAction } from "./BubbleActions";
 import { ORDER } from "./BubbleConstants";
+import { ReplaceSortContents, ReplaceSortContentsState } from "../Parts/ReplaceSortContents";
 
 export const MIN_ELEMENT_COUNT = 5;
 export const MAX_ELEMENT_COUNT = 100;
 
-const initialState = (): BubbleState => {
-    const contents = Array(20).fill(0).map((_, idx) => {
+const initialState = (): BubbleState => ({
+    running: false,
+    order: ORDER.ASC,
+    contents: Array(20).fill(0).map((_, idx) => {
         return {
             id: uuidv4(),
             value: (20 - idx) * 5
         };
-    });
-    return {
-        running: false,
-        order: ORDER.ASC,
-        contents,
-        cursor: 0,
-        cursorEnd: 0,
-        delay: 0,
-        chartObject: {
-            data: [contents2ChartData(contents, 0)],
-            lines: contents2Lines(contents)
-        }
-    };
-};
+    }),
+    cursor: 0,
+    cursorEnd: 0,
+    delay: 0
+});
 
 const bubble: Reducer<BubbleState, BubbleActions> = (state = initialState(), action) => {
     switch (action.type) {
         case ActionType.CHANGE_VALUE:
         case ActionType.SET_RUNNING:
-            return {
-                ...state,
-                ...action.payload
-            };
         case ActionType.START:
             return {
                 ...state,
-                ...action.payload,
+                ...action.payload
             };
         case ActionType.END:
             return {
@@ -53,7 +41,7 @@ const bubble: Reducer<BubbleState, BubbleActions> = (state = initialState(), act
         case ActionType.SWAP:
             return {
                 ...state,
-                contents: swap(state.contents, action.payload.base),
+                contents: swap(state.contents, action.payload.base)
             };
         default:
             return state;
@@ -62,23 +50,18 @@ const bubble: Reducer<BubbleState, BubbleActions> = (state = initialState(), act
 
 export default bubble;
 
-export interface BubbleState extends ReplaceSortContentsState, ReplaceSortChartState {
+export interface BubbleState extends ReplaceSortContentsState {
     order: ORDER;
     cursorEnd: number;
     delay: number;
 }
 
 const init = (state: BubbleState): BubbleState => {
-    const contents = state.contents.map(item => ({ ...item, id: uuidv4(), fixed: false }));
     return {
         ...state,
-        contents,
+        contents: state.contents.map(item => ({ ...item, id: uuidv4(), fixed: false })),
         cursor: 0,
-        cursorEnd: state.contents.length - 1,
-        chartObject: {
-            data: [contents2ChartData(contents, 0)],
-            lines: contents2Lines(contents)
-        }
+        cursorEnd: state.contents.length - 1
     };
 };
 
