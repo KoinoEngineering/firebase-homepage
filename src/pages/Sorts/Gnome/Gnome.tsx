@@ -14,19 +14,21 @@ import ReplaceSortContents from "../Parts/ReplaceSortContents";
 import GnomeActionCreators from "./GnomeActionCreators";
 import { GnomeState } from "./GnomeReducer";
 import GnomeSetting from "./Parts/GnomeSetting";
-import ReplaceSortChart from "../Parts/ReplaceSortChart";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
         position: "relative",
-        width: "100%",
-        height: "50vh",
+        widthRate: "100%",
+        "&::before": {
+            content: "''",
+            paddingTop: "100%",
+        }
     }
 }));
 
 const Gnome: React.FC = () => {
     const dispatch = useDispatch();
-    const { contents: array, running, cursor, chartObject } = useSelector<State, GnomeState>(state => state.gnome);
+    const { contents: array, running, cursor } = useSelector<State, GnomeState>(state => state.gnome);
     const actions = useMemo(() => bindActionCreators(GnomeActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Gnome">
@@ -45,13 +47,13 @@ const Gnome: React.FC = () => {
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: [...array].sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
                     >昇順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: [...array].sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
                     >降順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
@@ -78,11 +80,6 @@ const Gnome: React.FC = () => {
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
                 <ReplaceSortContents contents={array} running={running} cursor={cursor} />
-            </Grid>
-            <Grid id="ChartContainer" container>
-                <ReplaceSortChart chartObject={running
-                    ? { ...chartObject, data: chartObject.data.slice(-100) }
-                    : chartObject} />
             </Grid>
         </GridRow>
     </PageContainer >;

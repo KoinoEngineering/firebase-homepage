@@ -816,19 +816,6 @@ Object {
               </div>
             </div>
           </div>
-          <div
-            class="MuiGrid-root MuiGrid-container"
-            id="ChartContainer"
-          >
-            <div
-              class="recharts-responsive-container"
-              style="width: 100%; height: 500px;"
-            >
-              <div
-                style="position: absolute; width: 0px; height: 0px; visibility: hidden; display: none;"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -1643,19 +1630,6 @@ Object {
                 1000
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-container"
-          id="ChartContainer"
-        >
-          <div
-            class="recharts-responsive-container"
-            style="width: 100%; height: 500px;"
-          >
-            <div
-              style="position: absolute; width: 0px; height: 0px; visibility: hidden; display: none;"
-            />
           </div>
         </div>
       </div>

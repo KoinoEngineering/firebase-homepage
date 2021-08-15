@@ -14,20 +14,21 @@ import { SelectState } from "./SelectReducer";
 import SelectSetting from "./Parts/SelectSetting";
 import ROUTES from "src/utils/routes";
 import { NavLink } from "react-router-dom";
-import ReplaceSortChart from "../Parts/ReplaceSortChart";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
         position: "relative",
-        width: "100%",
-        height: "50vh",
+        widthRate: "100%",
+        "&::before": {
+            content: "''",
+            paddingTop: "100%",
+        }
     }
 }));
 
-
 const Select: React.FC = () => {
     const dispatch = useDispatch();
-    const { contents: array, running, cursor, optionCursor, chartObject } = useSelector<State, SelectState>(state => state.select);
+    const { contents: array, running, cursor, optionCursor } = useSelector<State, SelectState>(state => state.select);
     const actions = useMemo(() => bindActionCreators(SelectActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Select">
@@ -46,13 +47,13 @@ const Select: React.FC = () => {
                 <GridItem reset>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: [...array].sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
                     >昇順</MainButton>
                 </GridItem>
                 <GridItem reset>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: [...array].sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: array.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
                     >降順</MainButton>
                 </GridItem>
                 <GridItem reset>
@@ -79,11 +80,6 @@ const Select: React.FC = () => {
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
                 <ReplaceSortContents contents={array} running={running} cursor={cursor} optionCursor={optionCursor} />
-            </Grid>
-            <Grid id="ChartContainer" container>
-                <ReplaceSortChart chartObject={running
-                    ? { ...chartObject, data: chartObject.data.slice(-100) }
-                    : chartObject} />
             </Grid>
         </GridRow>
     </PageContainer >;

@@ -14,19 +14,21 @@ import ReplaceSortContents from "../Parts/ReplaceSortContents";
 import ShakerSetting from "./Parts/ShakerSetting";
 import ShakerActionCreators from "./ShakerActionCreators";
 import { ShakerState } from "./ShakerReducer";
-import ReplaceSortChart from "../Parts/ReplaceSortChart";
 
 const useSquareContainerStyle = makeStyles(createStyles({
     root: {
         position: "relative",
-        width: "100%",
-        height: "50vh",
+        widthRate: "100%",
+        "&::before": {
+            content: "''",
+            paddingTop: "100%",
+        }
     }
 }));
 
 const Shaker: React.FC = () => {
     const dispatch = useDispatch();
-    const { contents, running, cursor, chartObject } = useSelector<State, ShakerState>(state => state.shaker);
+    const { contents, running, cursor } = useSelector<State, ShakerState>(state => state.shaker);
     const actions = useMemo(() => bindActionCreators(ShakerActionCreators, dispatch), [dispatch]);
     const squareContainerClasses = useSquareContainerStyle();
     return <PageContainer id="Shaker">
@@ -45,13 +47,13 @@ const Shaker: React.FC = () => {
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: [...contents].sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: contents.sort((e1, e2) => e1.value - e2.value).map(item => ({ ...item, fixed: false })) })}
                     >昇順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
                     <MainButton
                         disabled={running}
-                        onClick={() => actions.changeValue({ contents: [...contents].sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
+                        onClick={() => actions.changeValue({ contents: contents.sort((e1, e2) => e2.value - e1.value).map(item => ({ ...item, fixed: false })) })}
                     >降順</MainButton>
                 </GridItem>
                 <GridItem xs={undefined} sm={undefined} md={undefined}>
@@ -78,11 +80,6 @@ const Shaker: React.FC = () => {
         <GridRow id="ContentsArea">
             <Grid id="SquareContainer" container classes={squareContainerClasses}>
                 <ReplaceSortContents contents={contents} running={running} cursor={cursor} />
-            </Grid>
-            <Grid id="ChartContainer" container>
-                <ReplaceSortChart chartObject={running
-                    ? { ...chartObject, data: chartObject.data.slice(-100) }
-                    : chartObject} />
             </Grid>
         </GridRow>
     </PageContainer >;

@@ -5,7 +5,6 @@ import { ActionType } from "./BubbleActions";
 import { ORDER } from "./BubbleConstants";
 import { BubbleState } from "./BubbleReducer";
 import { ReplaceSortElement } from "../Parts/ReplaceSortContents";
-import { contents2ChartData } from "../Parts/ReplaceSortChart";
 
 const bubbleSaga = function* () {
     yield takeLeading(ActionType.START, startSaga);
@@ -26,7 +25,7 @@ const initSaga = function* () {
 };
 // ループの視点カーソルをチェックして振り分けをする
 const stepSaga = function* () {
-    const { cursor: i, cursorEnd: e, contents: array, order, delay: d, chartObject } = (yield select<(s: State) => BubbleState>(state => state.bubble)) as Readonly<BubbleState>;
+    const { cursor: i, cursorEnd: e, contents: array, order, delay: d } = (yield select<(s: State) => BubbleState>(state => state.bubble)) as Readonly<BubbleState>;
     const orderFunc = (e1: ReplaceSortElement, e2: ReplaceSortElement) => order === ORDER.ASC ? e1.value > e2.value : e1.value < e2.value;
     if (e < 0) {
         // cursorEndが0になっていれば終わる
@@ -40,14 +39,7 @@ const stepSaga = function* () {
                 yield (put(BubbleActionCreators.swap(i)));
             }
             // カーソルをずらす
-            yield (put(BubbleActionCreators.changeValue({
-                cursor: i + 1,
-                chartObject: {
-                    ...chartObject,
-                    data: chartObject.data
-                        .concat([contents2ChartData(array, chartObject.data.length)])
-                }
-            })));
+            yield (put(BubbleActionCreators.changeValue({ cursor: i + 1 })));
         } else {
             // カーソルがeまで進んでいる場合はeを左にずらしiは初期化一番後ろをfixed
             yield (put(BubbleActionCreators.changeValue({
