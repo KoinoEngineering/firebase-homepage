@@ -15,41 +15,44 @@ import Insertion from "./Sorts/Insertion/Insertion";
 
 const useStyles = makeStyles(
     createStyles({
-        root: { height: "100%" }
-    }));
+        root: { height: "100%" },
+    })
+);
 
 const App: React.FC = () => {
     const classes = useStyles();
-    return <MainFrame>
-        <div id="App" className={classes.root}>
-            <ConnectedRouter history={history}>
-                <Switch>
-                    <Redirect exact from="/" to={ROUTES.TOP} />
-                    <PublicRoute exact path={ROUTES.TOP}>
-                        <Top />
-                    </PublicRoute>
-                    <PublicRoute exact path={ROUTES.SORTS}>
-                        <Sorts />
-                    </PublicRoute>
-                    <PublicRoute exact path={ROUTES.SORTS_BUBBLE}>
-                        <Bubble />
-                    </PublicRoute>
-                    <PublicRoute exact path={ROUTES.SORTS_SHAKER}>
-                        <Shaker />
-                    </PublicRoute>
-                    <PublicRoute exact path={ROUTES.SORTS_GNOME}>
-                        <Gnome />
-                    </PublicRoute>
-                    <PublicRoute exact path={ROUTES.SORTS_SELECT}>
-                        <Select />
-                    </PublicRoute>
-                    <PublicRoute exact path={ROUTES.SORTS_INSERTITON}>
-                        <Insertion />
-                    </PublicRoute>
-                    <Redirect exact from="*" to={ROUTES.TOP} />
-                </Switch>
-            </ConnectedRouter>
-        </div>
-    </MainFrame>;
+    return (
+        <MainFrame>
+            <div id="App" className={classes.root}>
+                <ConnectedRouter history={history}>
+                    <Switch>
+                        <Redirect exact from="/" to={ROUTES.TOP} />
+                        <PublicRoute exact path={ROUTES.TOP}>
+                            <Top />
+                        </PublicRoute>
+                        <PublicRoute exact path={ROUTES.SORTS}>
+                            <Sorts />
+                        </PublicRoute>
+                        <PublicRoute exact path={ROUTES.SORTS_BUBBLE}>
+                            <Bubble />
+                        </PublicRoute>
+                        <PublicRoute exact path={ROUTES.SORTS_SHAKER}>
+                            <Shaker />
+                        </PublicRoute>
+                        <PublicRoute exact path={ROUTES.SORTS_GNOME}>
+                            <Gnome />
+                        </PublicRoute>
+                        <PublicRoute exact path={ROUTES.SORTS_SELECT}>
+                            <Select />
+                        </PublicRoute>
+                        <PublicRoute exact path={ROUTES.SORTS_INSERTITON}>
+                            <Insertion />
+                        </PublicRoute>
+                        <Redirect exact from="*" to={ROUTES.TOP} />
+                    </Switch>
+                </ConnectedRouter>
+            </div>
+        </MainFrame>
+    );
 };
 export default App;
