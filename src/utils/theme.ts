@@ -1,13 +1,13 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core";
 
-const defaultTheme = createMuiTheme({
+const defaultTheme = createTheme({
     palette: {
         primary: {
             main: "#008000",
         },
         secondary: {
-            main: "#fff"
-        }
+            main: "#fff",
+        },
     },
     overrides: {
         MuiTypography: {
@@ -20,7 +20,7 @@ const defaultTheme = createMuiTheme({
                 marginInlineEnd: "0px",
                 fontWeight: "bold",
                 letterSpacing: "inherit",
-                lineHeight: "inherit"
+                lineHeight: "inherit",
             },
             h2: {
                 display: "block",
@@ -43,14 +43,14 @@ const defaultTheme = createMuiTheme({
                 fontWeight: "bold",
                 letterSpacing: "inherit",
                 lineHeight: "inherit",
-            }
+            },
         },
         MuiListSubheader: {
             root: {
-                color: "inherit"
-            }
-        }
-    }
+                color: "inherit",
+            },
+        },
+    },
 });
 
 export default defaultTheme;

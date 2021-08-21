@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="MuiContainer-root TopPageContainer-root-2 MuiContainer-maxWidthLg"
+        class="MuiContainer-root TopPageContainer-root-1 MuiContainer-maxWidthLg"
         id="Top"
       >
         <div
@@ -216,7 +216,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="MuiContainer-root TopPageContainer-root-2 MuiContainer-maxWidthLg"
+      class="MuiContainer-root TopPageContainer-root-1 MuiContainer-maxWidthLg"
       id="Top"
     >
       <div

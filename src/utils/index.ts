@@ -10,8 +10,11 @@ const utils = {
         }, selector(array[0]));
     },
     reverse: <T>(a: Array<T>): Array<T> => {
-        return a.reduce((ans, value) => { ans.unshift(value); return ans; }, [] as Array<T>);
-    }
+        return a.reduce((ans, value) => {
+            ans.unshift(value);
+            return ans;
+        }, [] as Array<T>);
+    },
 };
 
 export default utils;
