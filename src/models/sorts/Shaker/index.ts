@@ -39,14 +39,10 @@ export default class Shaker
           return new Shaker({
               ...this,
               items: items.map((item, i) => {
-                  if (i === this.cursor || i === this.cursor + 1) {
-                      return {
-                          ...item,
-                          comparing: true,
-                      };
-                  } else {
-                      return item;
-                  }
+                  return {
+                      ...item,
+                      comparing: i === this.cursor || i === this.cursor + 1,
+                  };
               }),
               compareCount: compareCount + 1,
           });
@@ -80,7 +76,6 @@ export default class Shaker
                   if (item.comparing) {
                       return {
                           ...swapped[mapCursor++],
-                          comparing: false,
                           fixed: i === (isUp ? last : start) || start + 1 === last,
                       };
                   } else {

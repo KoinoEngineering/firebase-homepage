@@ -10,10 +10,18 @@ interface SortsContainerProps {
 
 const useStyles = makeStyles<typeof defaultTheme, { value: number; fixed: boolean }>(
     createStyles({
+        inlineBlock: {
+            display: "inline-block",
+        },
         rainbow: ({ value, fixed }) => ({
             backgroundColor: `hsl(${(value * 360) / 100},${fixed ? "50%" : "80%"},${fixed ? "50%" : "80%"})`,
-            display: "inline-block",
         }),
+        compared: {
+            backgroundColor: "red",
+        },
+        pined: {
+            backgroundColor: "blue",
+        },
         sqare: {
             width: "2rem",
             "&::before": {
@@ -29,20 +37,22 @@ const useStyles = makeStyles<typeof defaultTheme, { value: number; fixed: boolea
             position: "absolute",
         },
         content: {
-            top: 0,
-            left: 0,
-            paddingTop: "50%",
-            paddingLeft: "50%",
-            marginTop: "-25%",
-            marginLeft: "-25%",
+            top: "50%",
+            left: "50%",
+            transform: "translateX(-50%) translateY(-50%)",
         },
     }),
 );
 
-const ContainerItem: React.FC<{ value: number; fixed: boolean }> = ({ value, fixed }) => {
-    const { rainbow, sqare, relative, absolute, content } = useStyles({ value, fixed });
+interface ContainerItemProps {
+    item: ComparsionItem;
+    ended: boolean;
+}
+
+const ContainerItem: React.FC<ContainerItemProps> = ({ item: { value, fixed, comparing }, ended }) => {
+    const { inlineBlock, compared, rainbow, sqare, relative, absolute, content } = useStyles({ value, fixed: !ended && fixed });
     return (
-        <div className={[rainbow, sqare, relative].join(" ")}>
+        <div className={[inlineBlock, !ended && comparing ? compared : rainbow, sqare, relative].join(" ")}>
             <div className={[absolute, content].join(" ")}>{value}</div>
         </div>
     );
@@ -51,8 +61,8 @@ const ContainerItem: React.FC<{ value: number; fixed: boolean }> = ({ value, fix
 const SortsContainer: React.FC<SortsContainerProps> = ({ items, ended }) => {
     return (
         <div>
-            {items.map(({ id, value, fixed }) => {
-                return <ContainerItem key={id} value={value} fixed={!ended && fixed} />;
+            {items.map((item) => {
+                return <ContainerItem key={item.id} item={item} ended={ended} />;
             })}
         </div>
     );

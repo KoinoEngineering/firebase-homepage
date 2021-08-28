@@ -21,14 +21,10 @@ export default class Gnome
           return new Gnome({
               ...this,
               items: items.map((item, i) => {
-                  if (i === cursor || i === cursor + 1) {
-                      return {
-                          ...item,
-                          comparing: true,
-                      };
-                  } else {
-                      return item;
-                  }
+                  return {
+                      ...item,
+                      comparing: i === cursor || i === cursor + 1,
+                  };
               }),
               compareCount: compareCount + 1,
           });
@@ -67,7 +63,6 @@ export default class Gnome
                   mapCursor++;
                   return {
                       ...swapTarget,
-                      comparing: false,
                       fixed,
                   };
               } else {
