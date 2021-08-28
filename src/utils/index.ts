@@ -1,4 +1,10 @@
 const utils = {
+    tap: <T>(callback: (state: T) => unknown) => {
+        return (state: T) => {
+            callback(state);
+            return state;
+        };
+    },
     max: <T, A = unknown>(array: T[], selector: (item: T) => A): A => {
         return array.reduce((ans, item) => {
             if (ans !== null) {
@@ -14,6 +20,13 @@ const utils = {
             ans.unshift(value);
             return ans;
         }, [] as Array<T>);
+    },
+    wait: (ms: number = 0) => {
+        return new Promise<number>((res) => {
+            setTimeout(() => {
+                res(ms);
+            }, ms);
+        });
     },
 };
 

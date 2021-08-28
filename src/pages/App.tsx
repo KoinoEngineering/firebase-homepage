@@ -4,6 +4,7 @@ import { Redirect, Route as PublicRoute, BrowserRouter as Router, Switch } from 
 import MainFrame from "src/components/templates/MainFrame/MainFrame";
 import ROUTES from "src/utils/routes";
 import Top from "./Top";
+import Sorts from "./Sorts";
 
 const useStyles = makeStyles(
     createStyles({
@@ -21,6 +22,9 @@ const App: React.FC = () => {
                         <Redirect exact from="/" to={ROUTES.TOP} />
                         <PublicRoute exact path={ROUTES.TOP}>
                             <Top />
+                        </PublicRoute>
+                        <PublicRoute exact path={ROUTES.SORTS}>
+                            <Sorts />
                         </PublicRoute>
                         <Redirect exact from="*" to={ROUTES.TOP} />
                     </Switch>
