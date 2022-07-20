@@ -27,7 +27,7 @@ const Sorts: React.FC = () => {
 
     useEffect(() => {
         if (playAll && Object.values(state).some((s) => !s.ended)) {
-            utils.wait(300).then(() => dispatch(ActionCreators.step()));
+            utils.wait().then(() => dispatch(ActionCreators.step()));
         } else {
             setPlayAll(false);
         }
@@ -59,7 +59,7 @@ const Sorts: React.FC = () => {
                             onClick={() => {
                                 dispatch(
                                     ActionCreators.init({
-                                        items: _.range(10).map(() => {
+                                        items: _.range(30).map(() => {
                                             return { id: uuid(), value: Math.round(Math.random() * 10) };
                                         }),
                                     }),
@@ -75,7 +75,7 @@ const Sorts: React.FC = () => {
                             onClick={() => {
                                 dispatch(
                                     ActionCreators.init({
-                                        items: _.range(10).map((i) => {
+                                        items: _.range(30).map((i) => {
                                             return { id: uuid(), value: i + 1 };
                                         }),
                                     }),
@@ -91,7 +91,7 @@ const Sorts: React.FC = () => {
                             onClick={() => {
                                 dispatch(
                                     ActionCreators.init({
-                                        items: _.range(10)
+                                        items: _.range(30)
                                             .map((i) => {
                                                 return { id: uuid(), value: i + 1 };
                                             })
@@ -133,6 +133,7 @@ export default Sorts;
 function initialState(): State {
     return {
         bubble: dummyState(),
+        gnome: dummyState(),
         shaker: dummyState(),
     };
 }

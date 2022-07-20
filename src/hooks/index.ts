@@ -2,6 +2,7 @@ import { Reducer } from "react";
 import { CompoersionSort, SORT_TYPES } from "src/interfaces/Sorts";
 import { Actions } from "src/reducers/actions";
 import bubble from "src/reducers/bubble";
+import gnome from "src/reducers/gnome";
 import shaker from "src/reducers/shaker";
 import utils from "src/utils";
 
@@ -15,6 +16,7 @@ type ReducerMappings = {
 
 const mapping: ReducerMappings = {
     bubble,
+    gnome,
     shaker,
 };
 
