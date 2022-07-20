@@ -32,3 +32,8 @@ export interface CompoersionSortItem {
   id: string;
   value: number;
 }
+
+/** ソートの種類 */
+export enum SORT_TYPES {
+  bubble = "バブルソート",
+}
