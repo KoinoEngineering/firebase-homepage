@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import _ from "lodash";
 import React, { useEffect, useReducer, useState } from "react";
 import MainButton from "src/components/atoms/MainButton";
@@ -106,6 +106,14 @@ const Sorts: React.FC = () => {
                     </Grid>
                 </Grid>
             </div>
+            <Grid container spacing={1}>
+                <Grid item>
+                    <Typography>比較・置換を1ステップとする</Typography>
+                    <ul>
+                        <li>「進めるための比較」が必要なノームソートなどは実際よりとても遅い？</li>
+                    </ul>
+                </Grid>
+            </Grid>
             <Grid container spacing={1}>
                 <Grid item>
                     {utils.entries(state).map(([key, type]) => {
