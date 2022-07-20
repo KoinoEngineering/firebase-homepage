@@ -6,6 +6,8 @@ import { compoersionSortReducers, State } from "src/hooks";
 import { CompoersionSort } from "src/interfaces/Sorts";
 import { ActionCreators } from "src/reducers/actions";
 import utils from "src/utils";
+import { v4 as uuid } from "uuid";
+import SortsContainer from "./SortsContainer";
 
 const Sorts: React.FC = () => {
     const [state, dispatch] = useReducer(compoersionSortReducers, initialState());
@@ -15,7 +17,7 @@ const Sorts: React.FC = () => {
             ActionCreators.init({
                 items: _.range(10)
                     .map((i) => {
-                        return { value: i + 1 };
+                        return { id: uuid(), value: i + 1 };
                     })
                     .reverse(),
             }),
@@ -38,7 +40,19 @@ const Sorts: React.FC = () => {
                         <MainButton>play all</MainButton>
                     </Grid>
                     <Grid item xs>
-                        <MainButton>random</MainButton>
+                        <MainButton
+                            onClick={() => {
+                                dispatch(
+                                    ActionCreators.init({
+                                        items: _.range(10).map(() => {
+                                            return { id: uuid(), value: Math.round(Math.random() * 10) };
+                                        }),
+                                    }),
+                                );
+                            }}
+                        >
+                            random
+                        </MainButton>
                     </Grid>
                     <Grid item xs>
                         <MainButton
@@ -46,7 +60,7 @@ const Sorts: React.FC = () => {
                                 dispatch(
                                     ActionCreators.init({
                                         items: _.range(10).map((i) => {
-                                            return { value: i + 1 };
+                                            return { id: uuid(), value: i + 1 };
                                         }),
                                     }),
                                 );
@@ -62,7 +76,7 @@ const Sorts: React.FC = () => {
                                     ActionCreators.init({
                                         items: _.range(10)
                                             .map((i) => {
-                                                return { value: i + 1 };
+                                                return { id: uuid(), value: i + 1 };
                                             })
                                             .reverse(),
                                     }),
@@ -79,8 +93,7 @@ const Sorts: React.FC = () => {
                     {utils.entries(state).map(([key, method]) => {
                         return (
                             <div key={key}>
-                                <span>{key}</span>:<span>{method.cursor}</span>:<span>{method.compCnt}</span>:<span>{method.swapCnt}</span>:
-                                <span>{method.items.map((v) => v.value).join(",")}</span>
+                                <SortsContainer {...method}></SortsContainer>
                             </div>
                         );
                     })}
@@ -102,12 +115,13 @@ function dummyState(): CompoersionSort {
     return {
         items: [],
         cursor: 0,
+        comparison: 0,
         cursorMin: 0,
         cursorMax: 0,
         pointer: 0,
         needSwap: false,
         compCnt: 0,
         swapCnt: 0,
-        isEnd: false,
+        ended: false,
     };
 }

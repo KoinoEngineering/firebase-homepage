@@ -7,6 +7,9 @@ export interface CompoersionSort {
   /** カーソルの最大最小 */
   cursorMin: number;
   cursorMax: number;
+
+  /** 表示上必要な比較対象を表すカーソル */
+  comparison: number;
   /** minやmax等を入れる入れ物 */
   pointer: number;
   /**
@@ -21,10 +24,11 @@ export interface CompoersionSort {
   swapCnt: number;
 
   /** 完了しているかどうか */
-  isEnd: boolean;
+  ended: boolean;
 }
 
 /** 比較ソートの中身 */
 export interface CompoersionSortItem {
+  id: string;
   value: number;
 }

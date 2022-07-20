@@ -3,7 +3,7 @@ import { CompoersionSort } from "src/interfaces/Sorts";
 import { Actions, ActionTypes } from "./actions";
 
 const reducer: Reducer<CompoersionSort, Actions> = (state, action) => {
-    if (state.isEnd) {
+    if (state.ended) {
         return state;
     } else {
         switch (action.type) {
@@ -11,13 +11,14 @@ const reducer: Reducer<CompoersionSort, Actions> = (state, action) => {
                 return {
                     items: action.payload.items,
                     cursor: 0, // 右と比較するので0から始める
-                    cursorMin: 0, // 使わないので0固定
+                    comparison: 1,
+                    cursorMin: NaN, // 使わないので0固定
                     cursorMax: action.payload.items.length - 2, // 右から二番目のカーソル位置まで
-                    pointer: 0, // 使わないので0
+                    pointer: NaN, // 使わないので0
                     needSwap: false,
                     compCnt: 0,
                     swapCnt: 0,
-                    isEnd: false,
+                    ended: false,
                 };
             case ActionTypes.STEP:
                 return state.needSwap ? swap(state) : compare(state);
@@ -71,15 +72,18 @@ function swap(state: CompoersionSort): CompoersionSort {
 
 // 右は時まで来てた時は戻る
 // そうでなければ進む
-function nextCursor(state: CompoersionSort) {
+function nextCursor(
+    state: CompoersionSort,
+): Pick<CompoersionSort, "cursor" | "cursorMax" | "ended" | "comparison"> {
     // なんかあったときように大なりにしておく
     const isReturn = state.cursor >= state.cursorMax;
-
+    const cursor = isReturn ? 0 : state.cursor + 1;
     return {
-        cursor: isReturn ? 0 : state.cursor + 1,
+        cursor,
+        comparison: cursor + 1,
         cursorMax: isReturn ? state.cursorMax - 1 : state.cursorMax,
         // 戻るときに今のカーソルの最大が1だったら終わる
-        isEnd: isReturn && state.cursorMax === 0,
+        ended: isReturn && state.cursorMax === 0,
     };
 }
 
