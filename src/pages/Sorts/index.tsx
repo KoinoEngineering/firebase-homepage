@@ -3,7 +3,7 @@ import _ from "lodash";
 import React, { useEffect, useReducer } from "react";
 import MainButton from "src/components/atoms/MainButton";
 import { compoersionSortReducers, State } from "src/hooks";
-import { CompoersionSort } from "src/interfaces/Sorts";
+import { CompoersionSort, SORT_TYPES } from "src/interfaces/Sorts";
 import { ActionCreators } from "src/reducers/actions";
 import utils from "src/utils";
 import { v4 as uuid } from "uuid";
@@ -90,11 +90,18 @@ const Sorts: React.FC = () => {
             </div>
             <Grid container spacing={1}>
                 <Grid item>
-                    {utils.entries(state).map(([key, method]) => {
+                    {utils.entries(state).map(([key, type]) => {
                         return (
-                            <div key={key}>
-                                <SortsContainer {...method}></SortsContainer>
-                            </div>
+                            <Grid key={SORT_TYPES[key]} item xs={12}>
+                                <div>{SORT_TYPES[key]}</div>
+                                <div>
+                                    <span>比較回数：{type.compCnt}</span>
+                                    <span>置換回数：{type.swapCnt}</span>
+                                </div>
+                                <div>
+                                    <SortsContainer {...type} />
+                                </div>
+                            </Grid>
                         );
                     })}
                 </Grid>
