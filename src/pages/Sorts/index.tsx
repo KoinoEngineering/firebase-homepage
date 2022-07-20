@@ -108,9 +108,14 @@ const Sorts: React.FC = () => {
             </div>
             <Grid container spacing={1}>
                 <Grid item>
-                    <Typography>比較・置換を1ステップとする</Typography>
+                    <Typography>比較・置換を1ステップとして観察できる</Typography>
                     <ul>
-                        <li>「進めるための比較」が必要なノームソートなどは実際よりとても遅い？</li>
+                        <li>
+                            実際は<strong>比較</strong>と<strong>置換</strong>のコストが同じになるはずはないので
+                            <br />
+                            <strong>早さ</strong>よりも<strong>動きの違い</strong>を見るためのもの
+                        </li>
+                        <li>「進めるための比較」が必要なノームソートなどは実際よりとても遅いはず</li>
                     </ul>
                 </Grid>
             </Grid>
