@@ -1,6 +1,7 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, TextField, Typography } from "@material-ui/core";
 import _ from "lodash";
 import React, { useEffect, useReducer, useState } from "react";
+import { useHistory, useLocation } from "react-router";
 import MainButton from "src/components/atoms/MainButton";
 import { compoersionSortReducers, State } from "src/hooks";
 import { CompoersionSort, SORT_TYPES } from "src/interfaces/Sorts";
@@ -8,9 +9,15 @@ import { ActionCreators } from "src/reducers/actions";
 import utils from "src/utils";
 import { v4 as uuid } from "uuid";
 import SortsContainer from "./SortsContainer";
+import qs from "qs";
 
 const Sorts: React.FC = () => {
     const [state, dispatch] = useReducer(compoersionSortReducers, initialState());
+    const history = useHistory();
+    const location = useLocation();
+    const params = qs.parse(location.search, {
+        ignoreQueryPrefix: true,
+    });
     const [playAll, setPlayAll] = useState(false);
 
     useEffect(() => {
@@ -27,11 +34,11 @@ const Sorts: React.FC = () => {
 
     useEffect(() => {
         if (playAll && Object.values(state).some((s) => !s.ended)) {
-            utils.wait().then(() => dispatch(ActionCreators.step()));
+            utils.wait(Number(params.delay)).then(() => dispatch(ActionCreators.step()));
         } else {
             setPlayAll(false);
         }
-    }, [playAll, state]);
+    }, [params.delay, playAll, state]);
 
     return (
         <div>
@@ -121,6 +128,28 @@ const Sorts: React.FC = () => {
             </Grid>
             <Grid container spacing={1}>
                 <Grid item>
+                    <Grid container spacing={1}>
+                        <Grid item>
+                            <Typography>設定</Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={1}>
+                        <Grid item>
+                            <TextField
+                                value={params.delay}
+                                label="処理間隔(ms)"
+                                onChange={({ target: { value: delay } }) => {
+                                    if (!isNaN(Number(delay))) {
+                                        history.replace({ ...location, search: qs.stringify({ ...params, delay }) });
+                                    }
+                                }}
+                            />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+                <Grid item>
                     {utils.entries(state).map(([key, type]) => {
                         return (
                             <Grid key={SORT_TYPES[key]} item xs={12}>
@@ -147,6 +176,7 @@ function initialState(): State {
     return {
         bubble: dummyState(),
         gnome: dummyState(),
+        selection: dummyState(),
         shaker: dummyState(),
     };
 }

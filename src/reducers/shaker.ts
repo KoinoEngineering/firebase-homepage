@@ -107,6 +107,7 @@ function swap(state: CompoersionSort): CompoersionSort {
 
 /**
  * 次のカーソル位置を計算する
+ * それに伴って出てくる値も計算する
  */
 function nextCursor({
     direction,

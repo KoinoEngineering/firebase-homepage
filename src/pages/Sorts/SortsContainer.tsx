@@ -46,10 +46,11 @@ interface ContainerItemProps {
     isPointer: boolean;
 }
 
-const ContainerItem: React.FC<ContainerItemProps> = ({ item: { value }, isCursor, ended }) => {
-    const { inlineBlock, compared, rainbow, sqare, relative, absolute, content } = useStyles({ fixed: ended, value });
+const ContainerItem: React.FC<ContainerItemProps> = ({ item: { value }, isCursor, ended, isPointer }) => {
+    const { inlineBlock, compared, pined, rainbow, sqare, relative, absolute, content } = useStyles({ fixed: ended, value });
+    const color = ended ? rainbow : isPointer ? pined : isCursor ? compared : rainbow;
     return (
-        <div className={[inlineBlock, !ended && isCursor ? compared : rainbow, sqare, relative].join(" ")}>
+        <div className={[inlineBlock, color, sqare, relative].join(" ")}>
             <div className={[absolute, content].join(" ")}>{value}</div>
         </div>
     );

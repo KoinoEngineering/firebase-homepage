@@ -4,6 +4,7 @@ import { Actions } from "src/reducers/actions";
 import bubble from "src/reducers/bubble";
 import gnome from "src/reducers/gnome";
 import shaker from "src/reducers/shaker";
+import selection from "src/reducers/selection";
 import utils from "src/utils";
 
 export type State = {
@@ -17,6 +18,7 @@ type ReducerMappings = {
 const mapping: ReducerMappings = {
     bubble,
     gnome,
+    selection,
     shaker,
 };
 
