@@ -1,4 +1,4 @@
-import { Grid, TextField, Typography } from "@material-ui/core";
+import { createStyles, Grid, makeStyles, TextField, Typography } from "@material-ui/core";
 import _ from "lodash";
 import React, { useEffect, useReducer, useState } from "react";
 import { useHistory, useLocation } from "react-router";
@@ -11,7 +11,16 @@ import { v4 as uuid } from "uuid";
 import SortsContainer from "./SortsContainer";
 import qs from "qs";
 
+const useStyles = makeStyles(
+    createStyles({
+        root: {
+            padding: 8,
+        },
+    }),
+);
+
 const Sorts: React.FC = () => {
+    const { root } = useStyles();
     const [state, dispatch] = useReducer(compoersionSortReducers, initialState());
     const history = useHistory();
     const location = useLocation();
@@ -41,7 +50,7 @@ const Sorts: React.FC = () => {
     }, [params.delay, playAll, state]);
 
     return (
-        <div>
+        <div className={root}>
             <div>
                 <Grid container spacing={1}>
                     <Grid item xs>
