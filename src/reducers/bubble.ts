@@ -3,29 +3,29 @@ import { CompoersionSort } from "src/interfaces/Sorts";
 import { Actions, ActionTypes } from "./actions";
 
 const reducer: Reducer<CompoersionSort, Actions> = (state, action) => {
-    if (state.ended) {
-        return state;
-    } else {
-        switch (action.type) {
-            case ActionTypes.INIT:
-                return {
-                    compCnt: 0,
-                    comparison: 1,
-                    cursor: 0, // 右と比較するので0から始める
-                    cursorMax: action.payload.items.length - 2, // 右から二番目のカーソル位置まで
-                    cursorMin: NaN, // 使わないので0固定
-                    direction: true,
-                    ended: false,
-                    items: action.payload.items,
-                    needSwap: false,
-                    pointer: NaN, // 使わないので0
-                    swapCnt: 0,
-                };
-            case ActionTypes.STEP:
-                return state.needSwap ? swap(state) : compare(state);
-            default:
+    switch (action.type) {
+        case ActionTypes.INIT:
+            return {
+                compCnt: 0,
+                comparison: 1,
+                cursor: 0, // 右と比較するので0から始める
+                cursorMax: action.payload.items.length - 2, // 右から二番目のカーソル位置まで
+                cursorMin: NaN, // 使わないので0固定
+                direction: true,
+                ended: false,
+                items: action.payload.items,
+                needSwap: false,
+                pointer: NaN, // 使わないので0
+                swapCnt: 0,
+            };
+        case ActionTypes.STEP:
+            if (state.ended) {
                 return state;
-        }
+            } else {
+                return state.needSwap ? swap(state) : compare(state);
+            }
+        default:
+            return state;
     }
 };
 

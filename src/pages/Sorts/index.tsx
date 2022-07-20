@@ -115,6 +115,7 @@ export default Sorts;
 function initialState(): State {
     return {
         bubble: dummyState(),
+        shaker: dummyState(),
     };
 }
 

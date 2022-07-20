@@ -2,6 +2,7 @@ import { Reducer } from "react";
 import { CompoersionSort, SORT_TYPES } from "src/interfaces/Sorts";
 import { Actions } from "src/reducers/actions";
 import bubble from "src/reducers/bubble";
+import shaker from "src/reducers/shaker";
 import utils from "src/utils";
 
 export type State = {
@@ -14,6 +15,7 @@ type ReducerMappings = {
 
 const mapping: ReducerMappings = {
     bubble,
+    shaker,
 };
 
 // 簡易combineReducers
