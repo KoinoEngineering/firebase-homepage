@@ -9,16 +9,17 @@ const reducer: Reducer<CompoersionSort, Actions> = (state, action) => {
         switch (action.type) {
             case ActionTypes.INIT:
                 return {
-                    items: action.payload.items,
-                    cursor: 0, // 右と比較するので0から始める
-                    comparison: 1,
-                    cursorMin: NaN, // 使わないので0固定
-                    cursorMax: action.payload.items.length - 2, // 右から二番目のカーソル位置まで
-                    pointer: NaN, // 使わないので0
-                    needSwap: false,
                     compCnt: 0,
-                    swapCnt: 0,
+                    comparison: 1,
+                    cursor: 0, // 右と比較するので0から始める
+                    cursorMax: action.payload.items.length - 2, // 右から二番目のカーソル位置まで
+                    cursorMin: NaN, // 使わないので0固定
+                    direction: true,
                     ended: false,
+                    items: action.payload.items,
+                    needSwap: false,
+                    pointer: NaN, // 使わないので0
+                    swapCnt: 0,
                 };
             case ActionTypes.STEP:
                 return state.needSwap ? swap(state) : compare(state);
@@ -42,10 +43,10 @@ function compare(state: CompoersionSort): CompoersionSort {
     // 左のほうが大きいとき
         return {
             ...state,
-            // 次のステップで入れ替えるように指示する
-            needSwap: true,
             // 比較回数を増やす
             compCnt: state.compCnt + 1,
+            // 次のステップで入れ替えるように指示する
+            needSwap: true,
         };
     }
 }
@@ -70,17 +71,20 @@ function swap(state: CompoersionSort): CompoersionSort {
     };
 }
 
-// 右は時まで来てた時は戻る
-// そうでなければ進む
+/**
+ * 次のカーソル位置を計算する
+ */
 function nextCursor(
     state: CompoersionSort,
 ): Pick<CompoersionSort, "cursor" | "cursorMax" | "ended" | "comparison"> {
     // なんかあったときように大なりにしておく
     const isReturn = state.cursor >= state.cursorMax;
+    // 戻るときは0それ以外は1進む
     const cursor = isReturn ? 0 : state.cursor + 1;
     return {
-        cursor,
+    // 表示上の比較対象はカーソルの右
         comparison: cursor + 1,
+        cursor,
         cursorMax: isReturn ? state.cursorMax - 1 : state.cursorMax,
         // 戻るときに今のカーソルの最大が1だったら終わる
         ended: isReturn && state.cursorMax === 0,

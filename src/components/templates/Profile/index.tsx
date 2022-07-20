@@ -29,83 +29,83 @@ const getPeriods = (): string => {
 };
 
 const profileInfo: NestedListProps = {
-    subheader: (
-        <ListSubheader disableSticky>
-            <Typography variant="h2">プロフィール</Typography>
-        </ListSubheader>
-    ),
     items: [
         {
-            disableRipple: true,
             content: "名前: こいのエンジニアリング",
+            disableRipple: true,
         },
         {
-            disableRipple: true,
             content: `開発年数: 2014年8月～現在(${getPeriods()})`,
+            disableRipple: true,
         },
         {
-            disableRipple: true,
             content: {
-                subheader: (
-                    <ListSubheader disableSticky>
-                        <Typography variant="h3">できること</Typography>
-                    </ListSubheader>
-                ),
                 items: [
                     {
-                        disableRipple: true,
                         content: {
+                            items: [
+                                {
+                                    content: "typescript",
+                                    disableRipple: true,
+                                },
+                                {
+                                    content: "react/redux/redux-saga",
+                                    disableRipple: true,
+                                },
+                                {
+                                    content: "java",
+                                    disableRipple: true,
+                                },
+                                {
+                                    content: "C#",
+                                    disableRipple: true,
+                                },
+                            ],
                             subheader: (
                                 <ListSubheader disableSticky>
                                     <Typography variant="h3">言語</Typography>
                                 </ListSubheader>
                             ),
-                            items: [
-                                {
-                                    disableRipple: true,
-                                    content: "typescript",
-                                },
-                                {
-                                    disableRipple: true,
-                                    content: "react/redux/redux-saga",
-                                },
-                                {
-                                    disableRipple: true,
-                                    content: "java",
-                                },
-                                {
-                                    disableRipple: true,
-                                    content: "C#",
-                                },
-                            ],
                         },
+                        disableRipple: true,
                     },
                     {
-                        disableRipple: true,
                         content: {
+                            items: [
+                                {
+                                    content: "firebase",
+                                    disableRipple: true,
+                                },
+                                {
+                                    content: "heroku",
+                                    disableRipple: true,
+                                },
+                                {
+                                    content: "aws(勉強中)",
+                                    disableRipple: true,
+                                },
+                            ],
                             subheader: (
                                 <ListSubheader disableSticky>
                                     <Typography variant="h3">環境</Typography>
                                 </ListSubheader>
                             ),
-                            items: [
-                                {
-                                    disableRipple: true,
-                                    content: "firebase",
-                                },
-                                {
-                                    disableRipple: true,
-                                    content: "heroku",
-                                },
-                                {
-                                    disableRipple: true,
-                                    content: "aws(勉強中)",
-                                },
-                            ],
                         },
+                        disableRipple: true,
                     },
                 ],
+                subheader: (
+                    <ListSubheader disableSticky>
+                        <Typography variant="h3">できること</Typography>
+                    </ListSubheader>
+                ),
             },
+            disableRipple: true,
         },
     ],
+    subheader: (
+        <ListSubheader disableSticky>
+            <Typography variant="h2">プロフィール</Typography>
+        </ListSubheader>
+    ),
 };

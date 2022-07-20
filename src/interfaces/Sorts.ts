@@ -10,6 +10,10 @@ export interface CompoersionSort {
 
   /** 表示上必要な比較対象を表すカーソル */
   comparison: number;
+
+  /** シェーカーソートなど向きのあるもので使う向き */
+  direction: boolean;
+
   /** minやmax等を入れる入れ物 */
   pointer: number;
   /**

@@ -63,17 +63,17 @@ const Header: React.FC = () => {
             },
             {
                 content: {
-                    subheader: (
-                        <ListSubheader disableSticky>
-                            <Typography variant="h3">ソート</Typography>
-                        </ListSubheader>
-                    ),
                     onClick: (e) => {
                         if (!e.isDefaultPrevented()) {
                             // actions.navigate.push(ROUTES.SORTS);
                             setSideNavOpen(false);
                         }
                     },
+                    subheader: (
+                        <ListSubheader disableSticky>
+                            <Typography variant="h3">ソート</Typography>
+                        </ListSubheader>
+                    ),
                 },
             },
         ],

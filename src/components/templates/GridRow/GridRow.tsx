@@ -19,11 +19,11 @@ const useStyles = makeStyles(
     createStyles({
         container: {
             padding: (props?: Partial<GridClassProps>) => props?.padding,
+            paddingBottom: (props?: Partial<GridClassProps>) => props?.paddingBottom,
+            paddingLeft: (props?: Partial<GridClassProps>) => props?.paddingLeft,
+            paddingRight: (props?: Partial<GridClassProps>) => props?.paddingRight,
             paddingTop: (props?: Partial<GridClassProps>) =>
                 props?.paddingTop || "1rem",
-            paddingRight: (props?: Partial<GridClassProps>) => props?.paddingRight,
-            paddingLeft: (props?: Partial<GridClassProps>) => props?.paddingLeft,
-            paddingBottom: (props?: Partial<GridClassProps>) => props?.paddingBottom,
         },
     }),
     {

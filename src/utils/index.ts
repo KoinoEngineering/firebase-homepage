@@ -1,9 +1,6 @@
 const utils = {
-    tap: <T>(callback: (state: T) => unknown) => {
-        return (state: T) => {
-            callback(state);
-            return state;
-        };
+    entries: <O extends {}>(o: O) => {
+        return Object.entries(o) as [keyof O, O[keyof O]][];
     },
     max: <T, A = unknown>(array: T[], selector: (item: T) => A): A => {
         return array.reduce((ans, item) => {
@@ -21,15 +18,18 @@ const utils = {
             return ans;
         }, [] as Array<T>);
     },
+    tap: <T>(callback: (state: T) => unknown) => {
+        return (state: T) => {
+            callback(state);
+            return state;
+        };
+    },
     wait: (ms: number = 0) => {
         return new Promise<number>((res) => {
             setTimeout(() => {
                 res(ms);
             }, ms);
         });
-    },
-    entries: <O extends {}>(o: O) => {
-        return Object.entries(o) as [keyof O, O[keyof O]][];
     },
 };
 

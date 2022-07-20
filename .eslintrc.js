@@ -12,11 +12,6 @@ module.exports = {
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:react-hooks/recommended",
     ],
-    settings: {
-        react: {
-            version: "detect",
-        },
-    },
     globals: {
         Atomics: "readonly",
         SharedArrayBuffer: "readonly",
@@ -31,10 +26,8 @@ module.exports = {
     },
     plugins: ["react", "@typescript-eslint"],
     rules: {
-        "react/prop-types": "off",
-        "no-unused-vars": "off",
-        "no-console": warn,
         "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+        "comma-dangle": ["error", "always-multiline"],
         indent: [
             "error",
             4,
@@ -43,6 +36,9 @@ module.exports = {
             },
         ],
         "linebreak-style": ["error", "unix"],
+        "no-console": warn,
+        "no-multi-spaces": "error",
+        "no-unused-vars": "off",
         quotes: [
             "error",
             "double",
@@ -50,8 +46,13 @@ module.exports = {
                 allowTemplateLiterals: true,
             },
         ],
+        "react/prop-types": "off",
         semi: ["error", "always"],
-        "comma-dangle": ["error", "always-multiline"],
-        "no-multi-spaces": "error",
+        "sort-keys": warn,
+    },
+    settings: {
+        react: {
+            version: "detect",
+        },
     },
 };

@@ -11,55 +11,55 @@ const Top: React.FC = () => {
     const history = useHistory();
     const madeItems: Propsof<typeof HeadlineCard>[] = [
         {
-            raised: true,
             cardActionAreaProps: {
-                href: EXT_ROUTE.HOMEPAGE,
-                target: "_blank",
-                rel: "noopener noreferrer",
                 headerProps: {
                     title: "旧ホームページ(廃止予定)",
                 },
+                href: EXT_ROUTE.HOMEPAGE,
+                rel: "noopener noreferrer",
+                target: "_blank",
             },
+            raised: true,
         },
         {
-            raised: true,
             cardActionAreaProps: {
                 // onClick: () => dispatch(push(ROUTES.TOP)),
                 headerProps: {
                     title: "Webサイト(ここ)",
                 },
             },
+            raised: true,
         },
         {
-            raised: true,
             cardActionAreaProps: {
-                onClick: () => history.push(ROUTES.SORTS),
                 headerProps: {
                     title: "ソート",
                 },
+                onClick: () => history.push(ROUTES.SORTS),
             },
+            raised: true,
         },
         {
-            raised: true,
             cardActionAreaProps: {
-                href: EXT_ROUTE.REACT,
-                target: "_blank",
-                rel: "noopener noreferrer",
                 headerProps: {
                     title: "リアクト勉強部屋(ここの配下に移設予定)",
                 },
+                href: EXT_ROUTE.REACT,
+                rel: "noopener noreferrer",
+                target: "_blank",
             },
+            raised: true,
         },
         {
-            raised: true,
             cardActionAreaProps: {
-                href: EXT_ROUTE.MAZE,
-                target: "_blank",
-                rel: "noopener noreferrer",
                 headerProps: {
                     title: "迷路(ここの配下に移設予定)",
                 },
+                href: EXT_ROUTE.MAZE,
+                rel: "noopener noreferrer",
+                target: "_blank",
             },
+            raised: true,
         },
     ];
 

@@ -113,15 +113,16 @@ function initialState(): State {
 
 function dummyState(): CompoersionSort {
     return {
-        items: [],
-        cursor: 0,
-        comparison: 0,
-        cursorMin: 0,
-        cursorMax: 0,
-        pointer: 0,
-        needSwap: false,
         compCnt: 0,
-        swapCnt: 0,
+        comparison: 0,
+        cursor: 0,
+        cursorMax: 0,
+        cursorMin: 0,
+        direction: true,
         ended: false,
+        items: [],
+        needSwap: false,
+        pointer: 0,
+        swapCnt: 0,
     };
 }

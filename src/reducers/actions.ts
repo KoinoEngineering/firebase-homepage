@@ -24,7 +24,7 @@ export type Actions = InitAction | Action<ActionTypes.STEP>;
  */
 export const ActionCreators = {
     init: (payload: { items: CompoersionSortItem[] }): InitAction => {
-        return { type: ActionTypes.INIT, payload };
+        return { payload, type: ActionTypes.INIT };
     },
     step: (): Action<ActionTypes.STEP> => {
         return { type: ActionTypes.STEP };
