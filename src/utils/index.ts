@@ -28,6 +28,9 @@ const utils = {
             }, ms);
         });
     },
+    entries: <O extends {}>(o: O) => {
+        return Object.entries(o) as [keyof O, O[keyof O]][];
+    },
 };
 
 export default utils;
