@@ -1,15 +1,14 @@
 import { Grid, Typography } from "@material-ui/core";
 import React from "react";
+import { useHistory } from "react-router";
 import HeadlineCard from "src/components/templates/HeadlineCard";
 import PageContainer from "src/components/templates/Page/PageContainer";
 import Profile from "src/components/templates/Profile";
 import { Propsof } from "src/interfaces/Props";
-// import ROUTES from "src/utils/routes";
-import { EXT_ROUTE } from "src/utils/routes";
-// import { useDispatch } from "react-redux";
+import ROUTES, { EXT_ROUTE } from "src/utils/routes";
 
 const Top: React.FC = () => {
-    // const dispatch = useDispatch();
+    const history = useHistory();
     const madeItems: Propsof<typeof HeadlineCard>[] = [
         {
             raised: true,
@@ -34,7 +33,7 @@ const Top: React.FC = () => {
         {
             raised: true,
             cardActionAreaProps: {
-                // onClick: () => dispatch(push(ROUTES.SORTS)),
+                onClick: () => history.push(ROUTES.SORTS),
                 headerProps: {
                     title: "ソート",
                 },
