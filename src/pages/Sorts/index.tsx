@@ -1,6 +1,6 @@
 import { Grid } from "@material-ui/core";
 import _ from "lodash";
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import MainButton from "src/components/atoms/MainButton";
 import { compoersionSortReducers, State } from "src/hooks";
 import { CompoersionSort, SORT_TYPES } from "src/interfaces/Sorts";
@@ -11,6 +11,7 @@ import SortsContainer from "./SortsContainer";
 
 const Sorts: React.FC = () => {
     const [state, dispatch] = useReducer(compoersionSortReducers, initialState());
+    const [playAll, setPlayAll] = useState(false);
 
     useEffect(() => {
         dispatch(
@@ -23,6 +24,15 @@ const Sorts: React.FC = () => {
             }),
         );
     }, [dispatch]);
+
+    useEffect(() => {
+        if (playAll && Object.values(state).some((s) => !s.ended)) {
+            utils.wait(300).then(() => dispatch(ActionCreators.step()));
+        } else {
+            setPlayAll(false);
+        }
+    }, [playAll, state]);
+
     return (
         <div>
             <div>
@@ -32,12 +42,17 @@ const Sorts: React.FC = () => {
                             onClick={() => {
                                 dispatch(ActionCreators.step());
                             }}
+                            disabled={playAll}
                         >
                             step
                         </MainButton>
                     </Grid>
                     <Grid item xs>
-                        <MainButton>play all</MainButton>
+                        {playAll ? (
+                            <MainButton onClick={() => setPlayAll(false)}>stop</MainButton>
+                        ) : (
+                            <MainButton onClick={() => setPlayAll(true)}>play all</MainButton>
+                        )}
                     </Grid>
                     <Grid item xs>
                         <MainButton
@@ -50,6 +65,7 @@ const Sorts: React.FC = () => {
                                     }),
                                 );
                             }}
+                            disabled={playAll}
                         >
                             random
                         </MainButton>
@@ -65,6 +81,7 @@ const Sorts: React.FC = () => {
                                     }),
                                 );
                             }}
+                            disabled={playAll}
                         >
                             sorted
                         </MainButton>
@@ -82,6 +99,7 @@ const Sorts: React.FC = () => {
                                     }),
                                 );
                             }}
+                            disabled={playAll}
                         >
                             reversed
                         </MainButton>
