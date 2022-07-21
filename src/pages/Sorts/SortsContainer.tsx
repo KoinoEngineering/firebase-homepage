@@ -1,5 +1,6 @@
+import FlipMove from "react-flip-move";
 import { createStyles, makeStyles } from "@material-ui/core";
-import React from "react";
+import React, { forwardRef } from "react";
 import { ComparisonSort, ComparisonSortItem } from "src/interfaces/Sorts";
 import defaultTheme from "src/utils/theme";
 
@@ -51,18 +52,18 @@ interface ContainerItemProps {
     max: number;
 }
 
-const ContainerItem: React.FC<ContainerItemProps> = ({ item: { value }, isCursor, ended, isPointer, max }) => {
+const ContainerItem = forwardRef<HTMLDivElement, ContainerItemProps>(({ item: { value }, isCursor, ended, isPointer, max }, ref) => {
     const { inlineBlock, compared, pined, rainbow, sqare, relative, absolute, content } = useStyles({ fixed: ended, max, value });
     return (
-        <div className={[inlineBlock, rainbow, isPointer ? pined : isCursor ? compared : "", sqare, relative].join(" ")}>
+        <div ref={ref} className={[inlineBlock, rainbow, isPointer ? pined : isCursor ? compared : "", sqare, relative].join(" ")}>
             <div className={[absolute, content].join(" ")}>{value}</div>
         </div>
     );
-};
+});
 
 const SortsContainer: React.FC<ComparisonSort> = ({ items, ended, cursor, pointer, comparison }) => {
     return (
-        <div>
+        <FlipMove>
             {items.map((item, i) => {
                 return (
                     <ContainerItem
@@ -75,7 +76,7 @@ const SortsContainer: React.FC<ComparisonSort> = ({ items, ended, cursor, pointe
                     />
                 );
             })}
-        </div>
+        </FlipMove>
     );
 };
 
