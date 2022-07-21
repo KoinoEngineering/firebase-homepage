@@ -75,7 +75,7 @@ const Sorts: React.FC = () => {
                             onClick={() => {
                                 dispatch(
                                     ActionCreators.init({
-                                        items: _.range(30).map(() => {
+                                        items: _.range(Number(params.length)).map(() => {
                                             return { id: uuid(), value: Math.round(Math.random() * 10) };
                                         }),
                                     }),
@@ -91,7 +91,7 @@ const Sorts: React.FC = () => {
                             onClick={() => {
                                 dispatch(
                                     ActionCreators.init({
-                                        items: _.range(30).map((i) => {
+                                        items: _.range(Number(params.length)).map((i) => {
                                             return { id: uuid(), value: i + 1 };
                                         }),
                                     }),
@@ -107,7 +107,7 @@ const Sorts: React.FC = () => {
                             onClick={() => {
                                 dispatch(
                                     ActionCreators.init({
-                                        items: _.range(30)
+                                        items: _.range(Number(params.length))
                                             .map((i) => {
                                                 return { id: uuid(), value: i + 1 };
                                             })
@@ -151,6 +151,20 @@ const Sorts: React.FC = () => {
                                     if (!isNaN(Number(delay))) {
                                         history.replace({ ...location, search: qs.stringify({ ...params, delay }) });
                                     }
+                                }}
+                            />
+                        </Grid>
+                        <Grid item>
+                            <TextField
+                                type="number"
+                                value={params.length}
+                                label="要素数"
+                                onChange={({ target: { value } }) => {
+                                    const length = Number(value);
+                                    if (isNaN(length) || length < 2) {
+                                        return history.replace({ ...location, search: qs.stringify({ ...params, length: 2 }) });
+                                    }
+                                    return history.replace({ ...location, search: qs.stringify({ ...params, length }) });
                                 }}
                             />
                         </Grid>
