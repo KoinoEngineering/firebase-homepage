@@ -42,5 +42,6 @@ export enum SORT_TYPES {
   "00bubble" = "バブルソート",
   "01shaker" = "シェーカーソート",
   "02gnome" = "ノームソート",
+  "03insertion" = "挿入ソート",
   "10selection" = "選択ソート",
 }

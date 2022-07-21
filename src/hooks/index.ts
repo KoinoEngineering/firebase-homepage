@@ -3,8 +3,9 @@ import { CompoersionSort, SORT_TYPES } from "src/interfaces/Sorts";
 import { Actions } from "src/reducers/actions";
 import bubble from "src/reducers/bubble";
 import gnome from "src/reducers/gnome";
-import shaker from "src/reducers/shaker";
+import insertion from "src/reducers/insertion";
 import selection from "src/reducers/selection";
+import shaker from "src/reducers/shaker";
 import utils from "src/utils";
 
 export type State = {
@@ -19,6 +20,7 @@ const mapping: ReducerMappings = {
     "00bubble": bubble,
     "01shaker": shaker,
     "02gnome": gnome,
+    "03insertion": insertion,
     "10selection": selection,
 };
 

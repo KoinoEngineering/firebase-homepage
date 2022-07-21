@@ -180,6 +180,9 @@ const Sorts: React.FC = () => {
                                 <div>
                                     <span>比較回数：{type.compCnt}</span>
                                     <span>置換回数：{type.swapCnt}</span>
+                                    {type.items.every((item, i) => {
+                                        return i === 0 || item.value >= type.items[i - 1].value;
+                                    }) && <span>(収束済み)</span>}
                                 </div>
                                 <div>
                                     <SortsContainer {...type} />
@@ -200,6 +203,7 @@ function initialState(): State {
         "00bubble": dummyState(),
         "01shaker": dummyState(),
         "02gnome": dummyState(),
+        "03insertion": dummyState(),
         "10selection": dummyState(),
     };
 }
