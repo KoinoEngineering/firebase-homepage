@@ -9,7 +9,9 @@ const useStyles = makeStyles<typeof defaultTheme, { value: number; fixed: boolea
             position: "absolute",
         },
         compared: {
-            backgroundColor: "red",
+            borderColor: "red",
+            borderStyle: "solid",
+            borderWidth: 3,
         },
         content: {
             left: "50%",
@@ -20,7 +22,9 @@ const useStyles = makeStyles<typeof defaultTheme, { value: number; fixed: boolea
             display: "inline-block",
         },
         pined: {
-            backgroundColor: "blue",
+            borderColor: "blue",
+            borderStyle: "solid",
+            borderWidth: 3,
         },
         rainbow: ({ value, fixed, max }) => ({
             backgroundColor: `hsl(${(value * 360) / max},${fixed ? "50%" : "80%"},${fixed ? "50%" : "80%"})`,
@@ -49,9 +53,8 @@ interface ContainerItemProps {
 
 const ContainerItem: React.FC<ContainerItemProps> = ({ item: { value }, isCursor, ended, isPointer, max }) => {
     const { inlineBlock, compared, pined, rainbow, sqare, relative, absolute, content } = useStyles({ fixed: ended, max, value });
-    const color = ended ? rainbow : isPointer ? pined : isCursor ? compared : rainbow;
     return (
-        <div className={[inlineBlock, color, sqare, relative].join(" ")}>
+        <div className={[inlineBlock, rainbow, isPointer ? pined : isCursor ? compared : "", sqare, relative].join(" ")}>
             <div className={[absolute, content].join(" ")}>{value}</div>
         </div>
     );
