@@ -16,10 +16,10 @@ type ReducerMappings = {
 };
 
 const mapping: ReducerMappings = {
-    bubble,
-    gnome,
-    selection,
-    shaker,
+    "00bubble": bubble,
+    "01shaker": shaker,
+    "02gnome": gnome,
+    "10selection": selection,
 };
 
 // 簡易combineReducers

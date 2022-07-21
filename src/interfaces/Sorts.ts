@@ -39,8 +39,8 @@ export interface CompoersionSortItem {
 
 /** ソートの種類 */
 export enum SORT_TYPES {
-  bubble = "バブルソート",
-  shaker = "シェーカーソート",
-  gnome = "ノームソート",
-  selection = "選択ソート",
+  "00bubble" = "バブルソート",
+  "01shaker" = "シェーカーソート",
+  "02gnome" = "ノームソート",
+  "10selection" = "選択ソート",
 }

@@ -76,7 +76,7 @@ const Sorts: React.FC = () => {
                                 dispatch(
                                     ActionCreators.init({
                                         items: _.range(Number(params.length)).map(() => {
-                                            return { id: uuid(), value: Math.round(Math.random() * 10) };
+                                            return { id: uuid(), value: Math.round(Math.random() * Number(params.length)) };
                                         }),
                                     }),
                                 );
@@ -197,10 +197,10 @@ export default Sorts;
 
 function initialState(): State {
     return {
-        bubble: dummyState(),
-        gnome: dummyState(),
-        selection: dummyState(),
-        shaker: dummyState(),
+        "00bubble": dummyState(),
+        "01shaker": dummyState(),
+        "02gnome": dummyState(),
+        "10selection": dummyState(),
     };
 }
 
