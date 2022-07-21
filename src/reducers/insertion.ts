@@ -1,8 +1,8 @@
 import { Reducer } from "react";
-import { CompoersionSort } from "src/interfaces/Sorts";
+import { ComparisonSort } from "src/interfaces/Sorts";
 import { Actions, ActionTypes } from "./actions";
 
-const reducer: Reducer<CompoersionSort, Actions> = (state, action) => {
+const reducer: Reducer<ComparisonSort, Actions> = (state, action) => {
     switch (action.type) {
         case ActionTypes.INIT:
             return {
@@ -30,7 +30,7 @@ const reducer: Reducer<CompoersionSort, Actions> = (state, action) => {
     }
 };
 
-function compare(state: CompoersionSort): CompoersionSort {
+function compare(state: ComparisonSort): ComparisonSort {
     if (state.items[state.cursor - 1].value <= state.items[state.cursor].value) {
     // 左のほうが小さいとき
         return {
@@ -52,7 +52,7 @@ function compare(state: CompoersionSort): CompoersionSort {
     }
 }
 
-function swap(state: CompoersionSort): CompoersionSort {
+function swap(state: ComparisonSort): ComparisonSort {
     // イミュータブルにするためにコピーする
     // deepである必要は今のところない
     const items = [...state.items];
@@ -81,8 +81,8 @@ function nextCursor({
     cursor: cursorPrev,
     cursorMax,
     items,
-}: CompoersionSort): Pick<
-  CompoersionSort,
+}: ComparisonSort): Pick<
+  ComparisonSort,
   "cursor" | "ended" | "comparison" | "cursorMax"
 > {
     let cursor = 0;

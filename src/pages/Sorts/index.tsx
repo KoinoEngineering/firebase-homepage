@@ -4,7 +4,7 @@ import React, { useEffect, useReducer, useState } from "react";
 import { useHistory, useLocation } from "react-router";
 import MainButton from "src/components/atoms/MainButton";
 import { compoersionSortReducers, State } from "src/hooks";
-import { CompoersionSort, SORT_TYPES } from "src/interfaces/Sorts";
+import { ComparisonSort, SORT_TYPES } from "src/interfaces/Sorts";
 import { ActionCreators } from "src/reducers/actions";
 import utils from "src/utils";
 import { v4 as uuid } from "uuid";
@@ -48,6 +48,13 @@ const Sorts: React.FC = () => {
             setPlayAll(false);
         }
     }, [params.delay, playAll, state]);
+
+    useEffect(() => {
+        const length = Number(params.length);
+        if (isNaN(length) || length < 2) {
+            return history.replace({ ...location, search: qs.stringify({ ...params, length: 2 }) });
+        }
+    }, [history, location, params]);
 
     return (
         <div className={root}>
@@ -205,10 +212,11 @@ function initialState(): State {
         "02gnome": dummyState(),
         "03insertion": dummyState(),
         "10selection": dummyState(),
+        "20merge": dummyState(),
     };
 }
 
-function dummyState(): CompoersionSort {
+function dummyState(): ComparisonSort {
     return {
         compCnt: 0,
         comparison: 0,

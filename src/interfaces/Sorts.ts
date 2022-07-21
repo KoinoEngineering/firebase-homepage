@@ -1,7 +1,7 @@
 /** 比較ソート用インターフェース */
-export interface CompoersionSort {
+export interface ComparisonSort {
   /** 配列 */
-  items: CompoersionSortItem[];
+  items: ComparisonSortItem[];
   /** 現在地 */
   cursor: number;
   /** カーソルの最大最小 */
@@ -32,7 +32,7 @@ export interface CompoersionSort {
 }
 
 /** 比較ソートの中身 */
-export interface CompoersionSortItem {
+export interface ComparisonSortItem {
   id: string;
   value: number;
 }
@@ -44,4 +44,5 @@ export enum SORT_TYPES {
   "02gnome" = "ノームソート",
   "03insertion" = "挿入ソート",
   "10selection" = "選択ソート",
+  "20merge" = "マージソート",
 }

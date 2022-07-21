@@ -1,15 +1,16 @@
 import { Reducer } from "react";
-import { CompoersionSort, SORT_TYPES } from "src/interfaces/Sorts";
+import { ComparisonSort, SORT_TYPES } from "src/interfaces/Sorts";
 import { Actions } from "src/reducers/actions";
 import bubble from "src/reducers/bubble";
 import gnome from "src/reducers/gnome";
 import insertion from "src/reducers/insertion";
 import selection from "src/reducers/selection";
+import merge from "src/reducers/merge";
 import shaker from "src/reducers/shaker";
 import utils from "src/utils";
 
 export type State = {
-  [k in keyof typeof SORT_TYPES]: CompoersionSort;
+  [k in keyof typeof SORT_TYPES]: ComparisonSort;
 };
 
 type ReducerMappings = {
@@ -22,6 +23,7 @@ const mapping: ReducerMappings = {
     "02gnome": gnome,
     "03insertion": insertion,
     "10selection": selection,
+    "20merge": merge,
 };
 
 // 簡易combineReducers

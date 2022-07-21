@@ -1,6 +1,6 @@
 import { makeStyles, createStyles } from "@material-ui/core";
 import React from "react";
-import { CompoersionSort, CompoersionSortItem } from "src/interfaces/Sorts";
+import { ComparisonSort, ComparisonSortItem } from "src/interfaces/Sorts";
 import defaultTheme from "src/utils/theme";
 
 const useStyles = makeStyles<typeof defaultTheme, { value: number; fixed: boolean; max: number }>(
@@ -44,7 +44,7 @@ const useStyles = makeStyles<typeof defaultTheme, { value: number; fixed: boolea
 );
 
 interface ContainerItemProps {
-    item: CompoersionSortItem;
+    item: ComparisonSortItem;
     ended: boolean;
     isCursor: boolean;
     isPointer: boolean;
@@ -60,7 +60,7 @@ const ContainerItem: React.FC<ContainerItemProps> = ({ item: { value }, isCursor
     );
 };
 
-const SortsContainer: React.FC<CompoersionSort> = ({ items, ended, cursor, pointer, comparison }) => {
+const SortsContainer: React.FC<ComparisonSort> = ({ items, ended, cursor, pointer, comparison }) => {
     return (
         <div>
             {items.map((item, i) => {

@@ -1,4 +1,4 @@
-import { CompoersionSortItem } from "src/interfaces/Sorts";
+import { ComparisonSortItem } from "src/interfaces/Sorts";
 
 interface Action<A extends ActionTypes> {
   type: A;
@@ -11,7 +11,7 @@ export enum ActionTypes {
 }
 
 export interface InitAction extends Action<ActionTypes.INIT> {
-  payload: { items: CompoersionSortItem[] };
+  payload: { items: ComparisonSortItem[] };
 }
 
 export type Actions = InitAction | Action<ActionTypes.STEP>;
@@ -23,7 +23,7 @@ export type Actions = InitAction | Action<ActionTypes.STEP>;
  * だけを持っている
  */
 export const ActionCreators = {
-    init: (payload: { items: CompoersionSortItem[] }): InitAction => {
+    init: (payload: { items: ComparisonSortItem[] }): InitAction => {
         return { payload, type: ActionTypes.INIT };
     },
     step: (): Action<ActionTypes.STEP> => {
