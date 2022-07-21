@@ -1,5 +1,6 @@
 import { createStyles, Grid, makeStyles, TextField, Typography } from "@material-ui/core";
 import _ from "lodash";
+import qs from "qs";
 import React, { useEffect, useReducer, useState } from "react";
 import { useHistory, useLocation } from "react-router";
 import MainButton from "src/components/atoms/MainButton";
@@ -9,7 +10,6 @@ import { ActionCreators } from "src/reducers/actions";
 import utils from "src/utils";
 import { v4 as uuid } from "uuid";
 import SortsContainer from "./SortsContainer";
-import qs from "qs";
 
 const useStyles = makeStyles(
     createStyles({

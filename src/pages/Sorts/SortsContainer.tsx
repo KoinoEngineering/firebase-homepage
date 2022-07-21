@@ -1,4 +1,4 @@
-import { makeStyles, createStyles } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core";
 import React from "react";
 import { ComparisonSort, ComparisonSortItem } from "src/interfaces/Sorts";
 import defaultTheme from "src/utils/theme";
