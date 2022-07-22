@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:16.16.0
 
 RUN apt update -y && apt upgrade -y
 RUN apt install -y make libssl-dev libghc-zlib-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip
