@@ -15,7 +15,7 @@ const reducer: Reducer<ComparisonSort, Actions> = (state, action) => {
                 ended: false,
                 items: action.payload.items,
                 needSwap: false,
-                pointer: NaN, // 使わないので0
+                pointer: 1, // cursorMaxと同じにして比較範囲をみえるようにする
                 swapCnt: 0,
             };
         case ActionTypes.STEP:
@@ -72,9 +72,10 @@ function nextCursor({
     direction,
     ended,
     needSwap,
+    pointer,
 }: ComparisonSort): Pick<
   ComparisonSort,
-  "cursor" | "cursorMax" | "cursorMin" | "ended" | "comparison"
+  "cursor" | "cursorMax" | "cursorMin" | "ended" | "comparison" | "pointer"
 > {
     if (needSwap) {
     // この回で移動したとき
@@ -97,6 +98,7 @@ function nextCursor({
                     cursorMax: nextAreaLength - 1,
                     cursorMin: 0,
                     ended: nextAreaLength >= items.length * 2,
+                    pointer: nextAreaLength - 1,
                 };
             } else {
                 // まだ後ろがある
@@ -116,6 +118,7 @@ function nextCursor({
                     cursorMax: nextCursorMin + areaLength - 1,
                     cursorMin: nextCursorMin,
                     ended, // まだ後ろがあるはずなので変えない
+                    pointer: Math.min(nextCursorMin + areaLength - 1, items.length - 1),
                 };
             }
         } else {
@@ -128,6 +131,7 @@ function nextCursor({
                 cursorMax,
                 cursorMin,
                 ended,
+                pointer,
             };
         }
     } else {
@@ -138,6 +142,7 @@ function nextCursor({
             cursorMax,
             cursorMin,
             ended,
+            pointer,
         };
     }
 }
