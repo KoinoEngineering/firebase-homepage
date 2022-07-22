@@ -1,10 +1,12 @@
+import { render } from "@testing-library/react";
 import React from "react";
 import App from "src/pages/App";
-import { renderWithProvider } from "../tetutils";
 
-jest.mock("src/components/templates/Profile", () => () => <div>Profile</div>);
+jest.mock("src/components/templates/Profile", () => {
+    const Profile = () => <div>Profile</div>;
+    return Profile;
+});
 
 test("App expect to match snapshot", () => {
-    const target = renderWithProvider(<App />);
-    expect(target).toMatchSnapshot();
+    expect(render(<App />)).toMatchSnapshot();
 });

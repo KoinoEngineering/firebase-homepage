@@ -100,7 +100,7 @@ Object {
             id="App"
           >
             <div
-              class="MuiContainer-root TopPageContainer-root-7 MuiContainer-maxWidthLg"
+              class="MuiContainer-root TopPageContainer-root-6 MuiContainer-maxWidthLg"
               id="Top"
             >
               <div
@@ -407,7 +407,7 @@ Object {
           id="App"
         >
           <div
-            class="MuiContainer-root TopPageContainer-root-7 MuiContainer-maxWidthLg"
+            class="MuiContainer-root TopPageContainer-root-6 MuiContainer-maxWidthLg"
             id="Top"
           >
             <div
