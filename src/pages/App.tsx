@@ -15,9 +15,9 @@ const useStyles = makeStyles(
 const App: React.FC = () => {
     const classes = useStyles();
     return (
-        <MainFrame>
-            <div id="App" className={classes.root}>
-                <Router>
+        <Router>
+            <MainFrame>
+                <div id="App" className={classes.root}>
                     <Switch>
                         <Redirect exact from="/" to={ROUTES.TOP} />
                         <PublicRoute exact path={ROUTES.TOP}>
@@ -28,9 +28,9 @@ const App: React.FC = () => {
                         </PublicRoute>
                         <Redirect exact from="*" to={ROUTES.TOP} />
                     </Switch>
-                </Router>
-            </div>
-        </MainFrame>
+                </div>
+            </MainFrame>
+        </Router>
     );
 };
 export default App;

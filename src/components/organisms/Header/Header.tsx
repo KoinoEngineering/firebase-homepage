@@ -10,10 +10,12 @@ import {
 } from "@material-ui/core";
 import { GitHub, Menu, MenuOpen } from "@material-ui/icons";
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import NestedList, {
     NestedListProps,
 } from "src/components/templates/NestedList";
 import { Propsof } from "src/interfaces/Props";
+import ROUTES from "src/utils/routes";
 // import ROUTES from "src/utils/routes";
 import packageJson from "../../../../package.json";
 
@@ -50,6 +52,7 @@ export interface HeaderState {
 
 const Header: React.FC = () => {
     const classes = useStyles();
+    const history = useHistory();
     const iconClasses = useIconStyle();
     const headerTitileClasses = useHeaderTitleStyle();
     const [sideNavOpen, setSideNavOpen] = useState(false);
@@ -59,13 +62,13 @@ const Header: React.FC = () => {
         items: [
             {
                 content: "トップ",
-                // onClick: () => actions.navigate.push(ROUTES.TOP)
+                onClick: () => history.push(ROUTES.TOP),
             },
             {
                 content: {
                     onClick: (e) => {
                         if (!e.isDefaultPrevented()) {
-                            // actions.navigate.push(ROUTES.SORTS);
+                            history.push(ROUTES.SORTS);
                             setSideNavOpen(false);
                         }
                     },
