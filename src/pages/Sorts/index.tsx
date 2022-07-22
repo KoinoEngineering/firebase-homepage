@@ -1,7 +1,8 @@
-import { createStyles, Grid, makeStyles, TextField, Typography } from "@material-ui/core";
+import { RemoveRounded, AddRounded } from "@material-ui/icons";
+import { createStyles, Grid, IconButton, InputAdornment, makeStyles, TextField, Typography } from "@material-ui/core";
 import _ from "lodash";
 import qs from "qs";
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useCallback, useEffect, useReducer, useState } from "react";
 import { useHistory, useLocation } from "react-router";
 import MainButton from "src/components/atoms/MainButton";
 import { compoersionSortReducers, State } from "src/hooks";
@@ -41,6 +42,13 @@ const Sorts: React.FC = () => {
         );
     }, [dispatch]);
 
+    const replaceParams = useCallback(
+        (replacement: { [key: string]: string | number }) => {
+            history.replace({ ...location, search: qs.stringify({ ...params, ...replacement }) });
+        },
+        [history, location, params],
+    );
+
     useEffect(() => {
         if (playAll && Object.values(state).some((s) => !s.ended)) {
             utils.wait(Number(params.delay)).then(() => dispatch(ActionCreators.step()));
@@ -51,10 +59,19 @@ const Sorts: React.FC = () => {
 
     useEffect(() => {
         const length = Number(params.length);
-        if (isNaN(length) || length < 2) {
-            return history.replace({ ...location, search: qs.stringify({ ...params, length: 2 }) });
+        if (isNaN(length) || length == 0) {
+            return replaceParams({ length: 30 });
         }
-    }, [history, location, params]);
+        if (length < 2) {
+            return replaceParams({ length: 2 });
+        }
+    }, [history, location, params, replaceParams]);
+
+    useEffect(() => {
+        if (!params.delay || Number(params.delay) < 0) {
+            return replaceParams({ delay: 0 });
+        }
+    }, [history, location, params, replaceParams]);
 
     return (
         <div className={root}>
@@ -132,14 +149,6 @@ const Sorts: React.FC = () => {
             <Grid container spacing={1}>
                 <Grid item>
                     <Typography>比較・置換を1ステップとして観察できる</Typography>
-                    <ul>
-                        <li>
-                            実際は<strong>比較</strong>と<strong>置換</strong>のコストが同じになるはずはないので
-                            <br />
-                            <strong>早さ</strong>よりも<strong>動きの違い</strong>を見るためのもの
-                        </li>
-                        <li>「進めるための比較」が必要なノームソートなどは実際よりとても遅いはず</li>
-                    </ul>
                 </Grid>
             </Grid>
             <Grid container spacing={1}>
@@ -152,26 +161,52 @@ const Sorts: React.FC = () => {
                     <Grid container spacing={1}>
                         <Grid item>
                             <TextField
+                                type="number"
+                                variant="outlined"
                                 value={params.delay}
                                 label="処理間隔(ms)"
-                                onChange={({ target: { value: delay } }) => {
-                                    if (!isNaN(Number(delay))) {
-                                        history.replace({ ...location, search: qs.stringify({ ...params, delay }) });
-                                    }
+                                disabled
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                disabled={playAll || Number(params.delay) <= 0}
+                                                onClick={() => replaceParams({ delay: Math.floor(Number(params.delay) / 100) * 100 - 100 })}
+                                            >
+                                                <RemoveRounded />
+                                            </IconButton>
+                                            <IconButton
+                                                disabled={playAll || Number(params.delay) >= 1000}
+                                                onClick={() => replaceParams({ delay: Math.floor(Number(params.delay) / 100) * 100 + 100 })}
+                                            >
+                                                <AddRounded />
+                                            </IconButton>
+                                        </InputAdornment>
+                                    ),
                                 }}
                             />
                         </Grid>
                         <Grid item>
                             <TextField
                                 type="number"
+                                variant="outlined"
                                 value={params.length}
                                 label="要素数"
-                                onChange={({ target: { value } }) => {
-                                    const length = Number(value);
-                                    if (isNaN(length) || length < 2) {
-                                        return history.replace({ ...location, search: qs.stringify({ ...params, length: 2 }) });
-                                    }
-                                    return history.replace({ ...location, search: qs.stringify({ ...params, length }) });
+                                disabled
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                disabled={playAll || Number(params.length) <= 0}
+                                                onClick={() => replaceParams({ length: Number(params.length) - 1 })}
+                                            >
+                                                <RemoveRounded />
+                                            </IconButton>
+                                            <IconButton disabled={playAll} onClick={() => replaceParams({ length: Number(params.length) + 1 })}>
+                                                <AddRounded />
+                                            </IconButton>
+                                        </InputAdornment>
+                                    ),
                                 }}
                             />
                         </Grid>
